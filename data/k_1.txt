@@ -1,0 +1,96 @@
+PLAYER
+TEAM
+FP
+FGM
+FGA
+FG0-39
+FG40-49
+FG50
+XPM
+XPA
+Garrett Hartley
+NO	 10.4	 2.12	 2.41	 1.33	 0.61	 0.18	 3.54	 3.59
+Alex Henery
+PHI	 9.9	 2.17	 2.5	 1.35	 0.62	 0.2	 2.8	 2.84
+Stephen Gostkowski
+NE	 9.7	 1.93	 2.33	 1.2	 0.5	 0.23	 3.18	 3.23
+Jason Hanson
+DET	 9.5	 1.82	 2.26	 1.18	 0.48	 0.16	 3.59	 3.64
+Mason Crosby
+GB	 8.8	 1.69	 2.09	 1.14	 0.4	 0.16	 3.24	 3.29
+Olindo Mare
+CAR	 8.7	 1.8	 2.08	 1.16	 0.5	 0.14	 2.85	 2.89
+Robbie Gould
+CHI	 8.6	 1.79	 2.16	 1.19	 0.45	 0.14	 2.79	 2.84
+Ryan Succop
+KC	 8.6	 1.97	 2.36	 1.34	 0.48	 0.16	 2.21	 2.24
+Steve Hauschka
+SEA	 8.3	 1.88	 2.24	 1.21	 0.48	 0.19	 2.14	 2.17
+Justin Tucker
+BAL	 8.2	 1.74	 2.13	 1.16	 0.43	 0.14	 2.58	 2.62
+Sebastian Janikowski
+OAK	 8.1	 1.69	 2.01	 1.11	 0.43	 0.16	 2.54	 2.58
+Nate Kaeding
+SD	 8	 1.61	 1.94	 1.02	 0.42	 0.17	 2.62	 2.65
+Matt Bryant
+ATL	 7.9	 1.68	 1.9	 1	 0.52	 0.17	 2.33	 2.36
+Shaun Suisham
+PIT	 7.9	 1.85	 2.21	 1.32	 0.42	 0.12	 1.99	 2.02
+Connor Barth
+TB	 7.9	 1.7	 1.91	 1.11	 0.44	 0.15	 2.34	 2.38
+Matt Prater
+DEN	 7.8	 1.76	 2.14	 1.3	 0.34	 0.12	 2.14	 2.17
+Dan Bailey
+DAL	 7.7	 1.62	 1.92	 1.06	 0.42	 0.14	 2.48	 2.51
+Rian Lindell
+BUF	 7.5	 1.68	 2	 1.07	 0.42	 0.18	 1.94	 1.97
+Randy Bullock
+HOU	 7.4	 1.51	 1.86	 1	 0.39	 0.12	 2.5	 2.54
+Neil Rackers
+WAS	 7.3	 1.54	 1.91	 1.07	 0.35	 0.11	 2.32	 2.36
+Lawrence Tynes
+NYG	 7.3	 1.39	 1.85	 0.97	 0.3	 0.12	 2.81	 2.85
+Josh Scobee
+JAC	 7.1	 1.63	 1.89	 0.96	 0.49	 0.18	 1.63	 1.65
+Jay Feely
+ARI	 7	 1.52	 1.83	 0.98	 0.38	 0.15	 2.01	 2.04
+Dan Carpenter
+MIA	 7	 1.62	 1.94	 1.01	 0.45	 0.16	 1.69	 1.72
+Greg Zuerlein
+STL	 7	 1.58	 1.91	 1.12	 0.37	 0.09	 1.94	 1.97
+David Akers
+SF	 6.6	 1.39	 1.67	 0.92	 0.36	 0.11	 2.06	 2.09
+Mike Nugent
+CIN	 6.6	 1.54	 1.8	 0.98	 0.43	 0.14	 1.55	 1.57
+Phil Dawson
+CLE	 6.5	 1.48	 1.7	 0.86	 0.45	 0.17	 1.62	 1.64
+Rob Bironas
+TEN	 6.3	 1.28	 1.43	 0.75	 0.4	 0.13	 2.07	 2.11
+Blair Walsh
+MIN	 6.3	 1.3	 1.73	 0.87	 0.32	 0.12	 2.06	 2.09
+Adam Vinatieri
+IND	 6.2	 1.35	 1.53	 0.77	 0.43	 0.15	 1.7	 1.72
+Josh Brown
+NYJ	 3.7	 0.74	 0.92	 0.5	 0.18	 0.06	 1.26	 1.28
+Nick Folk
+NYJ	 3.6	 0.7	 0.89	 0.45	 0.18	 0.07	 1.25	 1.27
+John Kasay
+NO	 0	 0	 0	 0	 0	 0	 0	 0
+Ryan Longwell
+MIN	 0	 0	 0	 0	 0	 0	 0	 0
+Shayne Graham
+HOU	 0	 0	 0	 0	 0	 0	 0	 0
+Billy Cundiff
+BAL	 0	 0	 0	 0	 0	 0	 0	 0
+Nick Novak
+SD	 0	 0	 0	 0	 0	 0	 0	 0
+Rhys Lloyd
+NYG	 0	 0	 0	 0	 0	 0	 0	 0
+Brandon Coutu
+JAC	 0	 0	 0	 0	 0	 0	 0	 0
+David Buehler
+DAL	 0	 0	 0	 0	 0	 0	 0	 0
+Graham Gano
+WAS	 0	 0	 0	 0	 0	 0	 0	 0
+John Potter
+BUF	 0	 0	 0	 0	 0	 0	 0	 0

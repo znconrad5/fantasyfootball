@@ -1,0 +1,108 @@
+PLAYER
+TEAM
+FP
+REC
+RECYD
+YPR
+RECTD
+FUML
+Antonio Gates
+SD	 13.3	 5.8	 83	 14.4	 0.84	 0.05
+Rob Gronkowski
+NE	 12.2	 4.9	 76	 15.4	 0.78	 0.04
+Jason Witten
+DAL	 10.9	 5.9	 74	 12.5	 0.6	 0.05
+Jimmy Graham
+NO	 10.6	 4.9	 66	 13.5	 0.67	 0.04
+Tony Gonzalez
+ATL	 7.9	 4.5	 53	 11.8	 0.46	 0.05
+Aaron Hernandez
+NE	 7.6	 4.3	 48	 11.3	 0.3	 0.04
+Jermichael Finley
+GB	 7.3	 3.4	 48	 14.4	 0.42	 0.03
+Jermaine Gresham
+CIN	 7.2	 5	 54	 10.8	 0.32	 0.05
+Vernon Davis
+SF	 6.2	 3.8	 44	 11.8	 0.32	 0.06
+Dallas Clark
+TB	 5.9	 3.6	 44	 12.4	 0.26	 0.05
+Jacob Tamme
+DEN	 5.8	 3.8	 41	 10.6	 0.3	 0.03
+Brandon Pettigrew
+DET	 5.6	 4.6	 42	 9.1	 0.25	 0.04
+Fred Davis
+WAS	 5.4	 3.2	 41	 12.9	 0.22	 0.02
+Coby Fleener
+IND	 5.4	 3.5	 37	 10.8	 0.29	 0.04
+Martellus Bennett
+NYG	 5.2	 4	 38	 9.6	 0.24	 0.04
+Owen Daniels
+HOU	 5.1	 3.2	 39	 12.3	 0.2	 0.03
+Brent Celek
+PHI	 5.1	 3.1	 38	 12.4	 0.22	 0.02
+Ed Dickson
+BAL	 5.1	 2.9	 34	 11.4	 0.3	 0.02
+Dennis Pitta
+BAL	 5.1	 3.2	 35	 11	 0.27	 0.03
+Dustin Keller
+NYJ	 5	 3.6	 40	 11	 0.18	 0.04
+Heath Miller
+PIT	 4.7	 3.3	 38	 11.4	 0.17	 0.04
+Jared Cook
+TEN	 4.6	 2.8	 40	 14.3	 0.12	 0.06
+Dwayne Allen
+IND	 4.5	 2.7	 30	 11.3	 0.25	 0.02
+Tony Moeaki
+KC	 4.4	 2.5	 32	 12.8	 0.2	 0.02
+Benjamin Watson
+CLE	 4.3	 3.4	 34	 10.2	 0.15	 0.04
+Greg Olsen
+CAR	 4.3	 2.6	 31	 11.7	 0.22	 0.05
+Kyle Rudolph
+MIN	 4.1	 2.9	 32	 11.2	 0.17	 0.04
+Joel Dreessen
+DEN	 3.7	 2	 27	 13.9	 0.16	 0.01
+Tony Scheffler
+DET	 3.7	 1.9	 22	 11.3	 0.27	 0.03
+Marcedes Lewis
+JAC	 3.6	 2.9	 27	 9.6	 0.16	 0.02
+Zach Miller
+SEA	 3.5	 2.4	 26	 10.8	 0.16	 0.01
+Scott Chandler
+BUF	 3.5	 1.8	 21	 12.2	 0.24	 0.02
+Todd Heap
+ARI	 3.3	 2.2	 26	 11.9	 0.12	 0.02
+Jed Collins
+NO	 3.3	 1.7	 18	 10.8	 0.24	 0.02
+Anthony Fasano
+MIA	 3.2	 2.1	 26	 12.5	 0.11	 0.02
+Michael Palmer
+ATL	 3.2	 1.6	 19	 11.7	 0.22	 0.01
+Kevin Boss
+KC	 3.1	 1.4	 19	 13.5	 0.2	 0.02
+Craig Stevens
+TEN	 2.6	 1.6	 17	 10.5	 0.16	 0.02
+John Carlson
+MIN	 2.3	 1.7	 18	 10.6	 0.09	 0.01
+Kellen Davis
+CHI	 2.3	 1.3	 13	 10	 0.17	 0.01
+Rob Housler
+ARI	 2.3	 2	 18	 9.3	 0.11	 0.1
+Luke Stocker
+TB	 2.3	 1.8	 18	 10.1	 0.1	 0.02
+Lance Kendricks
+STL	 2.1	 2	 18	 9.4	 0.07	 0.04
+Randy McMichael
+SD	 2	 1.7	 16	 9.3	 0.07	 0.02
+Delanie Walker
+SF	 1.9	 1.3	 14	 10.5	 0.09	 0.02
+Clay Harbor
+PHI	 1.9	 1.3	 13	 9.9	 0.11	 0.01
+Donald Lee
+CIN	 1.8	 1.3	 14	 10.8	 0.06	 0.02
+James Casey
+HOU	 1.8	 1.3	 13	 10	 0.09	 0.01
+Kellen Winslow
+SEA	 1.6	 1.1	 13	 12	 0.04	 0.02
+Michael Hoomanawanui
+STL	 1.6	 1.5	 13	 8.7	 0.06	 0.01

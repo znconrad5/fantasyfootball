@@ -1,0 +1,76 @@
+PLAYER
+TEAM
+FP
+PA
+SACK
+INT
+FUMR
+BLK
+TO
+INTTD
+KRETTD
+PRETTD
+New York Jets
+NYJ	 23.1	 15.8	 4.2	 1.51	 1.04	 0.23	 2.55	 0.11	 0.06	 0.03
+New England Patriots
+NE	 19.5	 18.5	 4.7	 1.45	 1.05	 0.22	 2.5	 0.07	 0.05	 0.05
+Oakland Raiders
+OAK	 19.1	 17.3	 4.2	 0.97	 0.89	 0.23	 1.86	 0.15	 0.17	 0.06
+San Francisco 49ers
+SF	 18.1	 16.2	 3.7	 0.8	 1.24	 0.21	 2.04	 0.08	 0.05	 0.09
+Green Bay Packers
+GB	 17.5	 19.1	 3.6	 1.59	 0.82	 0.2	 2.41	 0.04	 0.1	 0.08
+New York Giants
+NYG	 17.4	 21.6	 4.9	 1.31	 1.22	 0.18	 2.53	 0.11	 0.02	 0.01
+Baltimore Ravens
+BAL	 17.2	 16.6	 3.6	 0.97	 0.9	 0.26	 1.87	 0.06	 0.02	 0.03
+Buffalo Bills
+BUF	 17.1	 18.2	 3.6	 1.08	 1.19	 0.23	 2.27	 0.19	 0.04	 0.05
+Detroit Lions
+DET	 15.3	 23	 3.9	 1.15	 1.11	 0.2	 2.25	 0.11	 0.05	 0.03
+Chicago Bears
+CHI	 15.2	 19	 3.1	 1.2	 0.74	 0.24	 1.94	 0.11	 0.06	 0.12
+Houston Texans
+HOU	 12	 22.3	 3.5	 0.92	 0.66	 0.21	 1.58	 0.08	 0.03	 0.01
+Denver Broncos
+DEN	 11.8	 20.8	 1.9	 0.94	 1.38	 0.19	 2.32	 0.15	 0.02	 0.1
+San Diego Chargers
+SD	 11.3	 21.4	 2.1	 1.23	 0.79	 0.23	 2.02	 0.15	 0.07	 0.05
+St. Louis Rams
+STL	 11.2	 23.4	 3.7	 0.62	 0.89	 0.22	 1.51	 0.09	 0.02	 0.01
+Kansas City Chiefs
+KC	 11.1	 23.4	 2.5	 1.28	 0.8	 0.21	 2.07	 0.09	 0.02	 0.06
+Seattle Seahawks
+SEA	 11.1	 24.1	 3.2	 0.68	 1.08	 0.21	 1.76	 0.28	 0.04	 0.02
+Pittsburgh Steelers
+PIT	 10	 21.3	 2.3	 0.57	 0.99	 0.25	 1.56	 0.13	 0.04	 0.04
+Arizona Cardinals
+ARI	 9.7	 25.1	 2.5	 0.83	 1.23	 0.23	 2.06	 0.23	 0.04	 0.14
+Dallas Cowboys
+DAL	 9	 26.4	 2.5	 1.16	 0.97	 0.19	 2.12	 0.11	 0.06	 0.02
+Cleveland Browns
+CLE	 8.7	 24.6	 1.4	 1.11	 1.01	 0.19	 2.12	 0.1	 0.04	 0.08
+Carolina Panthers
+CAR	 8.5	 24.2	 1.8	 0.81	 0.86	 0.22	 1.67	 0.25	 0.16	 0
+Jacksonville Jaguars
+JAC	 8.4	 24.1	 1.3	 1.25	 0.96	 0.21	 2.21	 0.16	 0.01	 0.01
+Philadelphia Eagles
+PHI	 7.9	 29	 3.3	 0.89	 1.01	 0.17	 1.9	 0.15	 0.05	 0.02
+Washington Redskins
+WAS	 6	 26.3	 1.6	 0.87	 0.81	 0.22	 1.68	 0.14	 0.04	 0.02
+Atlanta Falcons
+ATL	 5.7	 29.7	 2	 1.26	 0.82	 0.21	 2.08	 0.07	 0.02	 0
+Minnesota Vikings
+MIN	 5.5	 37.4	 2.5	 0.42	 0.89	 0.19	 1.31	 0.3	 0.19	 0.01
+Cincinnati Bengals
+CIN	 5	 29.2	 1.9	 0.81	 0.93	 0.24	 1.74	 0.15	 0.04	 0.04
+Tennessee Titans
+TEN	 4.6	 25.6	 1.4	 0.5	 0.75	 0.18	 1.26	 0.11	 0.04	 0.04
+New Orleans Saints
+NO	 4.3	 31	 1.5	 0.46	 1.45	 0.19	 1.92	 0.16	 0.05	 0.02
+Tampa Bay Buccaneers
+TB	 4.2	 28.4	 1.4	 0.91	 0.92	 0.17	 1.83	 0.12	 0.06	 0.01
+Miami Dolphins
+MIA	 4.1	 28.1	 1.9	 0.73	 0.76	 0.18	 1.5	 0.19	 0.05	 0.03
+Indianapolis Colts
+IND	 3.5	 32.5	 1.5	 0.65	 0.94	 0.22	 1.58	 0.22	 0.02	 0.01
