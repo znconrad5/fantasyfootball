@@ -181,11 +181,15 @@ func (fd *FantasyDraft) evaluate() int {
 }
 
 func (fd *FantasyDraft) estimate() int {
-	opponentTotal := 0
+	value := 0
 	for _, player := range fd.players {
-		opponentTotal += player.estimateTotalPoints()
+		if player == fd.maxPlayer {
+			value += (len(fd.players)-1)*player.estimateTotalPoints()
+		} else {
+			value -= player.estimateTotalPoints()
+		}
 	}
-	return fd.maxPlayer.estimateTotalPoints() * len(fd.players) - opponentTotal
+	return value
 }
 
 func (fd *FantasyDraft) isDraftOver() bool {

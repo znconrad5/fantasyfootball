@@ -81,15 +81,15 @@ func (fp *FantasyPlayer) points(week int) int {
 		points += positionMax
 	}
 	for _, v := range [...][]*FootballPlayer{fp.rbs, fp.wrs} {
-		byWeekPoints := &ByWeekPointsDesc{v, week}
+		byWeekPoints := &ByWeekPointsAsc{v, week}
 		if !sort.IsSorted(byWeekPoints) {
 			sort.Sort(byWeekPoints)
 		}
-		points += v[0].points[week-1]
+		points += v[len(v)-1].points[week-1]
 	}
-	points += fp.rbs[1].points[week-1]
-	points += fp.wrs[1].points[week-1]
-	points += max(fp.rbs[2].points[week-1], fp.wrs[2].points[week-1])
+	points += fp.rbs[len(fp.rbs)-2].points[week-1]
+	points += fp.wrs[len(fp.wrs)-2].points[week-1]
+	points += max(fp.rbs[len(fp.rbs)-3].points[week-1], fp.wrs[len(fp.wrs)-3].points[week-1])
 	return points
 }
 
@@ -111,14 +111,14 @@ func (fp *FantasyPlayer) estimateTotalPoints() int {
 		totalPoints += positionMax
 	}
 	for _, v := range [...][]*FootballPlayer{fp.rbs, fp.wrs} {
-		byTotalPoints := &ByTotalPointsDesc{v}
+		byTotalPoints := &ByTotalPointsAsc{v}
 		if !sort.IsSorted(byTotalPoints) {
 			sort.Sort(byTotalPoints)
 		}
-		totalPoints += v[0].totalPoints()
+		totalPoints += v[len(v)-1].totalPoints()
 	}
-	totalPoints += fp.rbs[1].totalPoints()
-	totalPoints += fp.wrs[1].totalPoints()
-	totalPoints += max(fp.rbs[2].totalPoints(), fp.wrs[2].totalPoints())
+	totalPoints += fp.rbs[len(fp.rbs)-2].totalPoints()
+	totalPoints += fp.wrs[len(fp.wrs)-2].totalPoints()
+	totalPoints += max(fp.rbs[len(fp.rbs)-3].totalPoints(), fp.wrs[len(fp.wrs)-2].totalPoints())
 	return totalPoints
 }
