@@ -35,7 +35,7 @@ type Stack struct {
 
 func NewStack() *Stack {
 	return &Stack{
-		elems: make([]interface{}, 0, 32),
+		elems: make([]interface{}, 0),
 	}
 }
 
@@ -62,9 +62,12 @@ func (s *Stack) Remove(x interface{}) {
 	var i int
 	for i = len(s.elems) - 1; s.elems[i] != x; i-- {
 	}
-	if i == len(s.elems)-1 {
+	switch(i) {
+	case 0:
+		s.elems = s.elems[1:]
+	case len(s.elems)-1:
 		s.elems = s.elems[:i]
-	} else {
+	default:
 		s.elems = append(s.elems[:i], s.elems[i+1:])
 	}
 }

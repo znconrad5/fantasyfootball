@@ -10,7 +10,7 @@ type A struct {
 }
 
 func TestPushAndPop(t *testing.T) {
-	stack := New()
+	stack := NewStack()
 	for i:=0; i<200; i++ {
 		stack.Push(&A{i})
 	}
@@ -22,33 +22,68 @@ func TestPushAndPop(t *testing.T) {
 	}
 }
 
-func TestSlice(t *testing.T) {
-	sli1 := []int{1,2,3,4,5}
-	sli2 := sli1[:4]
-	sli2 = append(sli2, 6)
-	fmt.Println(sli1)
-	fmt.Println(sli2)
-}
-
-func TestRemoveExists(t *testing.T) {
-	stack := New()
+func TestRemoveFirst(t *testing.T) {
+	stack := NewStack()
 	a := &A{0}
 	b := &A{1}
 	c := &A{2}
-	d := &A{3}
 	stack.Push(a)
 	stack.Push(b)
 	stack.Push(c)
-	stack.Push(d)
 	stack.Remove(a)
-	stack.Remove(d)
 	if stack.Pop() != c {
 		t.Errorf("Expected %v", c)
+	}
+	if stack.Pop() != b {
+		t.Errorf("Expected %v", b)
+	}
+	if !stack.IsEmpty() {
+		t.Errorf("Expected stack to be empty")
+	}
+}
+
+func testRemoveMid(t *testing.T) {
+	stack := NewStack()
+	a := &A{0}
+	b := &A{1}
+	c := &A{2}
+	stack.Push(a)
+	stack.Push(b)
+	stack.Push(c)
+	stack.Remove(b)
+	if stack.Pop() != c {
+		t.Errorf("Expected %v", c)
+	}
+	if stack.Pop() != a {
+		t.Errorf("Expected %v", b)
+	}
+	if !stack.IsEmpty() {
+		t.Errorf("Expected stack to be empty")
+	}
+}
+
+func testRemoveLast(t *testing.T) {
+	stack := NewStack()
+	a := &A{0}
+	b := &A{1}
+	c := &A{2}
+	stack.Push(a)
+	stack.Push(b)
+	stack.Push(c)
+	stack.Remove(c)
+	if stack.Pop() != b {
+		t.Errorf("Expected %v", c)
+	}
+	if stack.Pop() != a {
+		t.Errorf("Expected %v", b)
+	}
+	if !stack.IsEmpty() {
+		t.Errorf("Expected stack to be empty")
 	}
 }
 
 func TestRemoveNotExists(t *testing.T) {
-	stack := New()
+	stack := NewStack()
 	a := &A{0}
 	b := &A{1}
 	c := &A{2}
