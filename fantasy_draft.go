@@ -1,7 +1,6 @@
 package fantasyfootball
 
 import (
-	"container/stack"
 	"sort"
 )
 
@@ -9,12 +8,12 @@ type FantasyDraft struct {
 	players [10]*FantasyPlayer
 	maxPlayer *FantasyPlayer
 	playersDrafted int
-	dsts *stack.Stack	// +7
-	ks   *stack.Stack	// +8
-	qbs  *stack.Stack	// +30
-	rbs  *stack.Stack	// +27
-	tes  *stack.Stack	// +22
-	wrs  *stack.Stack	// +16
+	dsts *Stack	// +7
+	ks   *Stack	// +8
+	qbs  *Stack	// +30
+	rbs  *Stack	// +27
+	tes  *Stack	// +22
+	wrs  *Stack	// +16
 }
 
 func NewFantasyDraft(names [10]string, maxName string, data *DataSource) *FantasyDraft {
@@ -26,32 +25,32 @@ func NewFantasyDraft(names [10]string, maxName string, data *DataSource) *Fantas
 		}
 	}
 	
-	fd.dsts = stack.New()
+	fd.dsts = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.dsts})
 	for _, v := range data.dsts {
 		fd.dsts.Push(v)
 	}
-	fd.ks = stack.New()
+	fd.ks = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.ks})
 	for _, v := range data.ks {
 		fd.ks.Push(v)
 	}
-	fd.qbs = stack.New()
+	fd.qbs = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.qbs})
 	for _, v := range data.qbs {
 		fd.qbs.Push(v)
 	}
-	fd.rbs = stack.New()
+	fd.rbs = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.rbs})
 	for _, v := range data.rbs {
 		fd.rbs.Push(v)
 	}
-	fd.tes = stack.New()
+	fd.tes = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.tes})
 	for _, v := range data.tes {
 		fd.tes.Push(v)
 	}
-	fd.wrs = stack.New()
+	fd.wrs = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.wrs})
 	for _, v := range data.wrs {
 		fd.wrs.Push(v)
@@ -75,7 +74,7 @@ func (fd *FantasyDraft) Draft(draftee *FootballPlayer) {
 }
 
 func (fd *FantasyDraft) removeFootballPlayer(player *FootballPlayer) {
-	var pool *stack.Stack
+	var pool *Stack
 	switch(player.position) {
 	case DST:
 		pool = fd.dsts
@@ -105,7 +104,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int)
 		return move, value
 	}
 	currentPlayer := fd.currentPlayer()
-	s := &ByBestLikelyMove{currentPlayer, [...]*stack.Stack{fd.qbs, fd.rbs, fd.tes, fd.wrs, fd.ks, fd.dsts}}
+	s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.qbs, fd.rbs, fd.tes, fd.wrs, fd.ks, fd.dsts}}
 	sort.Sort(s)
 	if (fd.maxPlayer == currentPlayer) {
 		for _, v := range s.stacks {
@@ -149,7 +148,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int)
 
 type ByBestLikelyMove struct {
 	currentPlayer *FantasyPlayer
-	stacks [6]*stack.Stack
+	stacks [6]*Stack
 }
 
 func (s *ByBestLikelyMove) Len() int { return len(s.stacks) }

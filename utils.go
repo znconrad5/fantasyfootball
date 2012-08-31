@@ -27,3 +27,42 @@ func max(x, y int) int {
 	}
 	return y
 }
+
+type Stack struct {
+	elems []interface{}
+}
+
+func NewStack() *Stack {
+	return &Stack{
+		elems: make([]interface{}, 0),
+	}
+}
+
+func (s *Stack) IsEmpty() bool {
+	return len(s.elems) == 0
+}
+
+func (s *Stack) Push(x interface{}) {
+	s.elems = append(s.elems, x)
+}
+
+func (s *Stack) Pop() interface{} {
+	lastIndex := len(s.elems)-1
+	val := s.elems[lastIndex]
+	s.elems = s.elems[:lastIndex]
+	return val
+}
+
+func (s *Stack) Peek() interface{} {
+	return s.elems[len(s.elems)-1]
+}
+
+func (s *Stack) Remove(x interface{}) {
+	var i int
+	for i=len(s.elems)-1; s.elems[i] != x; i-- {}
+	if i==len(s.elems)-1 {
+		s.elems = s.elems[:i]
+	} else {
+		s.elems = append(s.elems[:i], s.elems[i+1:])
+	}
+}
