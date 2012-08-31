@@ -179,7 +179,7 @@ func (fd *FantasyDraft) evaluate() int {
 		if player == fd.maxPlayer {
 			value += (len(fd.players) - 1) * player.totalPoints()
 		} else {
-			value -= player.totalPoints
+			value -= player.totalPoints()
 		}
 	}
 	return value
