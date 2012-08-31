@@ -6,6 +6,7 @@ import (
 
 const (
 	SEASON_LENGTH = 14
+	START_DEPTH = 6
 )
 
 func handleError(err error) {
@@ -34,7 +35,7 @@ type Stack struct {
 
 func NewStack() *Stack {
 	return &Stack{
-		elems: make([]interface{}, 0),
+		elems: make([]interface{}, 0, 32),
 	}
 }
 

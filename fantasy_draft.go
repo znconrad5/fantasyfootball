@@ -106,7 +106,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int)
 		return move, value
 	}
 	currentPlayer := fd.currentPlayer()
-	s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.qbs, fd.rbs, fd.tes, fd.wrs, fd.ks, fd.dsts}}
+	s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
 	sort.Sort(s)
 	if fd.maxPlayer == currentPlayer {
 		for _, v := range s.stacks {
