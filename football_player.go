@@ -12,10 +12,10 @@ const (
 )
 
 type FootballPlayer struct {
-	name     string
-	team     string
-	position Position
-	points   [SEASON_LENGTH]int
+	name         string
+	team         string
+	position     Position
+	points       [SEASON_LENGTH]int
 	totalPoints_ int
 }
 
@@ -60,7 +60,7 @@ func (s *ByTotalPointsDesc) Swap(i, j int) {
 
 type ByWeekPointsAsc struct {
 	players []*FootballPlayer
-	week int
+	week    int
 }
 
 func (s *ByWeekPointsAsc) Len() int { return len(s.players) }
@@ -75,7 +75,7 @@ func (s *ByWeekPointsAsc) Swap(i, j int) {
 
 type ByWeekPointsDesc struct {
 	players []*FootballPlayer
-	week int
+	week    int
 }
 
 func (s *ByWeekPointsDesc) Len() int { return len(s.players) }

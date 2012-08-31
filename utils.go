@@ -47,7 +47,7 @@ func (s *Stack) Push(x interface{}) {
 }
 
 func (s *Stack) Pop() interface{} {
-	lastIndex := len(s.elems)-1
+	lastIndex := len(s.elems) - 1
 	val := s.elems[lastIndex]
 	s.elems = s.elems[:lastIndex]
 	return val
@@ -59,8 +59,9 @@ func (s *Stack) Peek() interface{} {
 
 func (s *Stack) Remove(x interface{}) {
 	var i int
-	for i=len(s.elems)-1; s.elems[i] != x; i-- {}
-	if i==len(s.elems)-1 {
+	for i = len(s.elems) - 1; s.elems[i] != x; i-- {
+	}
+	if i == len(s.elems)-1 {
 		s.elems = s.elems[:i]
 	} else {
 		s.elems = append(s.elems[:i], s.elems[i+1:])

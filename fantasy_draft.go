@@ -5,26 +5,27 @@ import (
 )
 
 type FantasyDraft struct {
-	players [10]*FantasyPlayer
-	maxPlayer *FantasyPlayer
+	players        [10]*FantasyPlayer
+	maxPlayer      *FantasyPlayer
 	playersDrafted int
-	dsts *Stack	// +7
-	ks   *Stack	// +8
-	qbs  *Stack	// +30
-	rbs  *Stack	// +27
-	tes  *Stack	// +22
-	wrs  *Stack	// +16
+	dsts           *Stack
+	ks             *Stack
+	qbs            *Stack
+	rbs            *Stack
+	tes            *Stack
+	wrs            *Stack
 }
 
 func NewFantasyDraft(names [10]string, maxName string, data *DataSource) *FantasyDraft {
-	fd := &FantasyDraft{playersDrafted:0}
+	fd := &FantasyDraft{playersDrafted: 0}
 	for i, name := range names {
 		fd.players[i] = newFantasyPlayer(name, data)
 		if name == maxName {
 			fd.maxPlayer = fd.players[i]
 		}
 	}
-	
+
+	// the resulting stacks will will be in ascending order, so Pop() will return the best remaining player for that position
 	fd.dsts = NewStack()
 	sort.Sort(&ByTotalPointsAsc{data.dsts})
 	for _, v := range data.dsts {
@@ -59,9 +60,10 @@ func NewFantasyDraft(names [10]string, maxName string, data *DataSource) *Fantas
 }
 
 func (fd *FantasyDraft) currentPlayer() *FantasyPlayer {
+	// draft goes 1, 2, 3, ..., 10, 10, 9, 8, ..., 1
 	round := fd.playersDrafted / 10
 	offset := fd.playersDrafted % 10
-	if round % 2 == 0 {
+	if round%2 == 0 {
 		return fd.players[offset]
 	}
 	return fd.players[len(fd.players)-1-offset]
@@ -75,7 +77,7 @@ func (fd *FantasyDraft) Draft(draftee *FootballPlayer) {
 
 func (fd *FantasyDraft) removeFootballPlayer(player *FootballPlayer) {
 	var pool *Stack
-	switch(player.position) {
+	switch player.position {
 	case DST:
 		pool = fd.dsts
 	case K:
@@ -106,13 +108,13 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int)
 	currentPlayer := fd.currentPlayer()
 	s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.qbs, fd.rbs, fd.tes, fd.wrs, fd.ks, fd.dsts}}
 	sort.Sort(s)
-	if (fd.maxPlayer == currentPlayer) {
+	if fd.maxPlayer == currentPlayer {
 		for _, v := range s.stacks {
 			draftee := v.Pop().(*FootballPlayer)
 			currentPlayer.draft(draftee)
 			fd.playersDrafted++
 			_, moveValue := fd.Alphabeta(depth-1, alpha, beta)
-			if (moveValue > alpha) {
+			if moveValue > alpha {
 				alpha = moveValue
 				move = draftee
 			}
@@ -130,7 +132,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int)
 			currentPlayer.draft(draftee)
 			fd.playersDrafted++
 			_, moveValue := fd.Alphabeta(depth-1, alpha, beta)
-			if (moveValue < beta) {
+			if moveValue < beta {
 				beta = moveValue
 				move = draftee
 			}
@@ -148,7 +150,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int)
 
 type ByBestLikelyMove struct {
 	currentPlayer *FantasyPlayer
-	stacks [6]*Stack
+	stacks        [6]*Stack
 }
 
 func (s *ByBestLikelyMove) Len() int { return len(s.stacks) }
@@ -158,12 +160,12 @@ func (s *ByBestLikelyMove) Less(i, j int) bool {
 	s.currentPlayer.draft(iDraftee)
 	iTotal := s.currentPlayer.estimateTotalPoints()
 	s.currentPlayer.undraft(iDraftee)
-	
+
 	jDraftee := s.stacks[j].Peek().(*FootballPlayer)
 	s.currentPlayer.draft(jDraftee)
 	jTotal := s.currentPlayer.estimateTotalPoints()
 	s.currentPlayer.undraft(jDraftee)
-	
+
 	return iTotal > jTotal
 }
 
@@ -172,18 +174,22 @@ func (sort *ByBestLikelyMove) Swap(i, j int) {
 }
 
 func (fd *FantasyDraft) evaluate() int {
-	opponentTotal := 0
+	value := 0
 	for _, player := range fd.players {
-		opponentTotal += player.totalPoints()
+		if player == fd.maxPlayer {
+			value += (len(fd.players) - 1) * player.totalPoints()
+		} else {
+			value -= player.totalPoints
+		}
 	}
-	return fd.maxPlayer.totalPoints() * len(fd.players) - opponentTotal
+	return value
 }
 
 func (fd *FantasyDraft) estimate() int {
 	value := 0
 	for _, player := range fd.players {
 		if player == fd.maxPlayer {
-			value += (len(fd.players)-1)*player.estimateTotalPoints()
+			value += (len(fd.players) - 1) * player.estimateTotalPoints()
 		} else {
 			value -= player.estimateTotalPoints()
 		}

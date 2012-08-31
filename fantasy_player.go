@@ -19,16 +19,16 @@ func newFantasyPlayer(name string, data *DataSource) *FantasyPlayer {
 	return &FantasyPlayer{
 		name: name,
 		dsts: []*FootballPlayer{data.defaultDst},
-		ks: []*FootballPlayer{data.defaultK},
-		qbs: []*FootballPlayer{data.defaultQb},
-		rbs: []*FootballPlayer{data.defaultRb, data.defaultRb, data.defaultRb},
-		tes: []*FootballPlayer{data.defaultTe},
-		wrs: []*FootballPlayer{data.defaultWr, data.defaultWr, data.defaultWr},
+		ks:   []*FootballPlayer{data.defaultK},
+		qbs:  []*FootballPlayer{data.defaultQb},
+		rbs:  []*FootballPlayer{data.defaultRb, data.defaultRb, data.defaultRb},
+		tes:  []*FootballPlayer{data.defaultTe},
+		wrs:  []*FootballPlayer{data.defaultWr, data.defaultWr, data.defaultWr},
 	}
 }
 
 func (fp *FantasyPlayer) draft(player *FootballPlayer) {
-	switch(player.position) {
+	switch player.position {
 	case DST:
 		fp.dsts = append(fp.dsts, player)
 	case K:
@@ -46,16 +46,17 @@ func (fp *FantasyPlayer) draft(player *FootballPlayer) {
 
 func remove(slice []*FootballPlayer, x *FootballPlayer) []*FootballPlayer {
 	var i int
-	lastIndex := len(slice)-1
-	for i=lastIndex; slice[i] != x; i-- {}
-	if i!=lastIndex {
+	lastIndex := len(slice) - 1
+	for i = lastIndex; slice[i] != x; i-- {
+	}
+	if i != lastIndex {
 		slice[i] = slice[lastIndex]
 	}
 	return slice[:lastIndex]
 }
 
 func (fp *FantasyPlayer) undraft(player *FootballPlayer) {
-	switch(player.position) {
+	switch player.position {
 	case DST:
 		fp.dsts = remove(fp.dsts, player)
 	case K:
@@ -75,7 +76,7 @@ func (fp *FantasyPlayer) points(week int) int {
 	points := 0
 	for _, v := range [...][]*FootballPlayer{fp.dsts, fp.ks, fp.qbs, fp.tes} {
 		positionMax := v[0].points[week-1]
-		for i:=1; i<len(v); i++ {
+		for i := 1; i < len(v); i++ {
 			positionMax = max(positionMax, v[i].points[week-1])
 		}
 		points += positionMax
@@ -93,6 +94,9 @@ func (fp *FantasyPlayer) points(week int) int {
 	return points
 }
 
+/*
+	A slow estimate of the season point total, based on the assumption lineup changes can be made each week.
+*/
 func (fp *FantasyPlayer) totalPoints() int {
 	totalPoints := 0
 	for week := 1; week <= SEASON_LENGTH; week++ {
@@ -101,11 +105,14 @@ func (fp *FantasyPlayer) totalPoints() int {
 	return totalPoints
 }
 
+/*
+	A quick estimate of the season point total, based on the assumption no lineup changes are made each week.
+*/
 func (fp *FantasyPlayer) estimateTotalPoints() int {
 	totalPoints := 0
 	for _, v := range [...][]*FootballPlayer{fp.dsts, fp.ks, fp.qbs, fp.tes} {
 		positionMax := v[0].totalPoints()
-		for i:=1; i<len(v); i++ {
+		for i := 1; i < len(v); i++ {
 			positionMax = max(positionMax, v[i].totalPoints())
 		}
 		totalPoints += positionMax

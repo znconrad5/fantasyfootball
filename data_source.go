@@ -11,17 +11,17 @@ type DataSource struct {
 	startWeek int
 	endWeek   int
 
-	dsts       []*FootballPlayer	// defenses/special teams
+	dsts       []*FootballPlayer // defenses/special teams
 	defaultDst *FootballPlayer
-	ks         []*FootballPlayer	// kickers
+	ks         []*FootballPlayer // kickers
 	defaultK   *FootballPlayer
-	qbs        []*FootballPlayer	// quarterbacks
+	qbs        []*FootballPlayer // quarterbacks
 	defaultQb  *FootballPlayer
-	rbs        []*FootballPlayer	// running backs
+	rbs        []*FootballPlayer // running backs
 	defaultRb  *FootballPlayer
-	tes        []*FootballPlayer	// tight ends
+	tes        []*FootballPlayer // tight ends
 	defaultTe  *FootballPlayer
-	wrs        []*FootballPlayer	// wide receivers
+	wrs        []*FootballPlayer // wide receivers
 	defaultWr  *FootballPlayer
 }
 
