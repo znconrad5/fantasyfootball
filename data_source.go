@@ -11,17 +11,17 @@ type DataSource struct {
 	startWeek int
 	endWeek   int
 
-	dsts       []*FootballPlayer
+	dsts       []*FootballPlayer	// defenses/special teams
 	defaultDst *FootballPlayer
-	ks         []*FootballPlayer
+	ks         []*FootballPlayer	// kickers
 	defaultK   *FootballPlayer
-	qbs        []*FootballPlayer
+	qbs        []*FootballPlayer	// quarterbacks
 	defaultQb  *FootballPlayer
-	rbs        []*FootballPlayer
+	rbs        []*FootballPlayer	// running backs
 	defaultRb  *FootballPlayer
-	tes        []*FootballPlayer
+	tes        []*FootballPlayer	// tight ends
 	defaultTe  *FootballPlayer
-	wrs        []*FootballPlayer
+	wrs        []*FootballPlayer	// wide receivers
 	defaultWr  *FootballPlayer
 }
 
@@ -118,10 +118,12 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 		name:     "default",
 		position: position,
 	}
+	// the "default" player is a guess of the best undrafted player for a position each week
 	for week := loader.startWeek; week <= loader.endWeek; week++ {
 		sort.Sort(&ByWeekPointsDesc{players, week})
 		defaultPlayer.points[week-1] = players[offset].points[week-1]
 	}
+	// associate a name with the "default" player, for funsies only since the point values are taken from the weekly nth best player, not the season's nth best player
 	sort.Sort(&ByTotalPointsDesc{players})
 	defaultPlayer.team = fmt.Sprintf("~%s", players[offset].name)
 	return players, defaultPlayer
