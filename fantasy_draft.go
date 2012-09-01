@@ -6,6 +6,11 @@ import (
 	"sort"
 )
 
+const (
+	START_DEPTH = 4
+	DRAFT_LENGTH = 150
+)
+
 type FantasyDraft struct {
 	players        [10]*FantasyPlayer
 	maxPlayer      *FantasyPlayer
@@ -105,7 +110,8 @@ func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan Move {
 	moves := make(chan Move)
 	go func() {
 		defer close(moves)
-		for depth:=1; ; depth++ {
+		remaining := DRAFT_LENGTH-fd.playersDrafted
+		for depth:=min(START_DEPTH, remaining); depth<=remaining; depth++ {
 			move, val, ok := fd.Alphabeta(depth, math.MinInt32, math.MaxInt32, stop)
 			if ok {
 				moves <- Move{move, val}
@@ -233,5 +239,5 @@ func (fd *FantasyDraft) estimate() int {
 }
 
 func (fd *FantasyDraft) isDraftOver() bool {
-	return fd.playersDrafted == 150
+	return fd.playersDrafted == DRAFT_LENGTH
 }

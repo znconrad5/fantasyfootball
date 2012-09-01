@@ -13,7 +13,7 @@ import (
 
 var dataDir = flag.String("dataDir", "/Users/zachconrad/Documents/go/src/fantasyfootball/data", "The directory to look in for player statistics.")
 var startWeek = flag.Int("startWeek", 1, "The week to start player statistic gathering.")
-var endWeek = flag.Int("endWeek", 3, "The week to end player statistic gathering, inclusive.")
+var endWeek = flag.Int("endWeek", 14, "The week to end player statistic gathering, inclusive.")
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
 
 func main() {
@@ -31,9 +31,9 @@ func main() {
 		        pprof.StartCPUProfile(f)
 		        defer pprof.StopCPUProfile()
 	}
-	for i:=0; i<20; i++ {
+	for i:=0; i<150; i++ {
 		stopper := make(chan bool);
-		time.AfterFunc(90*time.Second, func() { close(stopper) })
+		time.AfterFunc(1*time.Second, func() { close(stopper) })
 		moves := draft.IterativeAlphabeta(stopper)
 		fmt.Printf("Suggested draft for %v\n", i)
 		var lastMove fantasyfootball.Move
