@@ -1,0 +1,209 @@
+
+PLAYER
+TEAM
+FP
+REC
+RECYD
+YPR
+RECTD
+FUML
+Calvin Johnson
+DET	 15.6	 5.9	 98	 16.7	 0.98	 0.05
+Julio Jones
+ATL	 12.6	 4.5	 81	 17.9	 0.67	 0.04
+Roddy White
+ATL	 12.1	 5.7	 84	 14.9	 0.63	 0.05
+Larry Fitzgerald
+ARI	 12	 5.8	 94	 16.2	 0.44	 0.06
+Eric Decker
+DEN	 12	 4.4	 73	 16.7	 0.62	 0.16
+Dez Bryant
+DAL	 11.7	 4.8	 74	 15.6	 0.71	 0.19
+Miles Austin
+DAL	 11.5	 4.9	 74	 15	 0.7	 0.06
+Demaryius Thomas
+DEN	 11.5	 4.1	 81	 19.6	 0.57	 0.05
+Greg Jennings
+GB	 11.2	 4.5	 74	 16.3	 0.66	 0.03
+Jordy Nelson
+GB	 11.2	 4.1	 71	 17.4	 0.68	 0.04
+A.J. Green
+CIN	 11	 5.4	 81	 15	 0.39	 0.05
+Percy Harvin
+MIN	 10.3	 4.7	 55	 11.7	 0.24	 0.1
+Jeremy Maclin
+PHI	 10.1	 5	 69	 13.9	 0.55	 0.05
+Torrey Smith
+BAL	 9.7	 3.5	 64	 18.3	 0.52	 0.04
+Hakeem Nicks
+NYG	 9.6	 4.4	 65	 14.9	 0.52	 0.04
+Brandon Marshall
+CHI	 9.5	 5.8	 75	 13	 0.35	 0.06
+Steve Smith
+CAR	 9.2	 5.3	 79	 14.8	 0.27	 0.12
+Steve Johnson
+BUF	 9.2	 4.5	 65	 14.5	 0.46	 0.04
+Andre Johnson
+HOU	 8.9	 4.3	 63	 14.6	 0.45	 0.04
+Marques Colston
+NO	 8.8	 5.3	 67	 12.5	 0.38	 0.04
+DeSean Jackson
+PHI	 8.8	 3.7	 63	 17.2	 0.39	 0.05
+Mike Wallace
+PIT	 8.6	 4.3	 65	 15	 0.3	 0.04
+Victor Cruz
+NYG	 8.6	 4	 65	 16.4	 0.36	 0.04
+Dwayne Bowe
+KC	 8.3	 4.6	 64	 14	 0.32	 0.04
+Vincent Jackson
+TB	 8.2	 3.6	 64	 17.7	 0.31	 0.03
+Antonio Brown
+PIT	 8	 4.2	 60	 14.3	 0.22	 0.06
+Reggie Wayne
+IND	 7.8	 4.9	 62	 12.6	 0.28	 0.04
+Anquan Boldin
+BAL	 7.7	 3.8	 58	 15.3	 0.33	 0.04
+Kenny Britt
+TEN	 7.5	 4	 61	 15.2	 0.27	 0.11
+Malcom Floyd
+SD	 7.4	 2.7	 51	 19	 0.38	 0.03
+Pierre Garcon
+WAS	 7.4	 4.7	 55	 11.9	 0.33	 0.06
+Lance Moore
+NO	 7	 3.5	 41	 11.6	 0.48	 0.04
+Sidney Rice
+SEA	 7	 3.2	 49	 15	 0.36	 0.05
+Titus Young
+DET	 6.7	 3.4	 42	 12.5	 0.41	 0.03
+Denarius Moore
+OAK	 6.7	 2.4	 40	 16.7	 0.14	 0.04
+Doug Baldwin
+SEA	 6.6	 2.9	 48	 16.3	 0.31	 0.03
+Laurent Robinson
+JAC	 6.4	 3.6	 52	 14.6	 0.2	 0.05
+Santana Moss
+WAS	 6.3	 3.9	 49	 12.5	 0.24	 0.05
+Darrius Heyward-Bey
+OAK	 6.2	 3.2	 46	 14.5	 0.26	 0.04
+Jacoby Ford
+OAK	 6.2	 1.7	 27	 16.4	 0.1	 0.34
+Justin Blackmon
+JAC	 6.1	 3.8	 50	 13.4	 0.19	 0.03
+Mike Williams
+TB	 5.8	 3.5	 44	 12.7	 0.27	 0.08
+Greg Little
+CLE	 5.5	 4	 46	 11.5	 0.13	 0.04
+Davone Bess
+MIA	 5.3	 4.1	 38	 9.3	 0.2	 0.3
+David Nelson
+BUF	 5.1	 3.2	 38	 12.1	 0.22	 0.02
+Randall Cobb
+GB	 5.1	 1.8	 26	 14.4	 0.1	 0.2
+Kendall Wright
+TEN	 5.1	 2.6	 36	 14.2	 0.22	 0.04
+James Jones
+GB	 5	 1.9	 32	 16.9	 0.31	 0.05
+Eddie Royal
+SD	 5	 2.8	 29	 10.4	 0.18	 0.06
+Austin Collie
+IND	 5	 3.8	 38	 10.2	 0.2	 0.02
+Vincent Brown
+SD	 5	 1.9	 34	 17.6	 0.27	 0.01
+Nate Washington
+TEN	 4.6	 2.6	 32	 12.2	 0.22	 0.02
+Devin Hester
+CHI	 4.6	 2.1	 23	 11.4	 0.11	 0.22
+Brandon LaFell
+CAR	 4.6	 2.6	 38	 14.5	 0.15	 0.02
+Andre Roberts
+ARI	 4.4	 2.7	 33	 12.4	 0.13	 0.06
+Emmanuel Sanders
+PIT	 4.3	 2	 26	 13	 0.13	 0.08
+Brandon Tate
+CIN	 4.2	 1.6	 18	 11.5	 0.08	 0.12
+Kevin Walter
+HOU	 4.1	 2.1	 27	 12.7	 0.24	 0.02
+Earl Bennett
+CHI	 4.1	 2.4	 34	 14.2	 0.13	 0.06
+Robert Meachem
+SD	 4	 1.7	 26	 15.6	 0.21	 0.02
+Michael Jenkins
+MIN	 3.8	 2.5	 32	 12.8	 0.12	 0.05
+Jerome Simpson
+MIN	 3.8	 2.4	 31	 13.3	 0.11	 0.02
+Donald Driver
+GB	 3.7	 1.5	 23	 14.9	 0.24	 0.01
+Nate Burleson
+DET	 3.7	 2.6	 25	 9.6	 0.11	 0.03
+Golden Tate
+SEA	 3.7	 1.8	 22	 12.6	 0.24	 0.03
+Braylon Edwards
+SEA	 3.7	 1.6	 24	 15.2	 0.23	 0.02
+Early Doucet
+ARI	 3.6	 2.1	 27	 13	 0.15	 0.01
+David Gettis
+CAR	 3.6	 2.4	 28	 12	 0.13	 0.03
+Mohamed Massaquoi
+CLE	 3.5	 2.5	 30	 12.3	 0.09	 0.03
+Josh Gordon
+CLE	 3.4	 2.5	 28	 11.3	 0.11	 0.03
+Jason Avant
+PHI	 3.3	 2.3	 27	 11.7	 0.11	 0.03
+Steve Breaston
+KC	 3.3	 2	 26	 12.7	 0.11	 0.02
+Andre Caldwell
+DEN	 3.3	 1.8	 22	 12	 0.19	 0.02
+Dexter McCluster
+KC	 3.3	 1.6	 15	 9.5	 0.08	 0.1
+Preston Parker
+TB	 3.3	 2	 26	 13.2	 0.11	 0.55
+Josh Morgan
+WAS	 3.2	 1.8	 25	 14.4	 0.12	 0.02
+Jacoby Jones
+BAL	 3.1	 1.2	 16	 14	 0.1	 0.15
+Dwayne Harris
+DAL	 3	 1.8	 19	 10.4	 0.1	 0.06
+Lestar Jean
+HOU	 3	 1.3	 18	 13.2	 0.21	 0.01
+Mohamed Sanu
+CIN	 3	 1.8	 24	 13.2	 0.11	 0.02
+Domenik Hixon
+NYG	 2.9	 1.7	 22	 12.6	 0.11	 0.03
+Legedu Naanee
+MIA	 2.9	 2.5	 25	 9.9	 0.09	 0.04
+Devery Henderson
+NO	 2.8	 1.8	 23	 12.9	 0.09	 0.02
+Jerricho Cotchery
+PIT	 2.6	 1.5	 19	 12.5	 0.11	 0.01
+Andrew Hawkins
+CIN	 2.6	 2	 22	 11.4	 0.06	 0.03
+Donald Jones
+BUF	 2.5	 2	 19	 9.8	 0.1	 0.02
+Roberto Wallace
+MIA	 2.5	 2	 20	 10.2	 0.09	 0.02
+Jon Baldwin
+KC	 2.5	 1.9	 22	 12.1	 0.05	 0.02
+Joshua Cribbs
+CLE	 2.4	 0.7	 9	 12.9	 0.03	 0.23
+Cecil Shorts
+JAC	 2.4	 1.4	 15	 11.1	 0.06	 0.04
+Alshon Jeffery
+CHI	 2.3	 1.5	 18	 11.7	 0.08	 0.01
+Keshawn Martin
+HOU	 2.3	 0.9	 13	 14.5	 0.13	 0.02
+Harry Douglas
+ATL	 2.2	 1.2	 17	 13.7	 0.03	 0.06
+Damian Williams
+TEN	 2.1	 0.9	 9	 10.1	 0.06	 0.06
+Ryan Broyles
+DET	 2.1	 1	 14	 13.2	 0.07	 0.04
+T.Y. Hilton
+IND	 2.1	 1	 15	 14.1	 0.08	 0.02
+Nick Toon
+NO	 2.1	 1.7	 17	 10.3	 0.08	 0.02
+Sammie Stroughter
+TB	 2	 1.1	 12	 10.6	 0.06	 0.14
+Leonard Hankerson
+WAS	 2	 1.3	 17	 13.2	 0.06	 0.01
+Donnie Avery
+IND	 1.9	 1.4	 16	 11.5	 0.06	 0.01

@@ -33,7 +33,7 @@ func main() {
 	}
 	for i:=0; i<20; i++ {
 		stopper := make(chan bool);
-		time.AfterFunc(5*time.Second, func() { close(stopper) })
+		time.AfterFunc(90*time.Second, func() { close(stopper) })
 		moves := draft.IterativeAlphabeta(stopper)
 		fmt.Printf("Suggested draft for %v\n", i)
 		var lastMove fantasyfootball.Move

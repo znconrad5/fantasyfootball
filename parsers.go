@@ -89,6 +89,10 @@ func (p *Parser) parseFile(fileName string, week int) {
 		line, err := reader.Read()
 		handleError(err)
 		validateSingleValue(line)
+		if line[0] == "" {
+			i--
+			continue
+		}
 		if i != 0 { // discard first line which is player name
 			header[line[0]] = i - 1
 		}

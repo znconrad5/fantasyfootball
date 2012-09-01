@@ -1,0 +1,109 @@
+
+PLAYER
+TEAM
+FP
+REC
+RECYD
+YPR
+RECTD
+FUML
+Rob Gronkowski
+NE	 12.7	 5.2	 73	 14.1	 0.88	 0.05
+Antonio Gates
+SD	 10.5	 4.8	 66	 13.6	 0.67	 0.05
+Jimmy Graham
+NO	 10.4	 4.7	 62	 13.3	 0.72	 0.04
+Aaron Hernandez
+NE	 10.2	 4.8	 52	 10.8	 0.6	 0.04
+Jermichael Finley
+GB	 9.1	 3.8	 57	 15	 0.57	 0.03
+Jason Witten
+DAL	 8.8	 5.6	 64	 11.3	 0.43	 0.06
+Tony Gonzalez
+ATL	 7.5	 4	 52	 12.9	 0.39	 0.03
+Vernon Davis
+SF	 7.1	 3.8	 42	 11.2	 0.5	 0.06
+Brandon Pettigrew
+DET	 6.5	 4.1	 47	 11.3	 0.32	 0.04
+Jacob Tamme
+DEN	 6.2	 4.4	 43	 9.8	 0.33	 0.04
+Fred Davis
+WAS	 6.1	 3.8	 47	 12.3	 0.25	 0.03
+Benjamin Watson
+CLE	 6	 3.5	 47	 13.4	 0.22	 0.03
+Jermaine Gresham
+CIN	 5.9	 4.1	 44	 10.7	 0.27	 0.05
+Greg Olsen
+CAR	 5.7	 3.3	 41	 12.7	 0.29	 0.06
+Dustin Keller
+NYJ	 5.6	 3.4	 42	 12.4	 0.25	 0.03
+Coby Fleener
+IND	 5.5	 3.6	 38	 10.6	 0.3	 0.04
+Brent Celek
+PHI	 5.4	 3.3	 40	 12.4	 0.24	 0.02
+Heath Miller
+PIT	 4.9	 3.6	 41	 11.4	 0.13	 0.03
+Dallas Clark
+TB	 4.8	 3.5	 37	 10.5	 0.2	 0.04
+Dwayne Allen
+IND	 4.3	 2.9	 31	 10.9	 0.2	 0.03
+Owen Daniels
+HOU	 4.2	 2.9	 32	 11.1	 0.18	 0.02
+Marcedes Lewis
+JAC	 4	 2.6	 32	 12.4	 0.14	 0.03
+Ed Dickson
+BAL	 4	 2.7	 28	 10.4	 0.21	 0.03
+Todd Heap
+ARI	 3.8	 2.5	 31	 12.5	 0.12	 0.02
+Joel Dreessen
+DEN	 3.8	 2.2	 29	 13	 0.15	 0.02
+Tony Scheffler
+DET	 3.8	 1.7	 22	 13.5	 0.26	 0.03
+Tony Moeaki
+KC	 3.6	 2.3	 29	 12.4	 0.14	 0.02
+Scott Chandler
+BUF	 3.3	 1.7	 20	 11.8	 0.22	 0.04
+Dennis Pitta
+BAL	 3.3	 2.4	 25	 10.2	 0.15	 0.02
+Jed Collins
+NO	 3.2	 1.7	 19	 11.3	 0.23	 0.02
+Anthony Fasano
+MIA	 3.1	 2.1	 25	 11.9	 0.11	 0.02
+Michael Palmer
+ATL	 2.8	 1.4	 16	 11.1	 0.2	 0.02
+Lance Kendricks
+STL	 2.3	 1.8	 21	 11.8	 0.06	 0.04
+Clay Harbor
+PHI	 2.2	 1.4	 14	 10	 0.13	 0.01
+Kevin Boss
+KC	 2.1	 1.3	 16	 12.1	 0.09	 0.01
+Kellen Davis
+CHI	 2.1	 1.5	 15	 10.1	 0.12	 0.02
+Rob Housler
+ARI	 2.1	 2.1	 18	 8.9	 0.08	 0.09
+Luke Stocker
+TB	 2.1	 1.8	 16	 9	 0.08	 0.02
+Delanie Walker
+SF	 2	 1.3	 13	 10.2	 0.11	 0.03
+Randy McMichael
+SD	 1.7	 1.6	 14	 8.8	 0.06	 0.01
+Donald Lee
+CIN	 1.6	 1.1	 12	 11.2	 0.07	 0.02
+Zach Miller
+JAC	 1.6	 1.2	 12	 9.9	 0.06	 0.01
+Michael Hoomanawanui
+STL	 1.6	 1.4	 13	 9.5	 0.06	 0.01
+Charles Clay
+MIA	 1.6	 1.3	 12	 9.5	 0.08	 0.02
+David Ausberry
+OAK	 1.6	 1.3	 12	 9.2	 0.06	 0.01
+James Casey
+HOU	 1.4	 1.1	 10	 9.5	 0.05	 0.01
+Brandon Myers
+OAK	 1.4	 1.3	 12	 9.2	 0.05	 0.02
+Leonard Pope
+PIT	 1.2	 1.1	 10	 9.6	 0.03	 0.01
+Jeff Cumberland
+NYJ	 1.2	 0.9	 9	 10	 0.06	 0.01
+Matt Spaeth
+CHI	 1.1	 0.7	 7	 9.6	 0.07	 0.01

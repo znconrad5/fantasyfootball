@@ -1,3 +1,4 @@
+
 PLAYER
 TEAM
 FP
@@ -7,102 +8,102 @@ YPR
 RECTD
 FUML
 Rob Gronkowski
-NE	 11.7	 4.8	 69	 14.4	 0.81	 0.05
+NE	 11.1	 4.7	 67	 14	 0.75	 0.04
 Antonio Gates
-SD	 10.3	 4.5	 63	 14.2	 0.68	 0.03
+SD	 10.3	 4.4	 63	 14.3	 0.67	 0.04
 Jimmy Graham
-NO	 10	 4.7	 62	 13.3	 0.64	 0.04
+NO	 10.1	 4.7	 62	 13.2	 0.66	 0.05
 Aaron Hernandez
-NE	 7.8	 4.2	 44	 10.6	 0.38	 0.05
-Tony Gonzalez
-ATL	 6.9	 3.8	 47	 12.5	 0.37	 0.03
+NE	 8	 4.4	 45	 10.3	 0.38	 0.04
 Vernon Davis
-SF	 6.5	 3.9	 49	 12.7	 0.29	 0.07
-Jermichael Finley
-GB	 6.1	 3	 43	 14.5	 0.32	 0.03
+SF	 7.1	 4.1	 54	 13.3	 0.31	 0.08
+Tony Gonzalez
+ATL	 6.9	 3.8	 47	 12.3	 0.38	 0.04
 Fred Davis
-WAS	 5.7	 3.7	 46	 12.5	 0.2	 0.04
-Jermaine Gresham
-CIN	 5.7	 4.5	 46	 10.1	 0.2	 0.07
-Dustin Keller
-NYJ	 5.5	 3.6	 41	 11.3	 0.25	 0.03
+WAS	 6.4	 4	 51	 12.9	 0.22	 0.04
+Jermichael Finley
+GB	 6.1	 3	 43	 14.1	 0.31	 0.03
 Brandon Pettigrew
-DET	 5.3	 3.7	 37	 10.2	 0.27	 0.04
-Heath Miller
-PIT	 5	 3.4	 42	 12.3	 0.15	 0.03
-Jacob Tamme
-DEN	 5	 3.6	 36	 10.1	 0.23	 0.02
-Martellus Bennett
-NYG	 4.8	 3.6	 34	 9.6	 0.24	 0.04
-Dallas Clark
-TB	 4.7	 3.5	 36	 10.3	 0.2	 0.04
-Brent Celek
-PHI	 4.7	 2.8	 34	 12	 0.23	 0.03
-Benjamin Watson
-CLE	 4.5	 3.3	 36	 11.1	 0.16	 0.03
-Coby Fleener
-IND	 4.5	 3.2	 32	 10.1	 0.23	 0.03
-Owen Daniels
-HOU	 4.2	 2.7	 33	 11.9	 0.17	 0.02
+DET	 5.5	 3.8	 39	 10.4	 0.27	 0.04
+Dustin Keller
+NYJ	 5.4	 3.6	 40	 11	 0.24	 0.04
 Greg Olsen
-CAR	 4.2	 2.5	 30	 12	 0.21	 0.04
-Jared Cook
-TEN	 4.1	 2.5	 35	 13.9	 0.11	 0.04
-Ed Dickson
-BAL	 4.1	 2.3	 26	 11.3	 0.24	 0.02
-Tony Moeaki
-KC	 4	 2.5	 31	 12.4	 0.15	 0.03
+CAR	 5.3	 3.1	 37	 12.1	 0.27	 0.05
+Jermaine Gresham
+CIN	 5.3	 4.1	 42	 10.1	 0.2	 0.06
+Benjamin Watson
+CLE	 5.1	 3.8	 41	 10.9	 0.18	 0.03
+Heath Miller
+PIT	 5.1	 3.4	 41	 12	 0.18	 0.04
+Martellus Bennett
+NYG	 4.9	 3.6	 36	 9.8	 0.24	 0.04
+Jacob Tamme
+DEN	 4.9	 3.6	 36	 10.1	 0.23	 0.03
+Dallas Clark
+TB	 4.5	 3.3	 34	 10.5	 0.2	 0.04
+Coby Fleener
+IND	 4.5	 3.3	 32	 9.9	 0.23	 0.03
+Brent Celek
+PHI	 4.4	 2.8	 33	 12	 0.2	 0.02
 Kyle Rudolph
-MIN	 4	 2.9	 28	 9.9	 0.2	 0.02
-Marcedes Lewis
-JAC	 3.8	 2.6	 29	 11.2	 0.15	 0.02
+MIN	 4.3	 3.1	 30	 9.8	 0.23	 0.03
+Ed Dickson
+BAL	 4.2	 2.5	 29	 11.4	 0.24	 0.02
+Jared Cook
+TEN	 4.1	 2.6	 35	 13.7	 0.11	 0.05
+Tony Moeaki
+KC	 4	 2.5	 31	 12.4	 0.15	 0.02
+Owen Daniels
+HOU	 3.9	 2.5	 30	 12.3	 0.14	 0.02
 Dwayne Allen
-IND	 3.7	 2.6	 27	 10.1	 0.18	 0.02
-Joel Dreessen
-DEN	 3.4	 1.9	 26	 13.7	 0.14	 0.02
-Anthony Fasano
-MIA	 3.4	 2	 26	 13.2	 0.14	 0.01
-Tony Scheffler
-DET	 3.2	 1.5	 19	 12.2	 0.23	 0.03
-Scott Chandler
-BUF	 3.2	 1.6	 20	 12.4	 0.2	 0.02
-Jed Collins
-NO	 3.2	 1.7	 18	 10.9	 0.24	 0.02
-Todd Heap
-ARI	 3.1	 2	 25	 12.6	 0.09	 0.02
+IND	 3.9	 2.7	 27	 10.3	 0.2	 0.02
+Marcedes Lewis
+JAC	 3.7	 2.6	 28	 11	 0.16	 0.02
 Lance Kendricks
-STL	 3.1	 2	 26	 13	 0.11	 0.05
-Zach Miller
-SEA	 2.5	 1.9	 21	 10.7	 0.08	 0.02
-Michael Palmer
-ATL	 2.5	 1.4	 15	 11.3	 0.17	 0.01
-Kevin Boss
-KC	 2.4	 1.4	 18	 12.7	 0.11	 0.01
-John Phillips
-DAL	 2.4	 1.8	 17	 9.3	 0.12	 0.01
-Craig Stevens
-TEN	 2.3	 1.5	 15	 10.2	 0.14	 0.01
-Kellen Davis
-CHI	 2.2	 1.5	 13	 9.1	 0.16	 0.01
+STL	 3.5	 2.1	 28	 13.5	 0.14	 0.04
+Anthony Fasano
+MIA	 3.4	 2	 28	 14.2	 0.11	 0.02
+Joel Dreessen
+DEN	 3.3	 1.9	 26	 13.5	 0.13	 0.02
+Tony Scheffler
+DET	 3.3	 1.6	 19	 12.4	 0.23	 0.03
 Dennis Pitta
-BAL	 2.2	 1.4	 15	 10.9	 0.12	 0.01
-John Carlson
-MIN	 2.1	 1.7	 15	 9	 0.1	 0.01
-Michael Hoomanawanui
-STL	 2.1	 1.6	 16	 10.1	 0.09	 0.01
+BAL	 3.3	 2.1	 22	 10.7	 0.18	 0.02
+Todd Heap
+ARI	 3.2	 2	 26	 12.8	 0.11	 0.02
+Jed Collins
+NO	 3.1	 1.6	 17	 10.5	 0.23	 0.02
+Scott Chandler
+BUF	 3	 1.6	 19	 12.1	 0.19	 0.02
+Zach Miller
+SEA	 2.6	 2	 21	 11	 0.08	 0.02
+Kevin Boss
+KC	 2.5	 1.4	 18	 12.8	 0.11	 0.01
+Michael Palmer
+ATL	 2.5	 1.4	 15	 11.2	 0.16	 0.02
 Delanie Walker
-SF	 2	 1.4	 16	 11.9	 0.08	 0.03
+SF	 2.3	 1.4	 17	 12.4	 0.08	 0.03
+Craig Stevens
+TEN	 2.3	 1.5	 15	 10.5	 0.12	 0.01
+Ladarius Green
+SD	 2.3	 1.8	 18	 9.8	 0.09	 0.02
+John Carlson
+MIN	 2.2	 1.8	 16	 9	 0.11	 0.02
+Kellen Davis
+CHI	 2.2	 1.5	 13	 8.9	 0.16	 0.02
+John Phillips
+DAL	 2.2	 1.8	 16	 9.2	 0.11	 0.02
+Michael Hoomanawanui
+STL	 2.2	 1.6	 17	 10.2	 0.09	 0.02
 Rob Housler
-ARI	 2	 1.8	 17	 9.3	 0.09	 0.09
+ARI	 2.1	 1.8	 17	 9	 0.1	 0.09
 Clay Harbor
 PHI	 1.9	 1.3	 13	 10.2	 0.11	 0.01
 Luke Stocker
-TB	 1.9	 1.7	 15	 8.8	 0.07	 0.02
-Jordan Cameron
-CLE	 1.8	 1.4	 13	 9.4	 0.08	 0.02
+TB	 1.9	 1.7	 15	 9	 0.08	 0.01
 Randy McMichael
-SD	 1.6	 1.4	 13	 9.1	 0.06	 0.01
-Zach Miller
-JAC	 1.6	 1.2	 11	 9.4	 0.07	 0.01
-Brandon Myers
-OAK	 1.6	 1.3	 12	 9.2	 0.07	 0.02
+SD	 1.7	 1.5	 13	 9.2	 0.07	 0.01
+Charles Clay
+MIA	 1.6	 1.2	 12	 10.2	 0.07	 0.01
+Leonard Pope
+PIT	 1.5	 1	 11	 10.7	 0.06	 0.01

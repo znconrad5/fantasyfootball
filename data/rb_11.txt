@@ -1,0 +1,212 @@
+
+PLAYER
+TEAM
+FP
+RUSH
+RUSHYD
+YPC
+RUSHTD
+REC
+RECYD
+RECTD
+FUML
+Darren McFadden
+OAK	 19	 15.4	 100	 6.45	 0.94	 3.3	 29	 0.15	 0.2
+Arian Foster
+HOU	 18.4	 21	 93	 4.41	 0.89	 3.8	 31	 0.18	 0.21
+LeSean McCoy
+PHI	 16.7	 16.6	 82	 4.94	 0.82	 4	 29	 0.17	 0.19
+DeMarco Murray
+DAL	 13.2	 17.1	 80	 4.67	 0.47	 2.8	 20	 0.11	 0.18
+Trent Richardson
+CLE	 13.2	 14.2	 59	 4.15	 0.46	 3.5	 35	 0.22	 0.17
+Jamaal Charles
+KC	 12.9	 12.8	 73	 5.69	 0.54	 2.3	 20	 0.14	 0.2
+Fred Jackson
+BUF	 12.7	 15.8	 66	 4.15	 0.48	 3.4	 29	 0.11	 0.18
+Ryan Mathews
+SD	 12.7	 16.5	 68	 4.11	 0.42	 3.7	 31	 0.14	 0.26
+Maurice Jones-Drew
+JAC	 12.6	 17.5	 76	 4.34	 0.34	 2.7	 23	 0.16	 0.18
+Michael Turner
+ATL	 12.5	 15.9	 73	 4.57	 0.81	 0.6	 5	 0.02	 0.15
+Kevin Smith
+DET	 12.1	 8.4	 48	 5.78	 0.5	 2.3	 26	 0.32	 0.1
+Shonn Greene
+NYJ	 12.1	 16.7	 76	 4.56	 0.5	 1.7	 14	 0.08	 0.17
+Steven Jackson
+STL	 11.4	 15.6	 65	 4.14	 0.38	 3.2	 24	 0.1	 0.16
+Reggie Bush
+MIA	 10.7	 13.4	 59	 4.38	 0.3	 3.3	 24	 0.15	 0.16
+Matt Forte
+CHI	 10.7	 14.2	 49	 3.45	 0.33	 3.6	 33	 0.14	 0.16
+Peyton Hillis
+KC	 10.6	 14.7	 63	 4.28	 0.55	 1.6	 9	 0.07	 0.15
+Willis McGahee
+DEN	 10.3	 14.3	 62	 4.35	 0.45	 1.7	 9	 0.14	 0.2
+Stevan Ridley
+NE	 10.3	 13.4	 71	 5.34	 0.5	 0.9	 3	 0.04	 0.19
+Doug Martin
+TB	 10.2	 13.5	 54	 3.99	 0.44	 2.2	 19	 0.1	 0.15
+BenJarvus Green-Ellis
+CIN	 9.7	 14.1	 61	 4.37	 0.51	 0.6	 7	 0.02	 0.13
+Darren Sproles
+NO	 9.6	 4.3	 22	 5.19	 0.14	 4.4	 36	 0.2	 0.14
+Ray Rice
+BAL	 9.6	 14.1	 41	 2.9	 0.25	 4.5	 35	 0.13	 0.15
+Frank Gore
+SF	 9.5	 14.2	 59	 4.17	 0.42	 1.9	 11	 0.04	 0.14
+Donald Brown
+IND	 9.4	 12.5	 51	 4.09	 0.34	 2.4	 19	 0.09	 0.13
+DeAngelo Williams
+CAR	 9	 8.5	 47	 5.54	 0.49	 1.4	 12	 0.06	 0.08
+Rashard Mendenhall
+PIT	 8.7	 13	 45	 3.46	 0.55	 1	 8	 0.04	 0.1
+Rashad Jennings
+JAC	 8.6	 8.3	 43	 5.2	 0.3	 2.3	 22	 0.07	 0.09
+Jonathan Stewart
+CAR	 8.5	 8.1	 38	 4.66	 0.27	 2.9	 24	 0.13	 0.1
+Mark Ingram
+NO	 7	 12.2	 44	 3.62	 0.32	 1.1	 7	 0.04	 0.12
+Pierre Thomas
+NO	 6.9	 6	 29	 4.87	 0.2	 2.6	 20	 0.12	 0.08
+Evan Royster
+WAS	 6.9	 7.2	 41	 5.66	 0.2	 1.7	 14	 0.07	 0.09
+Cedric Benson
+GB	 6.8	 12.6	 43	 3.42	 0.3	 1	 7	 0.05	 0.15
+Kendall Hunter
+SF	 6.6	 9	 39	 4.35	 0.24	 1.2	 12	 0.04	 0.1
+Isaiah Pead
+STL	 6.5	 6.7	 30	 4.5	 0.24	 1.5	 13	 0.06	 0.13
+Mike Goodson
+OAK	 6.4	 5.9	 32	 5.45	 0.29	 1.6	 11	 0.07	 0.1
+Felix Jones
+DAL	 6.2	 8.3	 33	 3.99	 0.19	 1.4	 10	 0.05	 0.17
+Mike Tolbert
+CAR	 6.2	 4.7	 24	 5.03	 0.3	 1.9	 15	 0.11	 0.07
+Jacquizz Rodgers
+ATL	 6.2	 6.2	 26	 4.26	 0.23	 1.6	 13	 0.09	 0.1
+C.J. Spiller
+BUF	 6.1	 6.5	 25	 3.81	 0.17	 2.3	 16	 0.09	 0.12
+Mikel LeShoure
+DET	 6	 6.6	 33	 4.99	 0.3	 0.9	 8	 0.06	 0.1
+Alfred Morris
+WAS	 6	 6	 28	 4.58	 0.24	 1.5	 14	 0.09	 0.06
+Michael Bush
+CHI	 5.8	 8.2	 25	 3.06	 0.21	 1.9	 18	 0.06	 0.09
+Beanie Wells
+ARI	 5.8	 10.7	 38	 3.53	 0.26	 0.6	 4	 0.03	 0.09
+Ben Tate
+HOU	 5.8	 9.3	 38	 4.14	 0.25	 0.6	 5	 0.04	 0.12
+Danny Woodhead
+NE	 5.5	 5.7	 29	 5.08	 0.18	 1.4	 10	 0.06	 0.07
+Jahvid Best
+DET	 5.5	 4.6	 19	 4.03	 0.15	 2.6	 21	 0.12	 0.06
+Ryan Williams
+ARI	 5.2	 7.1	 28	 3.89	 0.18	 1.4	 11	 0.06	 0.08
+Ronnie Hillman
+DEN	 5.2	 4	 17	 4.11	 0.13	 2	 20	 0.15	 0.06
+Roy Helu
+WAS	 5.1	 6.1	 27	 4.45	 0.17	 1.7	 11	 0.08	 0.08
+Marcel Reece
+OAK	 5	 3	 15	 5.2	 0.11	 2.1	 22	 0.11	 0.07
+Bernard Scott
+CIN	 4.3	 7.2	 27	 3.67	 0.16	 1	 6	 0.05	 0.09
+Jason Snelling
+ATL	 4.2	 3.7	 14	 3.71	 0.08	 2	 17	 0.12	 0.05
+Shane Vereen
+NE	 4.1	 4.1	 21	 5.19	 0.28	 0.6	 3	 0.02	 0.03
+Daniel Thomas
+MIA	 3.9	 7.6	 26	 3.45	 0.12	 0.7	 5	 0.04	 0.07
+LeGarrette Blount
+TB	 3.8	 6.4	 24	 3.71	 0.17	 0.7	 6	 0.02	 0.1
+Bilal Powell
+NYJ	 3.7	 4.8	 18	 3.73	 0.14	 0.9	 8	 0.06	 0.05
+Isaac Redman
+PIT	 3.5	 6.1	 21	 3.42	 0.13	 0.9	 5	 0.03	 0.06
+Brian Leonard
+CIN	 3.4	 1.5	 8	 5.75	 0.04	 2.2	 19	 0.08	 0.05
+Lance Ball
+DEN	 3.2	 4.1	 17	 4.09	 0.1	 0.4	 4	 0.04	 0.08
+Joe McKnight
+NYJ	 3.1	 2.8	 9	 3.31	 0.06	 0.7	 7	 0.05	 0.12
+Chris Rainey
+PIT	 3.1	 2.4	 11	 4.51	 0.09	 1	 10	 0.07	 0.05
+John Kuhn
+GB	 3	 0.9	 3	 3.16	 0.03	 1.4	 13	 0.22	 0.03
+Knowshon Moreno
+DEN	 2.9	 3.3	 13	 4.04	 0.09	 0.8	 8	 0.05	 0.04
+Bernard Pierce
+BAL	 2.9	 4.1	 14	 3.55	 0.13	 0.7	 6	 0.03	 0.04
+Dion Lewis
+PHI	 2.7	 4.4	 18	 4.03	 0.14	 0.6	 1	 0.02	 0.05
+Alex Green
+GB	 2.6	 2.4	 9	 3.79	 0.06	 1.5	 10	 0.06	 0.04
+Delone Carter
+IND	 2.6	 5.4	 17	 3.22	 0.1	 0.7	 3	 0.02	 0.1
+Brandon Jackson
+CLE	 2.4	 3.9	 14	 3.44	 0.08	 0.5	 5	 0.03	 0.04
+LaMichael James
+SF	 2.4	 1.6	 9	 5.44	 0.07	 0.8	 7	 0.04	 0.03
+Justin Forsett
+HOU	 2.2	 2.5	 8	 3.16	 0.05	 1.2	 7	 0.06	 0.05
+Jonathan Dwyer
+PIT	 2.1	 3.8	 12	 3.07	 0.08	 0.6	 4	 0.02	 0.04
+Brandon Saine
+GB	 2.1	 2.1	 8	 3.66	 0.03	 1.2	 9	 0.06	 0.04
+LaRod Stephens-Howling
+ARI	 1.9	 0.5	 1	 2.81	 0.01	 0.2	 2	 0.01	 0.04
+James Starks
+GB	 1.6	 2.4	 8	 3.49	 0.05	 0.4	 3	 0.04	 0.03
+Ronnie Brown
+SD	 1.5	 3.4	 11	 3.33	 0.07	 0.1	 1	 0.01	 0.04
+Montario Hardesty
+CLE	 1.5	 3.2	 9	 2.83	 0.06	 0.2	 2	 0.01	 0.02
+LeRon McClain
+SD	 1.4	 0.9	 3	 2.85	 0.02	 1.2	 7	 0.05	 0.02
+Taiwan Jones
+OAK	 1.4	 1.4	 7	 5.23	 0.07	 0.6	 1	 0.02	 0.02
+Stanley Havili
+PHI	 1.4	 0.2	 1	 3.03	 0.01	 0.4	 11	 0.02	 0
+Lamar Miller
+MIA	 1.4	 1.9	 7	 3.85	 0.05	 0.1	 1	 0.01	 0.03
+Steve Slaton
+MIA	 1.3	 1.3	 5	 3.6	 0.02	 0.2	 1	 0.01	 0.06
+Stefan Logan
+DET	 1.3	 0	 0	 0	 0	 0	 0	 0	 0.26
+Jorvorskie Lane
+MIA	 1.3	 0.6	 2	 3.91	 0.02	 0.9	 7	 0.04	 0.02
+Jeff Demps
+NE	 1.2	 0	 0	 0	 0	 0	 0	 0	 0.03
+Bobby Rainey
+BAL	 1.1	 1.4	 5	 3.32	 0.03	 0.3	 2	 0.02	 0.03
+Curtis Brinkley
+SD	 0.9	 1.9	 6	 3.22	 0.05	 0.1	 0	 0	 0.02
+Cyrus Gray
+KC	 0.9	 1.3	 6	 4.21	 0.05	 0.1	 1	 0	 0.01
+Mewelde Moore
+IND	 0.7	 0.2	 1	 4.25	 0	 0.5	 5	 0.03	 0.02
+Vonta Leach
+BAL	 0.7	 0.3	 1	 2.16	 0	 0.9	 5	 0.03	 0.01
+Brandon Jacobs
+SF	 0.7	 0.8	 4	 4.71	 0.03	 0.1	 1	 0.01	 0
+Anthony Sherman
+ARI	 0.7	 0	 0	 2.75	 0	 0.6	 6	 0.03	 0.01
+Phillip Tanner
+DAL	 0.7	 0.4	 1	 3.62	 0.02	 0.5	 4	 0.02	 0.01
+Jalen Parmele
+JAC	 0.6	 0	 0	 0	 0	 0	 0	 0	 0.07
+Keiland Williams
+DET	 0.6	 0.5	 2	 3.95	 0.02	 0.2	 2	 0.01	 0.01
+Bruce Miller
+SF	 0.6	 0	 0	 1.52	 0	 0.7	 5	 0.03	 0.03
+Shaun Chapas
+DAL	 0.6	 0	 0	 0	 0	 0.5	 4	 0.04	 0
+Brad Smelley
+CLE	 0.6	 0	 0	 0	 0	 0.5	 5	 0.02	 0
+Owen Schmitt
+OAK	 0.5	 0.2	 0	 1.76	 0	 0.4	 3	 0.02	 0.01
+Christopher Ivory
+NO	 0.5	 0.6	 2	 3.81	 0.01	 0.2	 1	 0.01	 0.01
+Vick Ballard
+IND	 0.5	 0.3	 1	 3.54	 0.01	 0.3	 3	 0.01	 0

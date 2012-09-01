@@ -8,7 +8,7 @@ import (
 )
 
 func TestLoadDsts(t *testing.T) {
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	players, defaultPlayer := loader.loadDsts()
 	for _, v := range players {
 		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
@@ -18,7 +18,7 @@ func TestLoadDsts(t *testing.T) {
 }
 
 func TestLoadKs(t *testing.T) {
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	players, defaultPlayer := loader.loadKs()
 	for _, v := range players {
 		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
@@ -28,7 +28,7 @@ func TestLoadKs(t *testing.T) {
 }
 
 func TestLoadQbs(t *testing.T) {
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	players, defaultPlayer := loader.loadQbs()
 	for _, v := range players {
 		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
@@ -38,7 +38,7 @@ func TestLoadQbs(t *testing.T) {
 }
 
 func TestLoadRbs(t *testing.T) {
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	players, defaultPlayer := loader.loadRbs()
 	for _, v := range players {
 		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
@@ -48,7 +48,7 @@ func TestLoadRbs(t *testing.T) {
 }
 
 func TestLoadTes(t *testing.T) {
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	players, defaultPlayer := loader.loadTes()
 	for _, v := range players {
 		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
@@ -58,7 +58,7 @@ func TestLoadTes(t *testing.T) {
 }
 
 func TestLoadWrs(t *testing.T) {
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	players, defaultPlayer := loader.loadWrs()
 	for _, v := range players {
 		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
@@ -70,7 +70,7 @@ func TestLoadWrs(t *testing.T) {
 func TestTimeLoadAll(t *testing.T) {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	start := time.Now()
-	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 3)
+	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	loader.LoadAll()
 	fmt.Println(time.Since(start))
 }

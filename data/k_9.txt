@@ -1,0 +1,99 @@
+
+PLAYER
+TEAM
+FP
+FGM
+FGA
+FG0-39
+FG40-49
+FG50
+XPM
+XPA
+Mason Crosby
+GB	 11.6	 2.24	 2.72	 1.51	 0.5	 0.23	 4.2	 4.27
+Steve Hauschka
+SEA	 9.8	 1.91	 2.31	 1.1	 0.52	 0.29	 3.16	 3.21
+Sebastian Janikowski
+OAK	 9.6	 2.05	 2.43	 1.34	 0.55	 0.16	 2.94	 2.98
+Alex Henery
+PHI	 9.6	 1.84	 2.11	 1.09	 0.56	 0.19	 3.52	 3.57
+Justin Tucker
+BAL	 9.6	 2.15	 2.62	 1.44	 0.55	 0.16	 2.64	 2.68
+Dan Bailey
+DAL	 9.5	 2.02	 2.39	 1.37	 0.51	 0.14	 3	 3.05
+Garrett Hartley
+NO	 9.3	 1.74	 2.01	 0.94	 0.6	 0.21	 3.42	 3.47
+Shayne Graham
+HOU	 9	 1.73	 2.06	 1.14	 0.43	 0.16	 3.32	 3.37
+Matt Bryant
+ATL	 8.8	 1.64	 1.81	 0.92	 0.53	 0.18	 3.38	 3.43
+Nate Kaeding
+SD	 8.8	 1.75	 2.16	 1.12	 0.48	 0.15	 3.12	 3.16
+Robbie Gould
+CHI	 8.8	 1.97	 2.33	 1.31	 0.48	 0.18	 2.39	 2.42
+Jason Hanson
+DET	 8.7	 1.63	 2.01	 1.07	 0.42	 0.14	 3.33	 3.38
+Mike Nugent
+CIN	 8.6	 1.81	 2.13	 1.18	 0.48	 0.15	 2.65	 2.69
+Justin Medlock
+CAR	 8.6	 1.85	 2.26	 1.29	 0.42	 0.15	 2.62	 2.66
+Billy Cundiff
+WAS	 8.3	 1.8	 2.22	 1.18	 0.48	 0.14	 2.51	 2.55
+Matt Prater
+DEN	 8.1	 1.45	 1.84	 0.99	 0.35	 0.12	 3.44	 3.49
+Adam Vinatieri
+IND	 7.8	 1.71	 1.95	 1	 0.52	 0.18	 2.11	 2.14
+Josh Scobee
+JAC	 7.6	 1.68	 1.96	 1.06	 0.48	 0.14	 2.18	 2.21
+Connor Barth
+TB	 7.5	 1.64	 1.86	 0.98	 0.49	 0.17	 2.1	 2.13
+Ryan Succop
+KC	 7.4	 1.59	 1.92	 1.02	 0.43	 0.13	 2.24	 2.28
+Rian Lindell
+BUF	 7.3	 1.51	 1.81	 0.96	 0.39	 0.16	 2.27	 2.31
+Lawrence Tynes
+NYG	 7.3	 1.53	 2.08	 1.06	 0.35	 0.12	 2.37	 2.41
+Shaun Suisham
+PIT	 7.3	 1.67	 2.02	 1.13	 0.42	 0.12	 1.94	 1.97
+Rob Bironas
+TEN	 7	 1.47	 1.68	 0.8	 0.5	 0.18	 2.06	 2.09
+Dan Carpenter
+MIA	 6.9	 1.6	 1.89	 1.01	 0.44	 0.15	 1.65	 1.67
+Phil Dawson
+CLE	 6.8	 1.55	 1.74	 0.9	 0.47	 0.18	 1.64	 1.66
+Jay Feely
+ARI	 6.2	 1.29	 1.55	 0.87	 0.28	 0.14	 1.95	 1.98
+Blair Walsh
+MIN	 6.1	 1.29	 1.72	 0.9	 0.29	 0.1	 1.89	 1.92
+John Kasay
+NO	 0	 0	 0	 0	 0	 0	 0	 0
+Olindo Mare
+CAR	 0	 0	 0	 0	 0	 0	 0	 0
+Ryan Longwell
+MIN	 0	 0	 0	 0	 0	 0	 0	 0
+David Akers
+SF	 0	 0	 0	 0	 0	 0	 0	 0
+Neil Rackers
+WAS	 0	 0	 0	 0	 0	 0	 0	 0
+Josh Brown
+NYJ	 0	 0	 0	 0	 0	 0	 0	 0
+Nick Novak
+SD	 0	 0	 0	 0	 0	 0	 0	 0
+Stephen Gostkowski
+NE	 0	 0	 0	 0	 0	 0	 0	 0
+Nick Folk
+NYJ	 0	 0	 0	 0	 0	 0	 0	 0
+Rhys Lloyd
+NYG	 0	 0	 0	 0	 0	 0	 0	 0
+Brandon Coutu
+JAC	 0	 0	 0	 0	 0	 0	 0	 0
+David Buehler
+DAL	 0	 0	 0	 0	 0	 0	 0	 0
+Graham Gano
+WAS	 0	 0	 0	 0	 0	 0	 0	 0
+Randy Bullock
+HOU	 0	 0	 0	 0	 0	 0	 0	 0
+Greg Zuerlein
+STL	 0	 0	 0	 0	 0	 0	 0	 0
+John Potter
+BUF	 0	 0	 0	 0	 0	 0	 0	 0

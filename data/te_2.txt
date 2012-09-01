@@ -1,3 +1,4 @@
+
 PLAYER
 TEAM
 FP
@@ -7,102 +8,102 @@ YPR
 RECTD
 FUML
 Rob Gronkowski
-NE	 12.1	 4.6	 72	 15.7	 0.79	 0.03
+NE	 12.3	 4.7	 73	 15.5	 0.82	 0.04
 Antonio Gates
-SD	 11.8	 5.3	 71	 13.4	 0.78	 0.05
+SD	 12.1	 5.4	 74	 13.5	 0.8	 0.05
 Jimmy Graham
-NO	 11.3	 5.4	 66	 12.4	 0.79	 0.05
-Aaron Hernandez
-NE	 9.2	 4.2	 51	 12.2	 0.42	 0.06
+NO	 11.1	 5.2	 66	 12.8	 0.76	 0.05
 Vernon Davis
-SF	 9	 4.1	 56	 13.7	 0.58	 0.07
-Tony Gonzalez
-ATL	 7.5	 4.7	 50	 10.8	 0.43	 0.05
-Jermichael Finley
-GB	 6.8	 3.4	 43	 12.6	 0.43	 0.03
-Jermaine Gresham
-CIN	 6.2	 4.5	 48	 10.5	 0.26	 0.07
-Jacob Tamme
-DEN	 5.9	 4	 40	 10	 0.34	 0.03
-Brandon Pettigrew
-DET	 5.8	 4.7	 48	 10.3	 0.16	 0.04
-Martellus Bennett
-NYG	 5.7	 3.8	 38	 10.2	 0.31	 0.03
-Dustin Keller
-NYJ	 5.6	 3.7	 43	 11.6	 0.22	 0.03
-Coby Fleener
-IND	 5.6	 3.2	 36	 11.2	 0.34	 0.02
-Dallas Clark
-TB	 5.3	 3.5	 39	 11.2	 0.24	 0.04
-Fred Davis
-WAS	 5.3	 3	 40	 13.6	 0.22	 0.03
-Brent Celek
-PHI	 5	 3.4	 40	 11.5	 0.17	 0.03
-Joel Dreessen
-DEN	 4.9	 2.1	 30	 14.5	 0.33	 0.02
-Dennis Pitta
-BAL	 4.8	 3	 32	 10.8	 0.26	 0.03
-Heath Miller
-PIT	 4.7	 3.3	 38	 11.5	 0.15	 0.04
-Ed Dickson
-BAL	 4.7	 2.6	 30	 11.3	 0.29	 0.01
-Owen Daniels
-HOU	 4.5	 3.1	 34	 11.1	 0.2	 0.03
-Greg Olsen
-CAR	 4.4	 2.9	 33	 11.6	 0.2	 0.06
-Dwayne Allen
-IND	 4.3	 2.5	 28	 11.1	 0.26	 0.03
-Kyle Rudolph
-MIN	 4.2	 3.3	 31	 9.3	 0.2	 0.03
-Todd Heap
-ARI	 4.1	 2.6	 32	 12.4	 0.16	 0.02
-Benjamin Watson
-CLE	 4.1	 2.9	 33	 11.3	 0.15	 0.03
-Jared Cook
-TEN	 4	 2.6	 34	 13	 0.12	 0.05
-Tony Scheffler
-DET	 3.9	 1.9	 24	 12.8	 0.26	 0.05
-Marcedes Lewis
-JAC	 3.8	 2.4	 29	 12.2	 0.16	 0.02
-Tony Moeaki
-KC	 3.6	 2.4	 26	 10.9	 0.17	 0.02
-Anthony Fasano
-MIA	 3.5	 2.2	 28	 12.8	 0.13	 0.02
-Scott Chandler
-BUF	 3.5	 1.7	 22	 12.7	 0.24	 0.03
-Jed Collins
-NO	 3.3	 1.8	 19	 10.6	 0.22	 0.02
-Zach Miller
-SEA	 3.1	 2.2	 24	 10.6	 0.13	 0.03
-Lance Kendricks
-STL	 3.1	 2	 25	 12.9	 0.12	 0.05
+SF	 9.6	 4.3	 60	 13.9	 0.63	 0.08
+Aaron Hernandez
+NE	 9.1	 4.3	 53	 12.2	 0.38	 0.05
 Jason Witten
-DAL	 2.9	 2	 22	 11	 0.12	 0.02
-Delanie Walker
-SF	 2.9	 1.5	 20	 13	 0.16	 0.02
-Michael Palmer
-ATL	 2.8	 1.7	 17	 10	 0.19	 0.02
-John Phillips
-DAL	 2.6	 2.1	 18	 8.7	 0.13	 0.03
-Kellen Davis
-CHI	 2.5	 1.6	 16	 10.1	 0.16	 0.01
-Craig Stevens
-TEN	 2.4	 1.4	 16	 11	 0.15	 0.01
-Rob Housler
-ARI	 2.3	 2.1	 19	 9.2	 0.1	 0.09
-Kevin Boss
-KC	 2.2	 1.4	 15	 11.3	 0.11	 0.01
-Luke Stocker
-TB	 2.1	 1.7	 15	 9.2	 0.1	 0.01
-John Carlson
-MIN	 2	 1.9	 15	 7.9	 0.1	 0.03
-Michael Hoomanawanui
-STL	 1.9	 1.5	 14	 9.3	 0.08	 0.01
-James Casey
-HOU	 1.8	 1.3	 13	 10	 0.08	 0.01
-Clay Harbor
-PHI	 1.8	 1.5	 14	 9.1	 0.07	 0.01
-Randy McMichael
-SD	 1.7	 1.7	 13	 7.8	 0.06	 0.02
+DAL	 8.7	 5.7	 65	 11.5	 0.39	 0.05
+Tony Gonzalez
+ATL	 7.1	 4.6	 47	 10.3	 0.42	 0.05
+Jermichael Finley
+GB	 6.4	 3.4	 41	 12.1	 0.39	 0.03
+Brandon Pettigrew
+DET	 6.1	 4.8	 50	 10.4	 0.2	 0.04
+Fred Davis
+WAS	 6	 3.4	 45	 13.4	 0.25	 0.04
+Jermaine Gresham
+CIN	 5.8	 4	 43	 10.6	 0.27	 0.05
+Coby Fleener
+IND	 5.8	 3.3	 38	 11.4	 0.34	 0.03
+Greg Olsen
+CAR	 5.6	 3.7	 43	 11.6	 0.25	 0.06
+Jacob Tamme
+DEN	 5.5	 3.9	 37	 9.5	 0.3	 0.04
+Brent Celek
+PHI	 5.2	 3.4	 40	 11.8	 0.2	 0.03
+Martellus Bennett
+NYG	 5.2	 3.6	 36	 9.8	 0.29	 0.04
+Dustin Keller
+NYJ	 5.1	 3.7	 42	 11.3	 0.17	 0.04
+Dallas Clark
+TB	 5	 3.4	 37	 11	 0.23	 0.05
+Benjamin Watson
+CLE	 4.8	 3.5	 39	 11.3	 0.16	 0.04
+Dwayne Allen
+IND	 4.7	 2.6	 30	 11.5	 0.3	 0.01
+Owen Daniels
+HOU	 4.6	 3	 34	 11.3	 0.2	 0.03
+Ed Dickson
+BAL	 4.6	 2.7	 30	 11	 0.28	 0.03
+Heath Miller
+PIT	 4.5	 3.3	 38	 11.4	 0.14	 0.03
+Joel Dreessen
+DEN	 4.4	 2.1	 28	 13.5	 0.27	 0.02
+Marcedes Lewis
+JAC	 4.3	 2.7	 34	 12.6	 0.16	 0.02
+Kyle Rudolph
+MIN	 4.2	 3.4	 30	 9	 0.21	 0.02
+Jared Cook
+TEN	 4.1	 2.5	 34	 13.3	 0.14	 0.04
+Tony Scheffler
+DET	 3.9	 1.9	 24	 12.5	 0.26	 0.04
+Dennis Pitta
+BAL	 3.9	 2.4	 26	 10.8	 0.23	 0.02
+Todd Heap
+ARI	 3.7	 2.4	 29	 12.2	 0.12	 0.01
+Scott Chandler
+BUF	 3.6	 1.8	 23	 12.8	 0.24	 0.03
+Anthony Fasano
+MIA	 3.4	 2.1	 27	 12.8	 0.13	 0.02
 Zach Miller
-JAC	 1.7	 1.1	 14	 12	 0.07	 0.01
+SEA	 3.4	 2.4	 25	 10.5	 0.15	 0.03
+Jed Collins
+NO	 3.4	 1.8	 19	 10.8	 0.25	 0.02
+Tony Moeaki
+KC	 3.4	 2.3	 25	 11.2	 0.16	 0.03
+Lance Kendricks
+STL	 3.4	 2.2	 29	 13.2	 0.11	 0.04
+Delanie Walker
+SF	 3.1	 1.5	 21	 13.6	 0.16	 0.04
+Michael Palmer
+ATL	 3	 1.7	 17	 10	 0.22	 0.02
+Kellen Davis
+CHI	 2.6	 1.6	 17	 10.3	 0.16	 0.01
+Rob Housler
+ARI	 2.4	 2.1	 20	 9.5	 0.1	 0.09
+Craig Stevens
+TEN	 2.3	 1.5	 16	 10.7	 0.13	 0.01
+Kevin Boss
+KC	 2.1	 1.3	 14	 10.8	 0.11	 0.01
+John Carlson
+MIN	 2.1	 1.9	 15	 7.9	 0.1	 0.01
+Luke Stocker
+TB	 2.1	 1.7	 15	 9.4	 0.09	 0.02
+Michael Hoomanawanui
+STL	 1.9	 1.6	 15	 9.2	 0.07	 0.01
+Zach Miller
+JAC	 1.8	 1.2	 14	 11.6	 0.07	 0.01
+Clay Harbor
+PHI	 1.8	 1.5	 14	 9	 0.08	 0.02
+Charles Clay
+MIA	 1.8	 1.3	 13	 10.3	 0.1	 0.01
+Randy McMichael
+SD	 1.7	 1.7	 13	 7.9	 0.06	 0.02
+James Casey
+HOU	 1.6	 1.2	 12	 9.9	 0.07	 0.01

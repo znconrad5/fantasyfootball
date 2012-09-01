@@ -1,0 +1,113 @@
+
+PLAYER
+TEAM
+FP
+COMP
+ATT
+CMP%
+PASSYD
+PASSTD
+INT
+RUSHYD
+RUSHTD
+FUML
+Drew Brees
+NO	 22.7	 31.8	 43.8	 0.727	 357	 2.7	 1.27	 3	 0.02	 0.14
+Cam Newton
+CAR	 22.4	 22.6	 37.4	 0.605	 270	 1.36	 1.01	 47	 0.64	 0.15
+Matthew Stafford
+DET	 22.1	 24.1	 35.9	 0.67	 297	 2.84	 0.7	 4	 0.04	 0.18
+Peyton Manning
+DEN	 21.8	 21.5	 31.6	 0.682	 304	 2.8	 0.67	 0	 0.01	 0.14
+Tom Brady
+NE	 21.1	 24.4	 36.1	 0.675	 291	 2.58	 1.05	 8	 0.11	 0.14
+Matt Ryan
+ATL	 21.1	 23.8	 40.3	 0.59	 307	 2.32	 0.55	 6	 0.06	 0.14
+Michael Vick
+PHI	 19.9	 20.7	 34	 0.609	 258	 1.33	 1.06	 51	 0.38	 0.5
+Philip Rivers
+SD	 17.4	 20.9	 33.4	 0.626	 276	 2.14	 1.07	 2	 0.03	 0.25
+Tony Romo
+DAL	 17.2	 23.1	 35.8	 0.646	 255	 2.16	 0.76	 3	 0.03	 0.3
+Josh Freeman
+TB	 16.2	 21.1	 35.4	 0.595	 255	 1.42	 1.22	 23	 0.18	 0.34
+Joe Flacco
+BAL	 15.4	 18.5	 32.8	 0.565	 241	 1.79	 0.67	 6	 0.04	 0.43
+Eli Manning
+NYG	 15.1	 21.3	 36.4	 0.585	 259	 1.69	 0.88	 1	 0.02	 0.26
+Andrew Luck
+IND	 15	 22.7	 35.1	 0.647	 241	 1.5	 1.01	 13	 0.11	 0.26
+Ben Roethlisberger
+PIT	 14.1	 18.7	 32.2	 0.582	 244	 1.45	 0.92	 8	 0.04	 0.35
+Ryan Fitzpatrick
+BUF	 14.1	 21.8	 36.9	 0.592	 235	 1.72	 1.48	 12	 0.04	 0.29
+Andy Dalton
+CIN	 13.2	 19.7	 33.7	 0.583	 230	 1.13	 0.94	 13	 0.08	 0.21
+Jay Cutler
+CHI	 13.1	 18.4	 32.2	 0.572	 232	 1.09	 0.68	 12	 0.11	 0.5
+Alex Smith
+SF	 12.9	 14.7	 25.5	 0.575	 178	 1.09	 0.47	 18	 0.18	 0.28
+Christian Ponder
+MIN	 12.9	 20.6	 35.5	 0.581	 232	 1.17	 1.25	 18	 0.08	 0.41
+Jake Locker
+TEN	 12.7	 16.1	 32.2	 0.502	 202	 1.04	 0.77	 13	 0.14	 0.07
+Matt Schaub
+HOU	 12	 20.2	 31.9	 0.634	 207	 1.31	 0.72	 1	 0.02	 0.14
+Russell Wilson
+SEA	 11.5	 15.3	 29.4	 0.519	 181	 0.7	 0.97	 27	 0.26	 0.45
+Mark Sanchez
+NYJ	 10.6	 17.1	 31.5	 0.542	 202	 0.98	 1	 7	 0.08	 0.28
+Ryan Tannehill
+MIA	 10.2	 19.6	 31.3	 0.627	 176	 0.87	 1.05	 15	 0.16	 0.32
+Sam Bradford
+STL	 9.8	 20.9	 36.1	 0.578	 227	 0.74	 0.8	 2	 0.01	 0.43
+Blaine Gabbert
+JAC	 9.8	 18.7	 28.7	 0.65	 178	 0.89	 0.53	 10	 0.05	 0.55
+Matt Cassel
+KC	 9.2	 16.6	 31.2	 0.533	 183	 0.77	 0.77	 6	 0.03	 0.24
+Carson Palmer
+OAK	 7.7	 16.8	 32	 0.526	 193	 0.69	 1.37	 2	 0.03	 0.17
+Tim Tebow
+NYJ	 3	 1.2	 3	 0.414	 15	 0.08	 0.08	 18	 0.12	 0.14
+Dan Orlovsky
+TB	 1	 1.6	 2.6	 0.608	 20	 0.12	 0.07	 0	 0	 0.05
+Matt Leinart
+OAK	 0.5	 0.8	 1.4	 0.559	 9	 0.04	 0.04	 0	 0	 0.01
+Matt Hasselbeck
+TEN	 0.4	 0.7	 1.2	 0.569	 8	 0.04	 0.02	 0	 0	 0.01
+Matt Moore
+MIA	 0.4	 0.8	 1.2	 0.642	 7	 0.04	 0.03	 0	 0	 0.02
+Chad Henne
+JAC	 0.4	 0.6	 1	 0.673	 6	 0.02	 0.03	 1	 0.01	 0.01
+Nick Foles
+PHI	 0.4	 0.7	 1.2	 0.571	 9	 0.04	 0.04	 0	 0	 0.01
+Matt Flynn
+SEA	 0.3	 0.5	 1	 0.543	 6	 0.03	 0.04	 0	 0	 0.01
+Caleb Hanie
+DEN	 0.3	 0.4	 0.8	 0.532	 5	 0.03	 0.02	 0	 0	 0
+Shaun Hill
+DET	 0.2	 0.3	 0.4	 0.65	 3	 0.02	 0.01	 0	 0	 0
+Kyle Orton
+DAL	 0.2	 0.3	 0.6	 0.563	 4	 0.02	 0.01	 0	 0	 0
+Tarvaris Jackson
+BUF	 0.2	 0.4	 0.7	 0.578	 4	 0.02	 0.02	 0	 0	 0
+Bruce Gradkowski
+CIN	 0.2	 0.4	 0.9	 0.502	 5	 0.03	 0.04	 0	 0	 0.01
+Joe Webb
+MIN	 0.2	 0.2	 0.4	 0.581	 3	 0.01	 0.02	 0	 0	 0
+Tyrod Taylor
+BAL	 0.2	 0.3	 0.5	 0.673	 4	 0.02	 0.01	 0	 0	 0
+Austin Davis
+STL	 0.2	 0.4	 0.7	 0.577	 4	 0.01	 0.02	 0	 0	 0
+Chris Redman
+ATL	 0.1	 0.1	 0.2	 0.587	 1	 0	 0.01	 0	 0	 0
+David Carr
+NYG	 0.1	 0.1	 0.2	 0.502	 1	 0	 0.01	 0	 0	 0
+Jason Campbell
+CHI	 0.1	 0.1	 0.2	 0.588	 2	 0.01	 0	 0	 0	 0
+Derek Anderson
+CAR	 0.1	 0.1	 0.2	 0.512	 1	 0.01	 0	 0	 0	 0
+Charlie Whitehurst
+SD	 0.1	 0.1	 0.2	 0.527	 1	 0.01	 0	 0	 0	 0
+Brady Quinn
+KC	 0.1	 0.2	 0.3	 0.552	 2	 0.01	 0	 0	 0	 0
