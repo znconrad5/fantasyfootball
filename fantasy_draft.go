@@ -18,6 +18,11 @@ type FantasyDraft struct {
 	wrs            *Stack
 }
 
+type Move struct {
+	Player *FootballPlayer
+	Evaluation int
+}
+
 func NewFantasyDraft(names [10]string, maxName string, data *DataSource) *FantasyDraft {
 	fd := &FantasyDraft{playersDrafted: 0}
 	for i, name := range names {
@@ -96,14 +101,14 @@ func (fd *FantasyDraft) removeFootballPlayer(player *FootballPlayer) {
 	pool.Remove(player)
 }
 
-func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan *FootballPlayer {
-	moves := make(chan *FootballPlayer)
+func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan Move {
+	moves := make(chan Move)
 	go func() {
 		defer close(moves)
-		for depth:=START_DEPTH; ; depth++ {
-			move, _ := fd.Alphabeta(depth, math.MinInt32, math.MaxInt32, stop)
-			if move != nil {
-				moves <- move
+		for depth:=1; ; depth++ {
+			move, val, ok := fd.Alphabeta(depth, math.MinInt32, math.MaxInt32, stop)
+			if ok {
+				moves <- Move{move, val}
 			} else {
 				return
 			}
@@ -112,11 +117,11 @@ func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan *FootballPla
 	return moves
 }
 
-func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*FootballPlayer, int) {
+func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*FootballPlayer, int, bool) {
 	runtime.Gosched()
 	select {
 	case <- stop:
-		return nil, 0
+		return nil, 0, false
 	default:
 		var move *FootballPlayer
 		if depth == 0 || fd.isDraftOver() {
@@ -126,7 +131,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*Fo
 			} else {
 				value = fd.estimate()
 			}
-			return move, value
+			return move, value, true
 		}
 		currentPlayer := fd.currentPlayer()
 		s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
@@ -136,37 +141,43 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*Fo
 				draftee := v.Pop().(*FootballPlayer)
 				currentPlayer.draft(draftee)
 				fd.playersDrafted++
-				_, moveValue := fd.Alphabeta(depth-1, alpha, beta, stop)
+				_, moveValue, ok := fd.Alphabeta(depth-1, alpha, beta, stop)
+				fd.playersDrafted--
+				currentPlayer.undraft(draftee)
+				v.Push(draftee)
+				if !ok {
+					return nil, 0, false
+				}
 				if moveValue > alpha {
 					alpha = moveValue
 					move = draftee
 				}
-				fd.playersDrafted--
-				currentPlayer.undraft(draftee)
-				v.Push(draftee)
 				if beta <= alpha {
 					break
 				}
 			}
-			return move, alpha
+			return move, alpha, true
 		} else {
 			for _, v := range s.stacks {
 				draftee := v.Pop().(*FootballPlayer)
 				currentPlayer.draft(draftee)
 				fd.playersDrafted++
-				_, moveValue := fd.Alphabeta(depth-1, alpha, beta, stop)
+				_, moveValue, ok := fd.Alphabeta(depth-1, alpha, beta, stop)
+				fd.playersDrafted--
+				currentPlayer.undraft(draftee)
+				v.Push(draftee)
+				if !ok {
+					return nil, 0, false
+				}
 				if moveValue < beta {
 					beta = moveValue
 					move = draftee
 				}
-				fd.playersDrafted--
-				currentPlayer.undraft(draftee)
-				v.Push(draftee)
 				if beta <= alpha {
 					break
 				}
 			}
-			return move, beta
+			return move, beta, true
 		}	
 	}
 	panic("alphabeta() unexpectedly returned")

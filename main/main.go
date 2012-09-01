@@ -36,11 +36,11 @@ func main() {
 		time.AfterFunc(5*time.Second, func() { close(stopper) })
 		moves := draft.IterativeAlphabeta(stopper)
 		fmt.Printf("Suggested draft for %v\n", i)
-		var lastMove *fantasyfootball.FootballPlayer
+		var lastMove fantasyfootball.Move
 		for move := range moves {
-			fmt.Printf("\t%v\n", move)
+			fmt.Printf("\t%v %v\n", move.Evaluation, move.Player)
 			lastMove = move
 		}
-		draft.Draft(lastMove)
+		draft.Draft(lastMove.Player)
 	}
 }
