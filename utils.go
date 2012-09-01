@@ -6,7 +6,7 @@ import (
 
 const (
 	SEASON_LENGTH = 14
-	START_DEPTH = 6
+	START_DEPTH = 5
 )
 
 func handleError(err error) {

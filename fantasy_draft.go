@@ -1,6 +1,8 @@
 package fantasyfootball
 
 import (
+	"math"
+	"runtime"
 	"sort"
 )
 
@@ -94,56 +96,78 @@ func (fd *FantasyDraft) removeFootballPlayer(player *FootballPlayer) {
 	pool.Remove(player)
 }
 
-func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int) (*FootballPlayer, int) {
-	var move *FootballPlayer
-	if depth == 0 || fd.isDraftOver() {
-		var value int
-		if fd.playersDrafted > 90 {
-			value = fd.evaluate()
+func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan *FootballPlayer {
+	moves := make(chan *FootballPlayer)
+	go func() {
+		defer close(moves)
+		for depth:=START_DEPTH; ; depth++ {
+			move, _ := fd.Alphabeta(depth, math.MinInt32, math.MaxInt32, stop)
+			if move != nil {
+				moves <- move
+			} else {
+				return
+			}
+		}
+	}()
+	return moves
+}
+
+func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*FootballPlayer, int) {
+	runtime.Gosched()
+	select {
+	case <- stop:
+		return nil, 0
+	default:
+		var move *FootballPlayer
+		if depth == 0 || fd.isDraftOver() {
+			var value int
+			if fd.playersDrafted > 90 {
+				value = fd.evaluate()
+			} else {
+				value = fd.estimate()
+			}
+			return move, value
+		}
+		currentPlayer := fd.currentPlayer()
+		s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
+		sort.Sort(s)
+		if fd.maxPlayer == currentPlayer {
+			for _, v := range s.stacks {
+				draftee := v.Pop().(*FootballPlayer)
+				currentPlayer.draft(draftee)
+				fd.playersDrafted++
+				_, moveValue := fd.Alphabeta(depth-1, alpha, beta, stop)
+				if moveValue > alpha {
+					alpha = moveValue
+					move = draftee
+				}
+				fd.playersDrafted--
+				currentPlayer.undraft(draftee)
+				v.Push(draftee)
+				if beta <= alpha {
+					break
+				}
+			}
+			return move, alpha
 		} else {
-			value = fd.estimate()
-		}
-		return move, value
-	}
-	currentPlayer := fd.currentPlayer()
-	s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
-	sort.Sort(s)
-	if fd.maxPlayer == currentPlayer {
-		for _, v := range s.stacks {
-			draftee := v.Pop().(*FootballPlayer)
-			currentPlayer.draft(draftee)
-			fd.playersDrafted++
-			_, moveValue := fd.Alphabeta(depth-1, alpha, beta)
-			if moveValue > alpha {
-				alpha = moveValue
-				move = draftee
+			for _, v := range s.stacks {
+				draftee := v.Pop().(*FootballPlayer)
+				currentPlayer.draft(draftee)
+				fd.playersDrafted++
+				_, moveValue := fd.Alphabeta(depth-1, alpha, beta, stop)
+				if moveValue < beta {
+					beta = moveValue
+					move = draftee
+				}
+				fd.playersDrafted--
+				currentPlayer.undraft(draftee)
+				v.Push(draftee)
+				if beta <= alpha {
+					break
+				}
 			}
-			fd.playersDrafted--
-			currentPlayer.undraft(draftee)
-			v.Push(draftee)
-			if beta <= alpha {
-				break
-			}
-		}
-		return move, alpha
-	} else {
-		for _, v := range s.stacks {
-			draftee := v.Pop().(*FootballPlayer)
-			currentPlayer.draft(draftee)
-			fd.playersDrafted++
-			_, moveValue := fd.Alphabeta(depth-1, alpha, beta)
-			if moveValue < beta {
-				beta = moveValue
-				move = draftee
-			}
-			fd.playersDrafted--
-			currentPlayer.undraft(draftee)
-			v.Push(draftee)
-			if beta <= alpha {
-				break
-			}
-		}
-		return move, beta
+			return move, beta
+		}	
 	}
 	panic("alphabeta() unexpectedly returned")
 }

@@ -9,6 +9,17 @@ type A struct {
 	val int
 }
 
+func TestChan(t *testing.T) {
+	bChan := make(chan bool)
+	close(bChan)
+	select {
+	case <- bChan:
+		fmt.Println(<-bChan)
+	default:
+		fmt.Println("default")
+	}
+}
+
 func TestPushAndPop(t *testing.T) {
 	stack := NewStack()
 	for i:=0; i<200; i++ {

@@ -5,10 +5,10 @@ import (
 	"flag"
 	"fmt"
 	"log"
-	"math"
 	"os"
 	// "runtime"
 	"runtime/pprof"
+	"time"
 )
 
 var dataDir = flag.String("dataDir", "/Users/zachconrad/Documents/go/src/fantasyfootball/data", "The directory to look in for player statistics.")
@@ -32,8 +32,15 @@ func main() {
 		        defer pprof.StopCPUProfile()
 	}
 	for i:=0; i<20; i++ {
-		move, val := draft.Alphabeta(7, math.MinInt32, math.MaxInt32)
-		fmt.Printf("Suggested draft for %v: %v %v\n", i, move, val)
-		draft.Draft(move)
+		stopper := make(chan bool);
+		time.AfterFunc(5*time.Second, func() { close(stopper) })
+		moves := draft.IterativeAlphabeta(stopper)
+		fmt.Printf("Suggested draft for %v\n", i)
+		var lastMove *fantasyfootball.FootballPlayer
+		for move := range moves {
+			fmt.Printf("\t%v\n", move)
+			lastMove = move
+		}
+		draft.Draft(lastMove)
 	}
 }
