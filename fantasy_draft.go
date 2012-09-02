@@ -133,7 +133,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*Fo
 		var move *FootballPlayer
 		if depth == 0 || fd.isDraftOver() {
 			var value int
-			if fd.playersDrafted > 90 {
+			if fd.playersDrafted > 70 {
 				value = fd.evaluate()
 			} else {
 				value = fd.estimate()
@@ -141,10 +141,8 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, stop <-chan bool) (*Fo
 			return move, value, true
 		}
 		currentPlayer := fd.currentPlayer()
-		s := &ByBestLikelyMove{currentPlayer, [...]*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
-		sort.Sort(s)
 		if fd.maxPlayer == currentPlayer {
-			for _, v := range s.stacks {
+			for _, v := range [...]*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts} {
 				draftee := v.Pop().(*FootballPlayer)
 				currentPlayer.draft(draftee)
 				fd.playersDrafted++

@@ -5,10 +5,11 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math"
 	"os"
 	// "runtime"
 	"runtime/pprof"
-	"time"
+	// "time"
 )
 
 var dataDir = flag.String("dataDir", "/Users/zachconrad/Documents/go/src/fantasyfootball/data", "The directory to look in for player statistics.")
@@ -31,17 +32,23 @@ func main() {
 		        pprof.StartCPUProfile(f)
 		        defer pprof.StopCPUProfile()
 	}
-	for i:=0; i<150; i++ {
-		stopper := make(chan bool);
-		time.AfterFunc(1*time.Second, func() { close(stopper) })
-		moves := draft.IterativeAlphabeta(stopper)
-		fmt.Printf("Suggested draft for %v\n", i)
-		var lastMove fantasyfootball.Move
-		for move := range moves {
-			fmt.Printf("\t%v %v\n", move.Evaluation, move.Player)
-			lastMove = move
-		}
-		draft.Draft(lastMove.Player)
+	// for i:=0; i<150; i++ {
+	// 	stopper := make(chan bool);
+	// 	time.AfterFunc(1*time.Second, func() { close(stopper) })
+	// 	moves := draft.IterativeAlphabeta(stopper)
+	// 	fmt.Printf("Suggested draft for %v\n", i)
+	// 	var lastMove fantasyfootball.Move
+	// 	for move := range moves {
+	// 		fmt.Printf("\t%v %v\n", move.Evaluation, move.Player)
+	// 		lastMove = move
+	// 	}
+	// 	draft.Draft(lastMove.Player)
+	// }
+	// fmt.Print(draft.String())
+	// To test profiling
+	for i:=0; i<60; i++ {
+		move, val, _ := draft.Alphabeta(7, math.MinInt32, math.MaxInt32, nil)
+		fmt.Printf("Suggested draft for %v: %v %v\n", i, val, move)
+		draft.Draft(move)
 	}
-	fmt.Print(draft.String())
 }
