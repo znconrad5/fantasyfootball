@@ -2,7 +2,6 @@ package fantasyfootball
 
 import (
 	"fmt"
-	"math"
 	"sort"
 )
 
@@ -23,6 +22,7 @@ type DataSource struct {
 	defaultTe  *FootballPlayer
 	wrs        []*FootballPlayer // wide receivers
 	defaultWr  *FootballPlayer
+	defaultFlex *FootballPlayer
 }
 
 func NewDataSource(dir string, startWeek, endWeek int) *DataSource {
@@ -43,6 +43,11 @@ func (loader *DataSource) LoadAll() {
 	go func() { c <- depair(loader.loadWrs()) }()
 	for i := 0; i < 6; i++ {
 		<-c
+	}
+	if loader.defaultRb.totalPoints() > loader.defaultWr.totalPoints() {
+		loader.defaultFlex = loader.defaultRb
+	} else {
+		loader.defaultFlex = loader.defaultWr
 	}
 }
 
@@ -97,13 +102,13 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 		offset = 2 * 9 // assume each player drafts 2
 	case RB:
 		fileName = "rb"
-		offset = int(math.Ceil(3.5 * 9)) // assume each player drafts 3.5
+		offset = 4 * 9 // assume each player drafts 4
 	case TE:
 		fileName = "te"
 		offset = 2 * 9 // assume each player drafts 2
 	case WR:
 		fileName = "wr"
-		offset = int(math.Ceil(3.5 * 9)) // assume each player drafts 3.5
+		offset = 4 * 9 // assume each player drafts 4
 	}
 	for week := loader.startWeek; week <= loader.endWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", loader.dir, fileName, week), week)
@@ -126,6 +131,14 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 	// associate a name with the "default" player, for funsies only since the point values are taken from the weekly nth best player, not the season's nth best player
 	sort.Sort(&ByTotalPointsDesc{players})
 	defaultPlayer.team = fmt.Sprintf("~%s", players[offset].name)
+	// normalize each player to the default player
+	for _, p := range players {
+		for week := loader.startWeek; week <= loader.endWeek; week++ {
+			p.points[week-1] -= defaultPlayer.points[week-1]
+			// reset total points so it is recalculated
+			p.totalPoints_ = 0
+		}
+	}
 	return players, defaultPlayer
 }
 

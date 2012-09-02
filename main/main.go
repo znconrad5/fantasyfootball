@@ -43,4 +43,5 @@ func main() {
 		}
 		draft.Draft(lastMove.Player)
 	}
+	fmt.Print(draft.String())
 }

@@ -4,6 +4,7 @@ import (
 	"math"
 	"runtime"
 	"sort"
+	"strings"
 )
 
 const (
@@ -223,7 +224,7 @@ func (fd *FantasyDraft) evaluate() int {
 			value -= player.totalPoints()
 		}
 	}
-	return value
+	return value / (len(fd.players) - 1)
 }
 
 func (fd *FantasyDraft) estimate() int {
@@ -235,9 +236,24 @@ func (fd *FantasyDraft) estimate() int {
 			value -= player.estimateTotalPoints()
 		}
 	}
-	return value
+	return value / (len(fd.players) - 1)
 }
 
 func (fd *FantasyDraft) isDraftOver() bool {
 	return fd.playersDrafted == DRAFT_LENGTH
+}
+
+func (fd *FantasyDraft) String() string {
+	return strings.Join([]string{
+		fd.players[0].String(),
+		fd.players[1].String(),
+		fd.players[2].String(),
+		fd.players[3].String(),
+		fd.players[4].String(),
+		fd.players[5].String(),
+		fd.players[6].String(),
+		fd.players[7].String(),
+		fd.players[8].String(),
+		fd.players[9].String(),
+	}, "\n\n")
 }

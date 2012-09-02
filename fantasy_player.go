@@ -1,6 +1,7 @@
 package fantasyfootball
 
 import (
+	"fmt"
 	"sort"
 )
 
@@ -13,17 +14,18 @@ type FantasyPlayer struct {
 	rbs  []*FootballPlayer
 	tes  []*FootballPlayer
 	wrs  []*FootballPlayer
+	// needed for calculations
+	defaultRb *FootballPlayer
+	defaultWr *FootballPlayer
+	defaultFlex *FootballPlayer
 }
 
 func newFantasyPlayer(name string, data *DataSource) *FantasyPlayer {
 	return &FantasyPlayer{
 		name: name,
-		dsts: []*FootballPlayer{data.defaultDst},
-		ks:   []*FootballPlayer{data.defaultK},
-		qbs:  []*FootballPlayer{data.defaultQb},
-		rbs:  []*FootballPlayer{data.defaultRb, data.defaultRb, data.defaultRb},
-		tes:  []*FootballPlayer{data.defaultTe},
-		wrs:  []*FootballPlayer{data.defaultWr, data.defaultWr, data.defaultWr},
+		defaultRb: data.defaultRb,
+		defaultWr: data.defaultWr,
+		defaultFlex: data.defaultFlex,
 	}
 }
 
@@ -74,23 +76,39 @@ func (fp *FantasyPlayer) undraft(player *FootballPlayer) {
 
 func (fp *FantasyPlayer) points(week int) int {
 	points := 0
-	for _, v := range [...][]*FootballPlayer{fp.dsts, fp.ks, fp.qbs, fp.tes} {
-		positionMax := v[0].points[week-1]
-		for i := 1; i < len(v); i++ {
-			positionMax = max(positionMax, v[i].points[week-1])
+	for _, players := range [...][]*FootballPlayer{fp.dsts, fp.ks, fp.qbs, fp.tes} {
+		positionMax := 0
+		for _, player := range players {
+			positionMax = max(positionMax, player.points[week-1])
 		}
 		points += positionMax
 	}
-	for _, v := range [...][]*FootballPlayer{fp.rbs, fp.wrs} {
-		byWeekPoints := &ByWeekPointsAsc{v, week}
-		if !sort.IsSorted(byWeekPoints) {
-			sort.Sort(byWeekPoints)
+	for _, players := range [...][]*FootballPlayer{fp.rbs, fp.wrs} {
+		switch len(players) {
+		case 2:
+			points += max(0, players[1].points[week-1])
+			fallthrough
+		case 1:
+			points += max(0, players[0].points[week-1])
+		case 0:
+			continue
+		default:
+			byWeekPoints := &ByWeekPointsDesc{players, week}
+			if !sort.IsSorted(byWeekPoints) {
+				sort.Sort(byWeekPoints)
+			}
+			points += max(0, players[0].points[week-1]) + max(0, players[1].points[week-1])
 		}
-		points += v[len(v)-1].points[week-1]
 	}
-	points += fp.rbs[len(fp.rbs)-2].points[week-1]
-	points += fp.wrs[len(fp.wrs)-2].points[week-1]
-	points += max(fp.rbs[len(fp.rbs)-3].points[week-1], fp.wrs[len(fp.wrs)-3].points[week-1])
+	flexRb := 0
+	if len(fp.rbs) >= 3 {
+		flexRb = max(0, fp.rbs[2].points[week-1] + fp.defaultRb.points[week-1] - fp.defaultFlex.points[week-1])
+	}
+	flexWr := 0
+	if len(fp.wrs) >= 3 {
+		flexWr = max(0, fp.wrs[2].points[week-1] + fp.defaultWr.points[week-1] - fp.defaultFlex.points[week-1])
+	}
+	points += max(flexRb, flexWr)
 	return points
 }
 
@@ -110,22 +128,66 @@ func (fp *FantasyPlayer) totalPoints() int {
 */
 func (fp *FantasyPlayer) estimateTotalPoints() int {
 	totalPoints := 0
-	for _, v := range [...][]*FootballPlayer{fp.dsts, fp.ks, fp.qbs, fp.tes} {
-		positionMax := v[0].totalPoints()
-		for i := 1; i < len(v); i++ {
-			positionMax = max(positionMax, v[i].totalPoints())
+	for _, players := range [...][]*FootballPlayer{fp.dsts, fp.ks, fp.qbs, fp.tes} {
+		positionMax := 0
+		for _, player := range players {
+			positionMax = max(positionMax, player.totalPoints())
 		}
 		totalPoints += positionMax
 	}
-	for _, v := range [...][]*FootballPlayer{fp.rbs, fp.wrs} {
-		byTotalPoints := &ByTotalPointsAsc{v}
-		if !sort.IsSorted(byTotalPoints) {
-			sort.Sort(byTotalPoints)
+	for _, players := range [...][]*FootballPlayer{fp.rbs, fp.wrs} {
+		switch len(players) {
+		case 2:
+			totalPoints += max(0, players[1].totalPoints())
+			fallthrough
+		case 1:
+			totalPoints += max(0, players[0].totalPoints())
+		case 0:
+			continue
+		default:
+			byTotalPoints := &ByTotalPointsDesc{players}
+			if !sort.IsSorted(byTotalPoints) {
+				sort.Sort(byTotalPoints)
+			}
+			totalPoints += max(0, players[0].totalPoints()) + max(0, players[1].totalPoints())
 		}
-		totalPoints += v[len(v)-1].totalPoints()
 	}
-	totalPoints += fp.rbs[len(fp.rbs)-2].totalPoints()
-	totalPoints += fp.wrs[len(fp.wrs)-2].totalPoints()
-	totalPoints += max(fp.rbs[len(fp.rbs)-3].totalPoints(), fp.wrs[len(fp.wrs)-2].totalPoints())
+	flexRb := 0
+	if len(fp.rbs) >= 3 {
+		flexRb = max(0, fp.rbs[2].totalPoints() + fp.defaultRb.totalPoints() - fp.defaultFlex.totalPoints())
+	}
+	flexWr := 0
+	if len(fp.wrs) >= 3 {
+		flexWr = max(0, fp.wrs[2].totalPoints() + fp.defaultWr.totalPoints() - fp.defaultFlex.totalPoints())
+	}
+	totalPoints += max(flexRb, flexWr)
 	return totalPoints
+}
+
+func (fp *FantasyPlayer) String() string {
+	str := fmt.Sprintf("%v\nQBS:\n", fp.name);
+	for _, v := range fp.qbs {
+		str += fmt.Sprintf("\t%v\n", v)
+	}
+	str += "RBS:\n";
+	for _, v := range fp.rbs {
+		str += fmt.Sprintf("\t%v\n", v)
+	}
+	str += "WRS:\n";
+	for _, v := range fp.wrs {
+		str += fmt.Sprintf("\t%v\n", v)
+	}
+	str += "TES:\n";
+	for _, v := range fp.tes {
+		str += fmt.Sprintf("\t%v\n", v)
+	}
+	str += "KS:\n";
+	for _, v := range fp.ks {
+		str += fmt.Sprintf("\t%v\n", v)
+	}
+	str += "DSTS:\n";
+	for _, v := range fp.dsts {
+		str += fmt.Sprintf("\t%v\n", v)
+	}
+	return str
 }
