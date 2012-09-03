@@ -23,7 +23,7 @@ func main() {
 	flag.Parse()
 	data := fantasyfootball.NewDataSource(*dataDir, *startWeek, *endWeek)
 	data.LoadAll()
-	draft := fantasyfootball.NewFantasyDraft([...]string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}, "1", data)
+	draft := fantasyfootball.NewFantasyDraft([]string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}, "1", data)
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
 		        if err != nil {
@@ -32,9 +32,9 @@ func main() {
 		        pprof.StartCPUProfile(f)
 		        defer pprof.StopCPUProfile()
 	}
-	for i:=0; i<150; i++ {
+	for i:=0; i<1; i++ {
 		stopper := make(chan bool);
-		time.AfterFunc(1*time.Second, func() { close(stopper) })
+		time.AfterFunc(60*time.Second, func() { close(stopper) })
 		moves := draft.IterativeAlphabeta(stopper)
 		fmt.Printf("Suggested draft for %v\n", i)
 		var lastMove fantasyfootball.Move
