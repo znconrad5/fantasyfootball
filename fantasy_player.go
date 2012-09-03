@@ -15,16 +15,16 @@ type FantasyPlayer struct {
 	tes  []*FootballPlayer
 	wrs  []*FootballPlayer
 	// needed for calculations
-	defaultRb *FootballPlayer
-	defaultWr *FootballPlayer
+	defaultRb   *FootballPlayer
+	defaultWr   *FootballPlayer
 	defaultFlex *FootballPlayer
 }
 
 func newFantasyPlayer(name string, data *DataSource) *FantasyPlayer {
 	return &FantasyPlayer{
-		name: name,
-		defaultRb: data.defaultRb,
-		defaultWr: data.defaultWr,
+		name:        name,
+		defaultRb:   data.defaultRb,
+		defaultWr:   data.defaultWr,
 		defaultFlex: data.defaultFlex,
 	}
 }
@@ -102,11 +102,11 @@ func (fp *FantasyPlayer) points(week int) int {
 	}
 	flexRb := 0
 	if len(fp.rbs) >= 3 {
-		flexRb = max(0, fp.rbs[2].points[week-1] + fp.defaultRb.points[week-1] - fp.defaultFlex.points[week-1])
+		flexRb = max(0, fp.rbs[2].points[week-1]+fp.defaultRb.points[week-1]-fp.defaultFlex.points[week-1])
 	}
 	flexWr := 0
 	if len(fp.wrs) >= 3 {
-		flexWr = max(0, fp.wrs[2].points[week-1] + fp.defaultWr.points[week-1] - fp.defaultFlex.points[week-1])
+		flexWr = max(0, fp.wrs[2].points[week-1]+fp.defaultWr.points[week-1]-fp.defaultFlex.points[week-1])
 	}
 	points += max(flexRb, flexWr)
 	return points
@@ -154,38 +154,38 @@ func (fp *FantasyPlayer) estimateTotalPoints() int {
 	}
 	flexRb := 0
 	if len(fp.rbs) >= 3 {
-		flexRb = max(0, fp.rbs[2].totalPoints() + fp.defaultRb.totalPoints() - fp.defaultFlex.totalPoints())
+		flexRb = max(0, fp.rbs[2].totalPoints()+fp.defaultRb.totalPoints()-fp.defaultFlex.totalPoints())
 	}
 	flexWr := 0
 	if len(fp.wrs) >= 3 {
-		flexWr = max(0, fp.wrs[2].totalPoints() + fp.defaultWr.totalPoints() - fp.defaultFlex.totalPoints())
+		flexWr = max(0, fp.wrs[2].totalPoints()+fp.defaultWr.totalPoints()-fp.defaultFlex.totalPoints())
 	}
 	totalPoints += max(flexRb, flexWr)
 	return totalPoints
 }
 
 func (fp *FantasyPlayer) String() string {
-	str := fmt.Sprintf("%v\nQBS:\n", fp.name);
+	str := fmt.Sprintf("%v\nQBS:\n", fp.name)
 	for _, v := range fp.qbs {
 		str += fmt.Sprintf("\t%v\n", v)
 	}
-	str += "RBS:\n";
+	str += "RBS:\n"
 	for _, v := range fp.rbs {
 		str += fmt.Sprintf("\t%v\n", v)
 	}
-	str += "WRS:\n";
+	str += "WRS:\n"
 	for _, v := range fp.wrs {
 		str += fmt.Sprintf("\t%v\n", v)
 	}
-	str += "TES:\n";
+	str += "TES:\n"
 	for _, v := range fp.tes {
 		str += fmt.Sprintf("\t%v\n", v)
 	}
-	str += "KS:\n";
+	str += "KS:\n"
 	for _, v := range fp.ks {
 		str += fmt.Sprintf("\t%v\n", v)
 	}
-	str += "DSTS:\n";
+	str += "DSTS:\n"
 	for _, v := range fp.dsts {
 		str += fmt.Sprintf("\t%v\n", v)
 	}

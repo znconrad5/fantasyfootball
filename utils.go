@@ -61,10 +61,10 @@ func (s *Stack) Remove(x interface{}) {
 	var i int
 	for i = len(s.elems) - 1; s.elems[i] != x; i-- {
 	}
-	switch(i) {
+	switch i {
 	case 0:
 		s.elems = s.elems[1:]
-	case len(s.elems)-1:
+	case len(s.elems) - 1:
 		s.elems = s.elems[:i]
 	default:
 		s.elems = append(s.elems[:i], s.elems[i+1:])
