@@ -12,30 +12,24 @@ var dataDir = "../../html"
 
 func main() {
 	urlPattern := "http://accuscore.com/fantasy-sports/nfl-fantasy-sports/%v-%v"
-	positions := []string{"QB"} //, "RB", "WR", "TE", "LB", "DL", "DB", "DEF-ST", "K", "P"}
+	positions := []string{"QB", "RB", "WR", "TE", "LB", "DL", "DB", "DEF-ST", "K", "P"}
 
 	var waitGroup sync.WaitGroup
 
-	var asyncFetch = func(urlf1 string, idf1 string, posf1 string, wgf1 sync.WaitGroup) {
+	var asyncFetch = func(urlf1 string, idf1 string, posf1 string, wgf1 *sync.WaitGroup) {
 		fetch(urlf1, idf1, posf1)
-		fmt.Print("before done\n")
 		wgf1.Done()
-		fmt.Print("after done\n")
 	}
 
 	for _, v := range positions {
-		for i := 1; i <= 0; i++ {
+		for i := 1; i <= 17; i++ {
 			week := fmt.Sprintf("Week-%v", i)
 			url := fmt.Sprintf(urlPattern, week, v)
-			fmt.Print("before Add\n")
 			waitGroup.Add(1)
-			fmt.Print("after Add\n")
-			go asyncFetch(url, strconv.Itoa(i), v, waitGroup)
+			go asyncFetch(url, strconv.Itoa(i), v, &waitGroup)
 		}
-		fmt.Print("before Add\n")
 		waitGroup.Add(1)
-		fmt.Print("after Add\n")
-		go asyncFetch(fmt.Sprintf(urlPattern, "Current-Week", v), "curr", v, waitGroup)
+		go asyncFetch(fmt.Sprintf(urlPattern, "Current-Week", v), "curr", v, &waitGroup)
 	}
 	waitGroup.Wait()
 }
