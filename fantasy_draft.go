@@ -28,11 +28,11 @@ type Move struct {
 	Evaluation int
 }
 
-func NewFantasyDraft(names []string, maxName string, data *DataSource) *FantasyDraft {
+func NewFantasyDraft(names []string, maxPlayerIdx int, data *DataSource) *FantasyDraft {
 	fd := &FantasyDraft{playersDrafted: 0}
 	for i, name := range names {
 		fd.players = append(fd.players, newFantasyPlayer(name, data))
-		if name == maxName {
+		if i == maxPlayerIdx {
 			fd.maxPlayer = fd.players[i]
 		}
 	}
@@ -71,7 +71,7 @@ func NewFantasyDraft(names []string, maxName string, data *DataSource) *FantasyD
 	return fd
 }
 
-func (fd *FantasyDraft) currentPlayer() *FantasyPlayer {
+func (fd *FantasyDraft) CurrentPlayer() *FantasyPlayer {
 	// draft goes 1, 2, 3, ..., 10, 10, 9, 8, ..., 1
 	round := fd.playersDrafted / len(fd.players)
 	offset := fd.playersDrafted % len(fd.players)
@@ -87,7 +87,7 @@ func (fd  *FantasyDraft) length() int {
 
 func (fd *FantasyDraft) Draft(draftee *FootballPlayer) {
 	fd.removeFootballPlayer(draftee)
-	fd.currentPlayer().draft(draftee)
+	fd.CurrentPlayer().draft(draftee)
 	fd.playersDrafted++
 }
 
@@ -116,8 +116,8 @@ func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan Move {
 		defer close(moves)
 		remaining := fd.length() - fd.playersDrafted
 		cache := make([]*FootballPlayer, fd.length())
-		// for depth := min(START_DEPTH, remaining); depth <= remaining; depth++ {
-		for depth:=min(START_DEPTH, remaining); depth<=10; depth++ {
+		for depth := min(START_DEPTH, remaining); depth <= remaining; depth++ {
+	    // for depth:=min(START_DEPTH, remaining); depth<=10; depth++ {
 			move, val, ok := fd.Alphabeta(depth, math.MinInt32, math.MaxInt32, cache, stop)
 			if ok {
 				moves <- Move{move, val}
@@ -136,7 +136,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, cache []*FootballPlaye
 		return nil, 0, false
 	default:
 		var move *FootballPlayer
-		if depth == 0 || fd.isDraftOver() {
+		if depth == 0 || fd.IsOver() {
 			var value int
 			if fd.playersDrafted > 7*len(fd.players) {
 				value = fd.evaluate()
@@ -145,10 +145,10 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, cache []*FootballPlaye
 			}
 			return move, value, true
 		}
-		currentPlayer := fd.currentPlayer()
+		currentPlayer := fd.CurrentPlayer()
 		if fd.maxPlayer == currentPlayer {
 			for _, v := range fd.generateMoves(cache) {
-				draftee := v.Pop().(*FootballPlayer)
+				draftee := v.Pop()
 				currentPlayer.draft(draftee)
 				fd.playersDrafted++
 				_, moveValue, ok := fd.Alphabeta(depth-1, alpha, beta, cache, stop)
@@ -170,7 +170,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, cache []*FootballPlaye
 			return move, alpha, true
 		} else {
 			for _, v := range fd.generateMoves(cache) {
-				draftee := v.Pop().(*FootballPlayer)
+				draftee := v.Pop()
 				currentPlayer.draft(draftee)
 				fd.playersDrafted++
 				_, moveValue, ok := fd.Alphabeta(depth-1, alpha, beta, cache, stop)
@@ -211,8 +211,35 @@ func (fd *FantasyDraft) generateMoves(cache []*FootballPlayer) []*Stack {
 		case WR:
 			return []*Stack{fd.wrs, fd.rbs, fd.qbs, fd.tes, fd.ks, fd.dsts}
 		}
-	}
-	return []*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}
+	}	
+	byBestMove := &ByBestLikelyMove{fd.CurrentPlayer(), []*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
+	sort.Sort(byBestMove)
+	return byBestMove.stacks
+}
+
+type ByBestLikelyMove struct {
+	currentPlayer *FantasyPlayer
+	stacks        []*Stack
+}
+
+func (s *ByBestLikelyMove) Len() int { return len(s.stacks) }
+
+func (s *ByBestLikelyMove) Less(i, j int) bool {
+	iDraftee := s.stacks[i].Peek()
+	s.currentPlayer.draft(iDraftee)
+	iTotal := s.currentPlayer.estimateTotalPoints()
+	s.currentPlayer.undraft(iDraftee)
+
+	jDraftee := s.stacks[j].Peek()
+	s.currentPlayer.draft(jDraftee)
+	jTotal := s.currentPlayer.estimateTotalPoints()
+	s.currentPlayer.undraft(jDraftee)
+
+	return iTotal > jTotal
+}
+
+func (s *ByBestLikelyMove) Swap(i, j int) {
+	s.stacks[i], s.stacks[j] = s.stacks[j], s.stacks[i]
 }
 
 func (fd *FantasyDraft) evaluate() int {
@@ -239,7 +266,7 @@ func (fd *FantasyDraft) estimate() int {
 	return value / (len(fd.players) - 1)
 }
 
-func (fd *FantasyDraft) isDraftOver() bool {
+func (fd *FantasyDraft) IsOver() bool {
 	return fd.playersDrafted == len(fd.players) * 15
 }
 

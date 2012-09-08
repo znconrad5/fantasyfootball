@@ -10,6 +10,7 @@ type DataSource struct {
 	startWeek int
 	endWeek   int
 
+	allPlayers	map[string]*FootballPlayer
 	dsts        []*FootballPlayer // defenses/special teams
 	defaultDst  *FootballPlayer
 	ks          []*FootballPlayer // kickers
@@ -30,6 +31,7 @@ func NewDataSource(dir string, startWeek, endWeek int) *DataSource {
 		dir:       dir,
 		startWeek: startWeek,
 		endWeek:   endWeek,
+		allPlayers: make(map[string]*FootballPlayer),
 	}
 }
 
@@ -42,13 +44,21 @@ func (loader *DataSource) LoadAll() {
 	go func() { c <- depair(loader.loadTes()) }()
 	go func() { c <- depair(loader.loadWrs()) }()
 	for i := 0; i < 6; i++ {
-		<-c
+		ps := <-c
+		for _, p := range ps {
+			loader.allPlayers[fmt.Sprintf("%s (%s)", p.name, p.team)] = p
+		}
 	}
 	if loader.defaultRb.totalPoints() > loader.defaultWr.totalPoints() {
 		loader.defaultFlex = loader.defaultRb
 	} else {
 		loader.defaultFlex = loader.defaultWr
 	}
+}
+
+func (loader *DataSource) Get(playerName string) (*FootballPlayer, bool) {
+	player, ok := loader.allPlayers[playerName]
+	return player, ok
 }
 
 func (loader *DataSource) loadDsts() ([]*FootballPlayer, *FootballPlayer) {

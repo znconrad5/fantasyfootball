@@ -3,8 +3,8 @@ package fantasyfootball
 import (
 	"fmt"
 	"runtime"
+	"sort"
 	"testing"
-	"time"
 )
 
 func TestLoadDsts(t *testing.T) {
@@ -69,8 +69,14 @@ func TestLoadWrs(t *testing.T) {
 
 func TestTimeLoadAll(t *testing.T) {
 	runtime.GOMAXPROCS(runtime.NumCPU())
-	start := time.Now()
 	loader := NewDataSource("/Users/zachconrad/Documents/go/src/fantasyfootball/data", 1, 14)
 	loader.LoadAll()
-	fmt.Println(time.Since(start))
+	allPlayers := make([]*FootballPlayer, 0)
+	for _, v := range loader.allPlayers {
+		allPlayers = append(allPlayers, v)
+	}
+	sort.Sort(&ByTotalPointsDesc{allPlayers})
+	for _, v := range allPlayers {
+		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+	}
 }

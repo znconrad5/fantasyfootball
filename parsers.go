@@ -150,29 +150,29 @@ func (p *DstPointParser) parsePoints(header map[string]int, statsLine []string) 
 			points += 10 * 100
 		}
 	} else if pointsAgainst < 1 {
-		points += 17 * 50
+		points += (10+8) * 50
 	} else if pointsAgainst <= 6 {
-		points += 7 * 100
+		points += 8 * 100
 	} else if pointsAgainst < 7 {
-		points += 11 * 50
+		points += (8+6) * 50
 	} else if pointsAgainst <= 13 {
-		points += 4 * 100
+		points += 6 * 100
 	} else if pointsAgainst < 14 {
-		points += 5 * 50
+		points += (6+3) * 50
 	} else if pointsAgainst <= 20 {
-		points += 100
+		points += 3*100
 	} else if pointsAgainst < 21 {
-		points += 50
+		points += (3+1) * 50
 	} else if pointsAgainst <= 27 {
-		points += 0
+		points += 1 * 100
 	} else if pointsAgainst < 28 {
-		points += -50
+		points += 0
 	} else if pointsAgainst <= 34 {
-		points += -100
+		points += -1 * 100
 	} else if pointsAgainst < 35 {
-		points += -5 * 50
+		points += (-1 + -3) * 50
 	} else {
-		points += -4 * 100
+		points += -3 * 100
 	}
 	return points
 }
@@ -198,15 +198,15 @@ type QbPointParser struct{}
 func (p *QbPointParser) parsePoints(header map[string]int, statsLine []string) int {
 	// Every 25 passing yards:	1 point
 	points := parsePointValue(1, statsLine[header["PASSYD"]]) / 25
-	// Each passing TD:	4 points
-	points += parsePointValue(4, statsLine[header["PASSTD"]])
+	// Each passing TD:	6 points
+	points += parsePointValue(6, statsLine[header["PASSTD"]])
 	// Each interception thrown:	-1 points
 	points += parsePointValue(-1, statsLine[header["INT"]])
 	// Every 10 rushing yards:	1 point
 	points += parsePointValue(1, statsLine[header["RUSHYD"]]) / 10
 	// Each rushing TD:	6 points
 	points += parsePointValue(6, statsLine[header["RUSHTD"]])
-	// Each fumble lost:	-2 points
+	// Each fumble lost:	-1 points
 	points += parsePointValue(-2, statsLine[header["FUML"]])
 	return points
 }
@@ -222,8 +222,8 @@ func (p *RbPointParser) parsePoints(header map[string]int, statsLine []string) i
 	points += parsePointValue(1, statsLine[header["RECYD"]]) / 10
 	// Each receiving TD:	6 points
 	points += parsePointValue(6, statsLine[header["RECTD"]])
-	// Each fumble lost:	-2 points
-	points += parsePointValue(-2, statsLine[header["FUML"]])
+	// Each fumble lost:	-1 points
+	points += parsePointValue(-1, statsLine[header["FUML"]])
 	return points
 }
 
@@ -234,8 +234,8 @@ func (p *RecPointParser) parsePoints(header map[string]int, statsLine []string) 
 	points := parsePointValue(1, statsLine[header["RECYD"]]) / 10
 	// Each receiving TD:	6 points
 	points += parsePointValue(6, statsLine[header["RECTD"]])
-	// Each fumble lost:	-2 points
-	points += parsePointValue(-2, statsLine[header["FUML"]])
+	// Each fumble lost:	-1 points
+	points += parsePointValue(-1, statsLine[header["FUML"]])
 	return points
 }
 
