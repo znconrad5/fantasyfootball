@@ -8,7 +8,7 @@ import (
 	"sync"
 )
 
-var dataDir = "../../html"
+var dataDir = "../html"
 
 func main() {
 	urlPattern := "http://accuscore.com/fantasy-sports/nfl-fantasy-sports/%v-%v"
