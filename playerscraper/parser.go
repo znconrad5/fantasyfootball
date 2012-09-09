@@ -3,9 +3,12 @@ package main
 import (
 	"encoding/csv"
 	"fmt"
+	"github.com/znconrad5/fantasyfootball"
 	"io/ioutil"
+	"math"
 	"os"
 	"regexp"
+	"strconv"
 	"sync"
 )
 
@@ -18,64 +21,89 @@ var dataRegex = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]
 var posRegex = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"pos\"[^>]*>.*?<option\\s+selected\\s+value=\"([^\"]+)\">.*?</select>")
 var weekRegex = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"split\"[^>]*>.*?<option\\s+selected\\s+value=\"([^\"]+)\">.*?</select>")
 var parseWeek = regexp.MustCompile("^Week-(\\d+)$")
+var currWeekString = "curr"
+var currWeekRegex = regexp.MustCompile(currWeekString)
 
 func main() {
 	files, err := ioutil.ReadDir(inputDir)
 	if err != nil {
-		fmt.Printf("encountered error reading directory: %v", err)
-		return
+		fantasyfootball.HandleError(err)
 	}
 
-	var asyncParse = func(in string, out string, wg *sync.WaitGroup) {
-		parseFile(in, out)
+	var asyncParse = func(in string, out string, wg *sync.WaitGroup, weeks chan<- int) {
+		weeks <- parseFile(in, out)
 		wg.Done()
 	}
 
 	var waitGroup sync.WaitGroup
+	weekChan := make(chan int)
 
 	for _, file := range files {
 		if file.IsDir() {
 			continue
 		}
 		waitGroup.Add(1)
-		go asyncParse(fmt.Sprintf("%s/%s", inputDir, file.Name()), testOutDir, &waitGroup)
+		go asyncParse(fmt.Sprintf("%s/%s", inputDir, file.Name()), testOutDir, &waitGroup, weekChan)
 	}
+
+	minWeekChan := make(chan int, 1)
+	go func(weeks <-chan int, out chan<- int) {
+		min := math.MaxInt16
+		for week := range weeks {
+			if week > 0 && week < min {
+				min = week
+			}
+		}
+		out <- min
+	}(weekChan, minWeekChan)
 	waitGroup.Wait()
+	close(weekChan)
+
+	//fix weeks name
+	minWeek := <-minWeekChan
+	outFiles, err := ioutil.ReadDir(testOutDir)
+	if err != nil {
+		fantasyfootball.HandleError(err)
+	}
+	for _, file := range outFiles {
+		if file.IsDir() {
+			continue
+		}
+		if fileName := file.Name(); currWeekRegex.MatchString(fileName) {
+			os.Rename(fmt.Sprintf("%s/%s", testOutDir, fileName), fmt.Sprintf("%s/%s", testOutDir, currWeekRegex.ReplaceAllString(fileName, fmt.Sprintf("%v", minWeek-1))))
+		}
+	}
 }
 
-func parseFile(in string, out string) {
+func parseFile(in string, out string) int {
 	content, err := ioutil.ReadFile(in)
 	if err != nil {
-		fmt.Printf("encountered error opening file for read: %v", err)
-		return
+		fantasyfootball.HandleError(err)
 	}
 
 	//extract position from page
 	posMatch := posRegex.FindSubmatch(content)
 	if posMatch == nil {
-		fmt.Printf("unable to find position")
-		return
+		fantasyfootball.HandleError(err)
 	}
 	pos := posMatch[1]
 
 	//extract week from page
 	weekMatch := weekRegex.FindSubmatch(content)
 	if weekMatch == nil {
-		fmt.Printf("unable to find week")
-		return
+		fantasyfootball.HandleError(err)
 	}
 	var week string
 	if parseWeekMatch := parseWeek.FindSubmatch(weekMatch[1]); parseWeekMatch != nil {
 		week = fmt.Sprintf("%s", parseWeekMatch[1])
 	} else {
-		week = "curr"
+		week = currWeekString
 	}
 
 	//prepare csv file
-	file, err := os.Create(fmt.Sprintf("%s/%s_%v.csv", testOutDir, pos, week))
+	file, err := os.Create(fmt.Sprintf("%s/%s_%v.txt", testOutDir, pos, week))
 	if err != nil {
-		fmt.Printf("encountered error opening file: %v", err)
-		return
+		fantasyfootball.HandleError(err)
 	}
 	defer file.Close()
 	csvWriter := csv.NewWriter(file)
@@ -92,4 +120,9 @@ func parseFile(in string, out string) {
 		}
 		csvWriter.Write(csvRow)
 	}
+	weekInt, err := strconv.ParseInt(week, 10, 0)
+	if err != nil {
+		weekInt = -1
+	}
+	return int(weekInt)
 }

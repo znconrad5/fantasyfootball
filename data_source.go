@@ -10,7 +10,7 @@ type DataSource struct {
 	startWeek int
 	endWeek   int
 
-	allPlayers	map[string]*FootballPlayer
+	allPlayers  map[string]*FootballPlayer
 	dsts        []*FootballPlayer // defenses/special teams
 	defaultDst  *FootballPlayer
 	ks          []*FootballPlayer // kickers
@@ -28,9 +28,9 @@ type DataSource struct {
 
 func NewDataSource(dir string, startWeek, endWeek int) *DataSource {
 	return &DataSource{
-		dir:       dir,
-		startWeek: startWeek,
-		endWeek:   endWeek,
+		dir:        dir,
+		startWeek:  startWeek,
+		endWeek:    endWeek,
 		allPlayers: make(map[string]*FootballPlayer),
 	}
 }
@@ -102,7 +102,7 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 	var offset int
 	switch position {
 	case DST:
-		fileName = "dst"
+		fileName = "def-st"
 		offset = 2 * 9 // assume each player drafts 2
 	case K:
 		fileName = "k"
