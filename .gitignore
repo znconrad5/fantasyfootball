@@ -23,3 +23,9 @@ _testmain.go
 
 # Hidden files
 .DS_Store
+
+#perf profiles
+*.prof
+
+#sublime text files
+*.sublime-*
