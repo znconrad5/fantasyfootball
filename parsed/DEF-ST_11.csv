@@ -1,0 +1,33 @@
+PLAYER	TEAM	FP	PA	SACK	INT	FUMR	BLK	TO	INTTD	KRETTD	PRETTD
+Buffalo Bills	BUF	21.2	17.1	4.2	1.52	1.06	0.22	2.58	0.12	0.04	0.15
+Houston Texans	HOU	19	15.3	4.1	0.88	1.2	0.2	2.08	0.09	0.03	0.02
+New York Jets	NYJ	18.1	16.1	3.9	0.82	1.09	0.25	1.9	0.1	0.07	0.03
+Philadelphia Eagles	PHI	18	21.7	5	1.39	1.19	0.18	2.57	0.12	0.03	0.03
+Atlanta Falcons	ATL	17.4	17	3.1	1.76	1.02	0.23	2.78	0.08	0.01	0.01
+San Francisco 49ers	SF	16.6	18.8	4	0.7	1.07	0.22	1.76	0.16	0.06	0.08
+Dallas Cowboys	DAL	16	19	4.2	1.12	0.87	0.2	1.99	0.07	0.03	0.02
+New England Patriots	NE	14.9	20.9	3.8	1.18	0.82	0.21	1.99	0.09	0.05	0.12
+Pittsburgh Steelers	PIT	14.4	19	3.1	0.65	1.15	0.28	1.8	0.1	0.03	0.02
+Baltimore Ravens	BAL	11.3	22	3	0.74	0.91	0.22	1.64	0.09	0.01	0.02
+Carolina Panthers	CAR	11.1	21.5	1.5	1.1	1.35	0.16	2.45	0.17	0.12	0.01
+Cincinnati Bengals	CIN	10.2	22.2	2.6	0.69	0.88	0.23	1.57	0.22	0.03	0.04
+St. Louis Rams	STL	10.2	23.5	2.5	0.82	1.28	0.26	2.1	0.13	0.02	0.01
+Kansas City Chiefs	KC	9.9	20.4	1.6	1.03	0.73	0.22	1.76	0.09	0.01	0.06
+Miami Dolphins	MIA	9.9	22.6	1.6	1.18	1.05	0.23	2.23	0.25	0.04	0.04
+Chicago Bears	CHI	9.3	23.8	2.3	0.7	0.8	0.22	1.5	0.11	0.03	0.1
+San Diego Chargers	SD	8.2	26.4	1.7	0.83	1.23	0.21	2.05	0.07	0.12	0.11
+New Orleans Saints	NO	7.9	25	1.6	1.22	1.13	0.2	2.35	0.08	0.04	0.03
+Green Bay Packers	GB	7	32.6	1.8	1.38	0.93	0.18	2.31	0.16	0.09	0.08
+Detroit Lions	DET	6.9	37.8	2.7	0.9	0.89	0.18	1.8	0.22	0.05	0.02
+Washington Redskins	WAS	6.3	28.2	2.3	0.96	1.05	0.22	2.01	0.13	0.04	0.02
+Oakland Raiders	OAK	5.9	30.9	1.9	0.93	0.74	0.24	1.67	0.18	0.28	0.02
+Denver Broncos	DEN	5.4	28	1.9	0.96	0.9	0.19	1.86	0.12	0.01	0.13
+Tampa Bay Buccaneers	TB	4.8	29.1	1.6	1.04	0.82	0.16	1.86	0.11	0.05	0.01
+Jacksonville Jaguars	JAC	4.2	26.3	1.1	0.64	0.79	0.23	1.39	0.12	0.03	0
+Cleveland Browns	CLE	4.1	28.5	1.9	0.62	0.84	0.16	1.46	0.14	0.04	0.05
+Arizona Cardinals	ARI	3.7	30.7	1.5	0.61	0.69	0.22	1.3	0.24	0.05	0.14
+Indianapolis Colts	IND	3.2	35.8	1.5	0.54	1.06	0.18	1.59	0.15	0.02	0.01
+Tennessee Titans	TEN	0	0	0	0	0	0	0	0	0	0
+Minnesota Vikings	MIN	0	0	0	0	0	0	0	0	0	0
+New York Giants	NYG	0	0	0	0	0	0	0	0	0	0
+Seattle Seahawks	SEA	0	0	0	0	0	0	0	0	0	0

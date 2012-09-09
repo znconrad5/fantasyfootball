@@ -1,0 +1,33 @@
+PLAYER	TEAM	FP	PA	SACK	INT	FUMR	BLK	TO	INTTD	KRETTD	PRETTD
+Pittsburgh Steelers	PIT	20.8	14.9	3.7	0.96	0.88	0.2	1.84	0.08	0.03	0.04
+Chicago Bears	CHI	20.1	15.5	3.2	1.17	0.8	0.21	1.97	0.03	0.08	0.21
+Seattle Seahawks	SEA	19.2	17.5	4.5	1.24	1.06	0.24	2.3	0.08	0.04	0.02
+Dallas Cowboys	DAL	17.1	21.9	4.8	1.22	1.18	0.19	2.4	0.09	0.05	0.02
+Arizona Cardinals	ARI	16.7	17.3	3.7	0.62	1.05	0.22	1.67	0.13	0.04	0.19
+Miami Dolphins	MIA	14.1	20.8	4	0.89	0.9	0.22	1.79	0.21	0.03	0.04
+San Diego Chargers	SD	13.4	24.4	3.7	0.94	1.22	0.24	2.16	0.14	0.06	0.04
+New England Patriots	NE	13.2	21.5	2.6	1.18	1.17	0.21	2.35	0.16	0.06	0.08
+Buffalo Bills	BUF	12.7	24.4	3.4	1.15	0.83	0.19	1.98	0.19	0.06	0.14
+Philadelphia Eagles	PHI	11.9	23	3.4	1.18	0.81	0.2	2	0.12	0.03	0.02
+St. Louis Rams	STL	11.5	23.3	3.2	1.08	0.98	0.21	2.06	0.08	0.03	0.02
+New Orleans Saints	NO	11.4	21	3.2	0.5	0.9	0.2	1.41	0.13	0.04	0.02
+Cincinnati Bengals	CIN	11.1	21.5	1.6	1.28	1.17	0.21	2.45	0.1	0.04	0.04
+Cleveland Browns	CLE	10.8	22.7	2.8	0.74	0.92	0.21	1.66	0.12	0.04	0.03
+Tennessee Titans	TEN	10.8	20.2	2.5	0.64	1.1	0.22	1.73	0.14	0.02	0.02
+Atlanta Falcons	ATL	9.9	23.3	1.6	1.35	1.33	0.18	2.68	0.14	0.01	0
+Jacksonville Jaguars	JAC	9.6	21	2	0.86	0.69	0.21	1.51	0.08	0.02	0
+Denver Broncos	DEN	9.2	23.6	2.4	0.72	0.85	0.21	1.57	0.16	0.02	0.13
+Minnesota Vikings	MIN	8.7	26.5	3.2	0.35	1.09	0.25	1.44	0.25	0.1	0.02
+Oakland Raiders	OAK	8.5	23.8	1.7	0.98	0.79	0.22	1.76	0.18	0.17	0.01
+Indianapolis Colts	IND	8.4	24.9	1.4	1.13	1.03	0.21	2.16	0.16	0.02	0.01
+New York Giants	NYG	8.3	31.5	3.7	0.89	0.86	0.17	1.75	0.25	0.03	0.01
+Baltimore Ravens	BAL	7.1	25.1	1.9	1.04	0.85	0.23	1.89	0.12	0.03	0.03
+Green Bay Packers	GB	6.7	29	1.7	1.41	0.86	0.18	2.26	0.09	0.09	0.06
+New York Jets	NYJ	5.9	27.7	2	0.99	0.89	0.21	1.88	0.16	0.08	0.03
+Houston Texans	HOU	5.7	29.1	2.2	0.91	0.98	0.16	1.89	0.16	0.05	0.02
+Carolina Panthers	CAR	5.6	27.5	1.8	1.02	0.94	0.16	1.95	0.13	0.14	0
+San Francisco 49ers	SF	5.2	29.3	1.7	1.08	0.78	0.17	1.85	0.06	0.08	0.08
+Kansas City Chiefs	KC	5.1	28.3	1.5	0.82	1.17	0.2	1.99	0.09	0.02	0.07
+Detroit Lions	DET	4.6	28.3	1.8	0.8	0.84	0.21	1.64	0.1	0.05	0.02
+Washington Redskins	WAS	4.4	29.9	2	0.71	0.91	0.18	1.62	0.14	0.02	0.01
+Tampa Bay Buccaneers	TB	3.2	27.8	1.5	0.78	0.61	0.22	1.39	0.17	0.04	0.01

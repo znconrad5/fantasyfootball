@@ -11,7 +11,7 @@ import (
 
 var inputDir = "../html"
 var testFile = "../html/DB_2.html"
-var testOutDir = "../testout"
+var testOutDir = "../parsed"
 
 var rowRegex = regexp.MustCompile("(?s)<tr[^>]*>.*?</tr>")
 var dataRegex = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]*<")

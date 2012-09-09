@@ -35,7 +35,6 @@ func main() {
 }
 
 func fetch(url string, id string, pos string) {
-	fmt.Printf("crawling %v...\n", url)
 	res, err := http.Get(url)
 	if err != nil {
 		fmt.Printf("encountered error crawling %v: %v\n", url, err)
