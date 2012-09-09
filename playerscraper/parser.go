@@ -6,8 +6,10 @@ import (
 	"io/ioutil"
 	"os"
 	"regexp"
+	"sync"
 )
 
+var inputDir = "../html"
 var testFile = "../html/DB_2.html"
 var testOutDir = "../testout"
 
@@ -18,7 +20,27 @@ var weekRegex = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"split\"[^>]*>.*?<
 var parseWeek = regexp.MustCompile("^Week-(\\d+)$")
 
 func main() {
-	parseFile(testFile, testOutDir)
+	files, err := ioutil.ReadDir(inputDir)
+	if err != nil {
+		fmt.Printf("encountered error reading directory: %v", err)
+		return
+	}
+
+	var asyncParse = func(in string, out string, wg *sync.WaitGroup) {
+		parseFile(in, out)
+		wg.Done()
+	}
+
+	var waitGroup sync.WaitGroup
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+		waitGroup.Add(1)
+		go asyncParse(fmt.Sprintf("%s/%s", inputDir, file.Name()), testOutDir, &waitGroup)
+	}
+	waitGroup.Wait()
 }
 
 func parseFile(in string, out string) {
