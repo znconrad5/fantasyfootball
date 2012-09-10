@@ -12,9 +12,8 @@ import (
 	"sync"
 )
 
-var inputDir = "../html"
-var testFile = "../html/DB_2.html"
-var testOutDir = "../parsed"
+var inputDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/html"
+var testOutDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/parsed"
 
 var rowRegex = regexp.MustCompile("(?s)<tr[^>]*>.*?</tr>")
 var dataRegex = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]*<")
@@ -26,9 +25,7 @@ var currWeekRegex = regexp.MustCompile(currWeekString)
 
 func main() {
 	files, err := ioutil.ReadDir(inputDir)
-	if err != nil {
-		fantasyfootball.HandleError(err)
-	}
+	fantasyfootball.HandleError(err)
 
 	var asyncParse = func(in string, out string, wg *sync.WaitGroup, weeks chan<- int) {
 		weeks <- parseFile(in, out)
@@ -62,9 +59,7 @@ func main() {
 	//fix weeks name
 	minWeek := <-minWeekChan
 	outFiles, err := ioutil.ReadDir(testOutDir)
-	if err != nil {
-		fantasyfootball.HandleError(err)
-	}
+	fantasyfootball.HandleError(err)
 	for _, file := range outFiles {
 		if file.IsDir() {
 			continue
@@ -77,21 +72,19 @@ func main() {
 
 func parseFile(in string, out string) int {
 	content, err := ioutil.ReadFile(in)
-	if err != nil {
-		fantasyfootball.HandleError(err)
-	}
+	fantasyfootball.HandleError(err)
 
 	//extract position from page
 	posMatch := posRegex.FindSubmatch(content)
 	if posMatch == nil {
-		fantasyfootball.HandleError(err)
+		log.Fatalf("unable to parse position from file: %s", in)
 	}
 	pos := posMatch[1]
 
 	//extract week from page
 	weekMatch := weekRegex.FindSubmatch(content)
 	if weekMatch == nil {
-		fantasyfootball.HandleError(err)
+		log.Fatalf("unable to parse week from file: %s", in)
 	}
 	var week string
 	if parseWeekMatch := parseWeek.FindSubmatch(weekMatch[1]); parseWeekMatch != nil {
@@ -102,9 +95,7 @@ func parseFile(in string, out string) int {
 
 	//prepare csv file
 	file, err := os.Create(fmt.Sprintf("%s/%s_%v.txt", testOutDir, pos, week))
-	if err != nil {
-		fantasyfootball.HandleError(err)
-	}
+	fantasyfootball.HandleError(err)
 	defer file.Close()
 	csvWriter := csv.NewWriter(file)
 	defer csvWriter.Flush()
