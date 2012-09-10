@@ -1,10 +1,11 @@
 PLAYER	TEAM	FP	PT	PUNTYD	PTAVG	PT10	PT20
+Chris Kluwe	MIN	17.3	6.88	302	43.9	0.5	1.3
 Shane Lechler	OAK	14.5	6.15	293	47.6	0.5	1.14
-Adam Podlesh	CHI	13.3	5.39	230	42.7	0.3	0.84
+Adam Podlesh	CHI	13.3	5.44	234	43	0.3	0.78
 Zoltan Mesko	NE	12.3	4.72	207	43.9	0.3	0.85
 T.J. Conley	NYJ	11.7	6.36	267	42	0.2	0.61
 Daniel Sepulveda	PIT	11.4	5.34	237	44.4	0.2	0.6
-Pat McAfee	IND	10.7	6.26	277	44.2	0.4	1.02
+Pat McAfee	IND	10.6	6.27	276	44	0.4	1.06
 Sam Koch	BAL	10.5	6.17	274	44.4	0.3	0.67
 Matt Bosher	ATL	10.1	6.51	275	42.2	0.3	0.79
 Dustin Colquitt	KC	10	5.98	264	44.1	0.4	1.08
@@ -14,10 +15,9 @@ Brian Moorman	BUF	9.7	6.56	295	45	0.5	1.28
 Thomas Morstead	NO	9.6	4.42	200	45.2	0.4	0.92
 Brandon Fields	MIA	9.5	6.55	303	46.3	0.4	1.11
 Kevin Huber	CIN	9.5	6.97	297	42.6	0.4	1.03
+Bryan Anger	JAC	8.9	7.08	295	41.7	0.5	1.23
 Mike Scifres	SD	8.8	6.68	303	45.4	0.4	1.03
-Bryan Anger	JAC	8.6	6.89	286	41.5	0.5	1.21
 Brett Kern	TEN	7.8	6.15	261	42.4	0.3	0.78
-Chris Kluwe	MIN	7.6	6.74	294	43.6	0.5	1.26
 Brad Maynard	CLE	7.5	6.66	266	39.9	0.3	0.79
 Sav Rocca	WAS	7.2	5.51	234	42.5	0.4	0.96
 Ben Graham	DET	6.6	4.88	209	42.8	0.4	0.94

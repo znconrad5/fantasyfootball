@@ -6,7 +6,7 @@ Jason Hanson	DET	9.4	1.78	2.23	1.17	0.45	0.16	3.59	3.65
 Mason Crosby	GB	8.9	1.71	2.11	1.15	0.39	0.17	3.22	3.27
 Steve Hauschka	SEA	8.5	1.91	2.28	1.23	0.48	0.2	2.21	2.24
 Justin Tucker	BAL	8.4	1.74	2.11	1.16	0.43	0.15	2.7	2.74
-Robbie Gould	CHI	8.3	1.7	2.05	1.13	0.43	0.14	2.74	2.78
+Robbie Gould	CHI	8.3	1.69	2.05	1.12	0.43	0.14	2.8	2.84
 Sebastian Janikowski	OAK	8.2	1.75	2.07	1.13	0.46	0.15	2.45	2.49
 Shayne Graham	HOU	8.2	1.72	2.03	1.13	0.44	0.16	2.59	2.63
 Shaun Suisham	PIT	8.1	1.92	2.28	1.39	0.41	0.13	1.99	2.02
@@ -17,7 +17,7 @@ Connor Barth	TB	7.8	1.7	1.91	1.08	0.46	0.16	2.28	2.32
 Matt Prater	DEN	7.7	1.76	2.14	1.27	0.36	0.12	2.09	2.13
 Rian Lindell	BUF	7.5	1.65	2	1.01	0.45	0.19	1.96	1.99
 Nate Kaeding	SD	7.5	1.52	1.82	0.97	0.43	0.13	2.52	2.56
-Josh Scobee	JAC	7.2	1.66	1.92	0.98	0.49	0.19	1.69	1.72
+Josh Scobee	JAC	7.2	1.64	1.89	0.96	0.49	0.18	1.69	1.72
 Nick Folk	NYJ	7.1	1.41	1.8	0.96	0.34	0.11	2.58	2.62
 Billy Cundiff	WAS	7	1.55	1.9	1.09	0.36	0.1	2.09	2.12
 Greg Zuerlein	STL	7	1.62	1.95	1.16	0.36	0.1	1.9	1.93
@@ -26,8 +26,8 @@ David Akers	SF	6.6	1.39	1.62	0.96	0.34	0.1	2.16	2.2
 Mike Nugent	CIN	6.6	1.54	1.8	0.98	0.42	0.14	1.59	1.61
 Rob Bironas	TEN	6.6	1.35	1.5	0.79	0.41	0.14	2.1	2.13
 Phil Dawson	CLE	6.4	1.39	1.61	0.82	0.42	0.16	1.74	1.77
-Blair Walsh	MIN	6.3	1.34	1.78	0.91	0.3	0.12	1.97	2
-Adam Vinatieri	IND	6.1	1.32	1.51	0.77	0.41	0.14	1.75	1.78
+Blair Walsh	MIN	6.4	1.31	1.74	0.88	0.31	0.12	2.07	2.1
+Adam Vinatieri	IND	6.2	1.32	1.51	0.75	0.42	0.15	1.78	1.8
 Dan Bailey	DAL	6	1	1	0	0	0	3	3
 Dan Carpenter	MIA	5.9	1.36	1.62	0.89	0.36	0.12	1.45	1.47
 Lawrence Tynes	NYG	5	1	1	0	0	0	2	2

@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/znconrad5/fantasyfootball"
 	"io/ioutil"
+	"log"
 	"math"
 	"os"
 	"regexp"
