@@ -2,12 +2,13 @@ package fantasyfootball
 
 import (
 	"fmt"
+	"os"
 	"runtime"
 	"sort"
 	"testing"
 )
 
-var dataSourceTestDir = "./parsed"
+var dataSourceTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
 var dataSourceTestStartWeek = 2
 var dataSourceTestEndWeek = 14
 
