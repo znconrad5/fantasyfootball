@@ -13,8 +13,8 @@ import (
 	"sync"
 )
 
-var inputDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/html"
-var testOutDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/parsed"
+var inputDir = "./html"
+var testOutDir = "./parsed"
 
 var rowRegex = regexp.MustCompile("(?s)<tr[^>]*>.*?</tr>")
 var dataRegex = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]*<")

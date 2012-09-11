@@ -7,8 +7,8 @@ import (
 	"testing"
 )
 
-var dataSourceTestDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/parsed"
-var dataSourceTestStartWeek = 1
+var dataSourceTestDir = "./parsed"
+var dataSourceTestStartWeek = 2
 var dataSourceTestEndWeek = 14
 
 func TestLoadDsts(t *testing.T) {
