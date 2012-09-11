@@ -13,8 +13,8 @@ import (
 	"sync"
 )
 
-var inputDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/html"
-var testOutDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/parsed"
+var inputDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/html")
+var testOutDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
 
 var rowRegex = regexp.MustCompile("(?s)<tr[^>]*>.*?</tr>")
 var dataRegex = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]*<")
@@ -66,7 +66,9 @@ func main() {
 			continue
 		}
 		if fileName := file.Name(); currWeekRegex.MatchString(fileName) {
-			os.Rename(fmt.Sprintf("%s/%s", testOutDir, fileName), fmt.Sprintf("%s/%s", testOutDir, currWeekRegex.ReplaceAllString(fileName, fmt.Sprintf("%v", minWeek-1))))
+			newName := fmt.Sprintf("%s/%s", testOutDir, currWeekRegex.ReplaceAllString(fileName, fmt.Sprintf("%v", minWeek-1)))
+			os.Remove(newName)
+			os.Rename(fmt.Sprintf("%s/%s", testOutDir, fileName), newName)
 		}
 	}
 }

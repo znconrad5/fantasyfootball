@@ -8,7 +8,7 @@ import (
 	"sync"
 )
 
-var dataDir = "../html"
+var dataDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/html")
 
 func main() {
 	urlPattern := "http://accuscore.com/fantasy-sports/nfl-fantasy-sports/%v-%v"
