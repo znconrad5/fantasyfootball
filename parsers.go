@@ -85,25 +85,15 @@ func (p *Parser) parseFile(fileName string, week int) {
 	reader.TrimLeadingSpace = true
 	// read in header lines
 	header := make(map[string]int)
-	for i := 0; i < p.numHeaders; i++ {
-		line, err := reader.Read()
-		handleError(err)
-		validateSingleValue(line)
-		if line[0] == "" {
-			i--
-			continue
-		}
-		if i != 0 { // discard first line which is player name
-			header[line[0]] = i - 1
-		}
+	line, err := reader.Read()
+	handleError(err)
+	for i, h := range line {
+		header[h] = i
 	}
 	// read in player/stats
-	for playerLine, err := reader.Read(); err != io.EOF; playerLine, err = reader.Read() {
+	for statsLine, err := reader.Read(); err != io.EOF; statsLine, err = reader.Read() {
 		handleError(err)
-		validateSingleValue(playerLine)
-		playerName := playerLine[0]
-		statsLine, err := reader.Read()
-		handleError(err)
+		playerName := statsLine[header["PLAYER"]]
 		team := statsLine[header["TEAM"]]
 		playerKey := fmt.Sprintf("%s (%s)", playerName, team)
 		player, ok := p.players[playerKey]
@@ -150,19 +140,19 @@ func (p *DstPointParser) parsePoints(header map[string]int, statsLine []string) 
 			points += 10 * 100
 		}
 	} else if pointsAgainst < 1 {
-		points += (10+8) * 50
+		points += (10 + 8) * 50
 	} else if pointsAgainst <= 6 {
 		points += 8 * 100
 	} else if pointsAgainst < 7 {
-		points += (8+6) * 50
+		points += (8 + 6) * 50
 	} else if pointsAgainst <= 13 {
 		points += 6 * 100
 	} else if pointsAgainst < 14 {
-		points += (6+3) * 50
+		points += (6 + 3) * 50
 	} else if pointsAgainst <= 20 {
-		points += 3*100
+		points += 3 * 100
 	} else if pointsAgainst < 21 {
-		points += (3+1) * 50
+		points += (3 + 1) * 50
 	} else if pointsAgainst <= 27 {
 		points += 1 * 100
 	} else if pointsAgainst < 28 {

@@ -1,0 +1,33 @@
+PLAYER	TEAM	FP	PA	SACK	INT	FUMR	BLK	TO	INTTD	KRETTD	PRETTD
+Oakland Raiders	OAK	19.2	16.5	3.7	0.83	1.15	0.26	1.98	0.18	0.14	0.03
+San Francisco 49ers	SF	18.6	18.9	4.5	1.21	0.97	0.23	2.18	0.11	0.03	0.08
+New York Giants	NYG	17.5	20.1	4.9	1.33	1.18	0.21	2.51	0.13	0.02	0.01
+Minnesota Vikings	MIN	15.8	20.8	3.6	1.26	1.04	0.21	2.3	0.12	0.1	0.01
+Indianapolis Colts	IND	15	17.8	3.3	0.88	0.92	0.21	1.8	0.1	0.02	0.02
+Green Bay Packers	GB	14.9	20.5	3.3	1.13	1.12	0.19	2.25	0.08	0.07	0.09
+Arizona Cardinals	ARI	14.8	22.9	4	0.99	0.79	0.23	1.78	0.1	0.05	0.21
+New England Patriots	NE	14.1	19.6	2.6	1.15	1.2	0.21	2.35	0.14	0.04	0.09
+Houston Texans	HOU	13.3	21.9	3.5	0.81	1.12	0.21	1.93	0.07	0.05	0.01
+Buffalo Bills	BUF	13.2	21.7	3	1.21	0.61	0.23	1.81	0.13	0.04	0.14
+Cincinnati Bengals	CIN	12.7	20.7	3.3	0.78	0.95	0.21	1.73	0.11	0.04	0.02
+Pittsburgh Steelers	PIT	10.5	18.7	1.5	0.83	0.68	0.22	1.52	0.13	0.03	0.03
+Cleveland Browns	CLE	10.2	24.3	2.8	0.84	0.79	0.21	1.63	0.12	0.04	0.09
+New Orleans Saints	NO	9.8	23.6	1.7	1.02	1.3	0.19	2.32	0.15	0.05	0.04
+Detroit Lions	DET	9	27.2	3.7	0.69	1.16	0.26	1.85	0.21	0.05	0.01
+Seattle Seahawks	SEA	8.8	26.8	3.1	0.63	0.88	0.2	1.51	0.18	0.07	0.02
+Jacksonville Jaguars	JAC	8.8	23.7	1.3	1.19	1.21	0.26	2.33	0.08	0.03	0.01
+Chicago Bears	CHI	8.2	26.8	1.6	0.97	0.9	0.19	1.87	0.14	0.09	0.15
+Dallas Cowboys	DAL	7.7	27	3	1.05	0.83	0.18	1.88	0.08	0.06	0.01
+Baltimore Ravens	BAL	7.6	22.7	1.5	0.62	0.82	0.22	1.44	0.09	0.03	0.02
+Tennessee Titans	TEN	6.9	25.7	1.4	1.11	1.09	0.18	2.2	0.18	0.02	0.02
+St. Louis Rams	STL	5.9	33	2.9	0.69	0.82	0.17	1.51	0.2	0.02	0
+Carolina Panthers	CAR	5.2	27.5	2	0.79	0.94	0.19	1.73	0.14	0.14	0
+New York Jets	NYJ	5.1	30.7	1.8	0.86	0.95	0.22	1.8	0.16	0.08	0.02
+Tampa Bay Buccaneers	TB	4.1	35.3	1.6	0.97	0.68	0.18	1.65	0.16	0.06	0.01
+Washington Redskins	WAS	4.1	29.2	1.5	0.96	0.88	0.2	1.84	0.14	0.02	0.02
+Atlanta Falcons	ATL	0	0	0	0	0	0	0	0	0	0
+Denver Broncos	DEN	0	0	0	0	0	0	0	0	0	0
+Kansas City Chiefs	KC	0	0	0	0	0	0	0	0	0	0
+Miami Dolphins	MIA	0	0	0	0	0	0	0	0	0	0
+Philadelphia Eagles	PHI	0	0	0	0	0	0	0	0	0	0
+San Diego Chargers	SD	0	0	0	0	0	0	0	0	0	0
