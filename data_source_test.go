@@ -9,7 +9,7 @@ import (
 )
 
 var dataSourceTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
-var dataSourceTestStartWeek = 1
+var dataSourceTestStartWeek = 2
 var dataSourceTestEndWeek = 14
 
 func TestLoadDsts(t *testing.T) {
