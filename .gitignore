@@ -29,3 +29,6 @@ _testmain.go
 
 #sublime text files
 *.sublime-*
+
+#scraped html files
+html/*.html

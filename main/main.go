@@ -2,9 +2,9 @@ package main
 
 import (
 	"bufio"
-	"fantasyfootball"
 	"flag"
 	"fmt"
+	"github.com/znconrad5/fantasyfootball"
 	"log"
 	// "math"
 	"os"
@@ -14,7 +14,7 @@ import (
 	// "time"
 )
 
-var dataDir = flag.String("dataDir", "/Users/zachconrad/Documents/go/src/fantasyfootball/data", "The directory to look in for player statistics.")
+var dataDir = flag.String("dataDir", "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/data", "The directory to look in for player statistics.")
 var startWeek = flag.Int("startWeek", 1, "The week to start player statistic gathering.")
 var endWeek = flag.Int("endWeek", 14, "The week to end player statistic gathering, inclusive.")
 var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to file")
@@ -34,14 +34,14 @@ func main() {
 	draft := fantasyfootball.NewFantasyDraft([]string{"Brewsers", "Legacy Losers", "Smokin Weeden", "Benson's next BWI", "Stafford Infection", "The Croakin Krogans", "Kirkland Bearhawks", "Russel Wilson Jay Cutler", "We're Going Streaking", "amit is late"}, 7, data)
 	if *cpuprofile != "" {
 		f, err := os.Create(*cpuprofile)
-		        if err != nil {
-		            log.Fatal(err)
-		        }
-		        pprof.StartCPUProfile(f)
-		        defer pprof.StopCPUProfile()
+		if err != nil {
+			log.Fatal(err)
+		}
+		pprof.StartCPUProfile(f)
+		defer pprof.StopCPUProfile()
 	}
-	for i:=1; !draft.IsOver(); i++ {
-		stopper := make(chan bool);
+	for i := 1; !draft.IsOver(); i++ {
+		stopper := make(chan bool)
 		go closeChannelOnStdin(stopper)
 		fmt.Printf("Suggested draft for %v\n", draft.CurrentPlayer())
 		moves := draft.IterativeAlphabeta(stopper)
@@ -50,12 +50,12 @@ func main() {
 		}
 		var player *fantasyfootball.FootballPlayer
 		var ok bool
-		for ; !ok; {
+		for !ok {
 			fmt.Printf("Actual Draft: ")
 			playerName, _ := bufio.NewReader(os.Stdin).ReadString('\n')
 			player, ok = data.Get(strings.TrimRight(playerName, "\n"))
 			fmt.Println(player)
-		}	
+		}
 		draft.Draft(player)
 	}
 	// for i:=1; i<2; i++ {
