@@ -1,32 +1,32 @@
 PLAYER	TEAM	FP	PA	SACK	INT	FUMR	BLK	TO	INTTD	KRETTD	PRETTD
-Cincinnati Bengals	CIN	20.6	15.7	4.3	1.17	0.88	0.25	2.05	0.12	0.02	0.06
-New York Jets	NYJ	20.3	16.7	4.1	1.44	0.8	0.24	2.24	0.12	0.06	0.11
-Miami Dolphins	MIA	19.7	14.1	3.7	0.64	1.05	0.24	1.69	0.14	0.04	0.08
-St. Louis Rams	STL	15.4	20.6	3.7	1.21	0.95	0.24	2.17	0.08	0.02	0.03
-Buffalo Bills	BUF	14.2	24.5	3.6	1.26	1.21	0.2	2.47	0.17	0.03	0.1
-New England Patriots	NE	13.6	22.1	3.7	1.05	0.88	0.23	1.93	0.15	0.04	0.06
-Pittsburgh Steelers	PIT	13.5	17.2	2.7	0.9	0.75	0.22	1.65	0.08	0.02	0.03
-Washington Redskins	WAS	12.7	20.5	3.3	0.9	0.88	0.2	1.78	0.06	0.03	0.02
-Kansas City Chiefs	KC	11.8	21.3	1.8	1.14	1.21	0.22	2.35	0.15	0.01	0.04
-Atlanta Falcons	ATL	11.4	21.3	1.5	1.54	1.21	0.22	2.68	0.08	0.01	0
-Minnesota Vikings	MIN	11.4	26.7	4	0.63	1.29	0.2	1.92	0.12	0.1	0.01
-Arizona Cardinals	ARI	10.6	23.7	1.7	1.27	1.14	0.18	2.41	0.19	0.06	0.15
-Baltimore Ravens	BAL	10.5	22.9	2.6	0.77	0.88	0.2	1.64	0.08	0.03	0.04
-San Francisco 49ers	SF	10.4	22.6	1.8	1.08	0.85	0.2	1.94	0.06	0.07	0.1
-Tennessee Titans	TEN	10	21.3	2.3	0.71	0.89	0.22	1.6	0.1	0.02	0.01
-New York Giants	NYG	10	25.9	4	0.64	0.87	0.2	1.51	0.15	0.02	0.01
-Dallas Cowboys	DAL	8.9	26.9	3	0.66	1.08	0.2	1.74	0.1	0.04	0.01
-Detroit Lions	DET	8.9	30.6	2.8	1.25	1.12	0.2	2.37	0.16	0.04	0.01
-Tampa Bay Buccaneers	TB	8.4	23.7	1.8	0.96	0.89	0.24	1.85	0.25	0.04	0.01
-Cleveland Browns	CLE	7.7	23.4	1.5	0.97	0.79	0.23	1.76	0.17	0.03	0.05
-Houston Texans	HOU	7.1	30.8	3.1	0.93	0.87	0.21	1.8	0.15	0.04	0.02
-Indianapolis Colts	IND	6.9	26.8	1.7	0.69	1.28	0.21	1.97	0.29	0.01	0.01
-Philadelphia Eagles	PHI	6.8	29.6	2.2	1.32	0.94	0.19	2.26	0.27	0.03	0.03
-San Diego Chargers	SD	6.1	31.3	1.9	0.77	1.19	0.2	1.96	0.11	0.1	0.07
-Denver Broncos	DEN	5.5	30.2	1.9	0.94	0.91	0.19	1.84	0.1	0.01	0.14
-Green Bay Packers	GB	5.4	29.9	1.9	0.94	0.82	0.19	1.76	0.11	0.06	0.07
-Oakland Raiders	OAK	4.7	28.3	1.8	0.76	0.77	0.25	1.53	0.2	0.16	0.02
-Seattle Seahawks	SEA	4.7	30.1	1.5	0.91	0.95	0.18	1.85	0.14	0.08	0.02
+Miami Dolphins	MIA	22.6	13.7	3.7	0.64	1.04	0.24	1.68	0.14	0.04	0.08
+New York Jets	NYJ	20.8	16.5	3.8	1.52	0.75	0.21	2.27	0.12	0.06	0.14
+Cincinnati Bengals	CIN	18.7	17.4	4.2	1.1	0.84	0.24	1.94	0.13	0.03	0.05
+St. Louis Rams	STL	15.6	20.4	3.9	1.18	0.99	0.27	2.17	0.06	0.01	0.03
+Washington Redskins	WAS	14.6	20	3.7	0.93	0.94	0.2	1.87	0.05	0.03	0.03
+New England Patriots	NE	14.4	21.5	3.8	1.14	0.86	0.2	1.99	0.14	0.03	0.06
+Atlanta Falcons	ATL	13.7	18.9	1.7	1.61	1.09	0.23	2.69	0.06	0.01	0.01
+Buffalo Bills	BUF	13.1	23.1	2.8	1.42	1.13	0.22	2.54	0.17	0.03	0.14
+Pittsburgh Steelers	PIT	12.7	18	2.6	0.8	0.76	0.21	1.56	0.09	0.03	0.03
+Kansas City Chiefs	KC	11.4	21.5	1.6	1.19	1.19	0.19	2.35	0.13	0.01	0.05
+Baltimore Ravens	BAL	10.9	22	2.7	0.82	0.92	0.19	1.74	0.09	0.02	0.03
+San Francisco 49ers	SF	10.8	21.6	1.9	1.07	0.85	0.21	1.92	0.06	0.07	0.08
+Arizona Cardinals	ARI	10.7	23.7	1.7	1.26	1.13	0.19	2.38	0.22	0.06	0.17
+New York Giants	NYG	10.1	25.3	4	0.68	0.81	0.21	1.49	0.14	0.03	0.01
+Tennessee Titans	TEN	9.5	22.1	2.3	0.72	0.87	0.21	1.59	0.09	0.02	0.01
+Cleveland Browns	CLE	9.1	22.9	1.5	1.03	0.82	0.24	1.85	0.16	0.06	0.05
+Minnesota Vikings	MIN	9.1	28.3	3.9	0.58	1.31	0.21	1.9	0.11	0.08	0.01
+Tampa Bay Buccaneers	TB	9.1	23	1.7	0.94	0.89	0.21	1.83	0.24	0.04	0.01
+Detroit Lions	DET	8.5	30.2	2.8	1.24	1.07	0.23	2.31	0.14	0.06	0.02
+Houston Texans	HOU	8.1	30.7	3.5	0.94	0.9	0.19	1.84	0.14	0.04	0.01
+Dallas Cowboys	DAL	6.9	27.5	3	0.67	1.08	0.21	1.75	0.12	0.05	0.01
+Indianapolis Colts	IND	6.9	26.7	1.7	0.69	1.25	0.21	1.94	0.27	0.03	0.01
+Philadelphia Eagles	PHI	6.8	29.1	2.4	1.22	0.97	0.2	2.18	0.24	0.03	0.03
+Denver Broncos	DEN	5.9	29.7	1.9	1.03	0.87	0.15	1.91	0.06	0.01	0.14
+Green Bay Packers	GB	5.2	29.9	1.8	0.93	0.83	0.17	1.76	0.1	0.07	0.05
+San Diego Chargers	SD	5.2	30	1.7	0.75	1.13	0.19	1.88	0.12	0.09	0.07
+Seattle Seahawks	SEA	4.5	29.2	1.5	0.84	0.91	0.21	1.75	0.15	0.07	0.03
+Oakland Raiders	OAK	2.7	27.8	1.5	0.65	0.68	0.23	1.33	0.21	0.02	0.02
 Chicago Bears	CHI	0	0	0	0	0	0	0	0	0	0
 New Orleans Saints	NO	0	0	0	0	0	0	0	0	0	0
 Carolina Panthers	CAR	0	0	0	0	0	0	0	0	0	0
