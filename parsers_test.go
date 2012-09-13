@@ -2,10 +2,11 @@ package fantasyfootball
 
 import (
 	"fmt"
+	"os"
 	"testing"
 )
 
-var parserTestDir = "C:/Users/Dustin/Documents/golibs/src/github.com/znconrad5/fantasyfootball/parsed"
+var parserTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
 var parserTestStartWeek = 1
 var parserTestEndWeek = 14
 
