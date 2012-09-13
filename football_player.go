@@ -12,17 +12,17 @@ const (
 )
 
 type FootballPlayer struct {
-	name         string
-	team         string
-	position     Position
-	points       [SEASON_LENGTH]int
+	Name         string
+	Team         string
+	Position     Position
+	Points       [SEASON_LENGTH]int
 	totalPoints_ int
 }
 
-func (player *FootballPlayer) totalPoints() int {
+func (player *FootballPlayer) TotalPoints() int {
 	if player.totalPoints_ == 0 {
 		sum := 0
-		for _, v := range player.points {
+		for _, v := range player.Points {
 			sum += v
 		}
 		player.totalPoints_ = sum
@@ -37,7 +37,7 @@ type ByTotalPointsAsc struct {
 func (s *ByTotalPointsAsc) Len() int { return len(s.players) }
 
 func (s *ByTotalPointsAsc) Less(i, j int) bool {
-	return s.players[i].totalPoints() < s.players[j].totalPoints()
+	return s.players[i].TotalPoints() < s.players[j].TotalPoints()
 }
 
 func (s *ByTotalPointsAsc) Swap(i, j int) {
@@ -51,7 +51,7 @@ type ByTotalPointsDesc struct {
 func (s *ByTotalPointsDesc) Len() int { return len(s.players) }
 
 func (s *ByTotalPointsDesc) Less(i, j int) bool {
-	return s.players[i].totalPoints() > s.players[j].totalPoints()
+	return s.players[i].TotalPoints() > s.players[j].TotalPoints()
 }
 
 func (s *ByTotalPointsDesc) Swap(i, j int) {
@@ -66,7 +66,7 @@ type ByWeekPointsAsc struct {
 func (s *ByWeekPointsAsc) Len() int { return len(s.players) }
 
 func (s *ByWeekPointsAsc) Less(i, j int) bool {
-	return s.players[i].points[s.week-1] < s.players[j].points[s.week-1]
+	return s.players[i].Points[s.week-1] < s.players[j].Points[s.week-1]
 }
 
 func (s *ByWeekPointsAsc) Swap(i, j int) {
@@ -81,7 +81,7 @@ type ByWeekPointsDesc struct {
 func (s *ByWeekPointsDesc) Len() int { return len(s.players) }
 
 func (s *ByWeekPointsDesc) Less(i, j int) bool {
-	return s.players[i].points[s.week-1] > s.players[j].points[s.week-1]
+	return s.players[i].Points[s.week-1] > s.players[j].Points[s.week-1]
 }
 
 func (s *ByWeekPointsDesc) Swap(i, j int) {

@@ -8,6 +8,7 @@ import (
 )
 
 type DataSource interface {
+	AllPlayers() map[string]*FootballPlayer
 	DefenseSpecialTeams() []*FootballPlayer
 	Kickers() []*FootballPlayer
 	Quarterbacks() []*FootballPlayer
@@ -29,12 +30,14 @@ type NormalizedDataSource struct {
 
 func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
 	normalizedDataSource := &NormalizedDataSource{
-		defaultDst: &FootballPlayer{position:DST},
-		defaultK: &FootballPlayer{position:K},
-		defaultQb: &FootballPlayer{position:QB},
-		defaultRb: &FootballPlayer{position:RB},
-		defaultTe: &FootballPlayer{position:TE},
-		defaultWr: &FootballPlayer{position:WR},
+		dataSource,
+		&FootballPlayer{Position:DST},
+		&FootballPlayer{Position:K},
+		&FootballPlayer{Position:QB},
+		&FootballPlayer{Position:RB},
+		&FootballPlayer{Position:TE},
+	    &FootballPlayer{Position:WR},
+		new(FootballPlayer),
 	}
 	
 	var waitGroup sync.WaitGroup
@@ -64,7 +67,7 @@ func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
 		waitGroup.Done()
 	}()
 	waitGroup.Wait()
-	if normalizedDataSource.defaultRb.totalPoints() > normalizedDataSource.defaultWr.totalPoints() {
+	if normalizedDataSource.defaultRb.TotalPoints() > normalizedDataSource.defaultWr.TotalPoints() {
 		normalizedDataSource.defaultFlex = normalizedDataSource.defaultRb
 	} else {
 		normalizedDataSource.defaultFlex = normalizedDataSource.defaultWr
@@ -74,15 +77,15 @@ func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
 
 func normalizePlayers(offset int, players []*FootballPlayer) *FootballPlayer {
 	defaultPlayer := &FootballPlayer{
-		name:     "default",
+		Name:     "default",
 	}
 	for week := 1; week <= SEASON_LENGTH; week++ {
 		sort.Sort(&ByWeekPointsDesc{players, week})
-		defaultPlayer.points[week-1] = players[offset].points[week-1]
+		defaultPlayer.Points[week-1] = players[offset].Points[week-1]
 	}
 	// associate a name with the "default" player, for funsies only since the point values are taken from the weekly nth best player, not the season's nth best player
 	sort.Sort(&ByTotalPointsDesc{players})
-	defaultPlayer.team = fmt.Sprintf("~%s", players[offset].name)
+	defaultPlayer.Team = fmt.Sprintf("~%s", players[offset].Name)
 	// normalize each player to the default player
 	for _, p := range players {
 		normalizePlayer(defaultPlayer, p)
@@ -92,7 +95,7 @@ func normalizePlayers(offset int, players []*FootballPlayer) *FootballPlayer {
 
 func normalizePlayer(defaultPlayer *FootballPlayer, player *FootballPlayer) {
 	for week := 1; week <= SEASON_LENGTH; week++ {
-		player.points[week-1] -= defaultPlayer.points[week-1];
+		player.Points[week-1] -= defaultPlayer.Points[week-1];
 		player.totalPoints_ = 0
 	}
 }
@@ -102,6 +105,7 @@ type FileDataSource struct {
 	startWeek int
 	endWeek   int
 
+	allPlayers  map[string]*FootballPlayer
 	dsts        []*FootballPlayer // defenses/special teams
 	ks          []*FootballPlayer // kickers
 	qbs         []*FootballPlayer // quarterbacks
@@ -115,9 +119,14 @@ func NewFileDataSource(dir string, startWeek, endWeek int) *FileDataSource {
 		dir:        dir,
 		startWeek:  startWeek,
 		endWeek:    endWeek,
+		allPlayers: make(map[string]*FootballPlayer),
 	}
 	fileDataSource.loadFiles()
 	return fileDataSource
+}
+
+func (fds *FileDataSource) AllPlayers() map[string]*FootballPlayer {
+	return fds.allPlayers
 }
 
 func (fds *FileDataSource) DefenseSpecialTeams() []*FootballPlayer {
@@ -145,15 +154,18 @@ func (fds *FileDataSource) WideReceivers() []*FootballPlayer {
 }
 
 func (fds *FileDataSource) loadFiles() {
-	var waitGroup sync.WaitGroup
-	waitGroup.Add(6)
-	go func() { fds.loadDsts(); waitGroup.Done() }()
-	go func() { fds.loadKs(); waitGroup.Done() }()
-	go func() { fds.loadQbs(); waitGroup.Done() }()
-	go func() { fds.loadRbs(); waitGroup.Done() }()
-	go func() { fds.loadTes(); waitGroup.Done() }()
-	go func() { fds.loadWrs(); waitGroup.Done() }()
-	waitGroup.Wait()
+	c := make(chan []*FootballPlayer, 6)
+	go func() { c <- fds.loadDsts() }()
+	go func() { c <- fds.loadKs() }()
+	go func() { c <- fds.loadQbs() }()
+	go func() { c <- fds.loadRbs() }()
+	go func() { c <- fds.loadTes() }()
+	go func() { c <- fds.loadWrs() }()
+	for i := 0; i < 6; i++ {
+		for _, p := range <-c {
+			fds.allPlayers[fmt.Sprintf("%s (%s)", p.Name, p.Team)] = p
+		}
+	}
 }
 
 func (fds *FileDataSource) loadDsts() []*FootballPlayer {

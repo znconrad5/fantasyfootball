@@ -3,6 +3,8 @@ package fantasyfootball
 import (
 	"fmt"
 	"os"
+	"runtime"
+	"sort"
 	"testing"
 )
 
@@ -17,7 +19,7 @@ func TestLoadDsts(t *testing.T) {
 		if i>=32 {
 			break;
 		}
-		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
 	fmt.Println()
 }
@@ -29,7 +31,7 @@ func TestLoadKs(t *testing.T) {
 		if i>=32 {
 			break;
 		}
-		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
 	fmt.Println()
 }
@@ -41,7 +43,7 @@ func TestLoadQbs(t *testing.T) {
 		if i>=32 {
 			break;
 		}
-		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+			fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
 	fmt.Println()
 }
@@ -53,7 +55,7 @@ func TestLoadRbs(t *testing.T) {
 		if i>=100 {
 			break;
 		}
-		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
 	fmt.Println()
 }
@@ -65,7 +67,7 @@ func TestLoadTes(t *testing.T) {
 		if i>=32 {
 			break;
 		}
-		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
 	fmt.Println()
 }
@@ -77,7 +79,20 @@ func TestLoadWrs(t *testing.T) {
 		if i>=100 {
 			break;
 		}
-		fmt.Printf("%s (%s) %d %d\n", v.name, v.team, v.totalPoints(), v.points)
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
 	fmt.Println()
+}
+
+func TestTimeLoadAll(t *testing.T) {
+	runtime.GOMAXPROCS(runtime.NumCPU())
+	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	allPlayers := make([]*FootballPlayer, 0)
+	for _, v := range loader.allPlayers {
+		allPlayers = append(allPlayers, v)
+	}
+	sort.Sort(&ByTotalPointsDesc{allPlayers})
+	for _, v := range allPlayers {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
 }
