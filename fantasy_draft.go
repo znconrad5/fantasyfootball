@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	START_DEPTH  = 4
+	START_DEPTH = 4
 )
 
 type FantasyDraft struct {
@@ -81,7 +81,7 @@ func (fd *FantasyDraft) CurrentPlayer() *FantasyPlayer {
 	return fd.players[len(fd.players)-1-offset]
 }
 
-func (fd  *FantasyDraft) length() int {
+func (fd *FantasyDraft) length() int {
 	return len(fd.players) * 15
 }
 
@@ -93,7 +93,7 @@ func (fd *FantasyDraft) Draft(draftee *FootballPlayer) {
 
 func (fd *FantasyDraft) removeFootballPlayer(player *FootballPlayer) {
 	var pool *Stack
-	switch player.position {
+	switch player.Position {
 	case DST:
 		pool = fd.dsts
 	case K:
@@ -117,7 +117,7 @@ func (fd *FantasyDraft) IterativeAlphabeta(stop <-chan bool) <-chan Move {
 		remaining := fd.length() - fd.playersDrafted
 		cache := make([]*FootballPlayer, fd.length())
 		for depth := min(START_DEPTH, remaining); depth <= remaining; depth++ {
-	    // for depth:=min(START_DEPTH, remaining); depth<=10; depth++ {
+			// for depth:=min(START_DEPTH, remaining); depth<=10; depth++ {
 			move, val, ok := fd.Alphabeta(depth, math.MinInt32, math.MaxInt32, cache, stop)
 			if ok {
 				moves <- Move{move, val}
@@ -197,7 +197,7 @@ func (fd *FantasyDraft) Alphabeta(depth, alpha, beta int, cache []*FootballPlaye
 
 func (fd *FantasyDraft) generateMoves(cache []*FootballPlayer) []*Stack {
 	if cache[fd.playersDrafted] != nil {
-		switch cache[fd.playersDrafted].position {
+		switch cache[fd.playersDrafted].Position {
 		case DST:
 			return []*Stack{fd.dsts, fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks}
 		case K:
@@ -211,7 +211,7 @@ func (fd *FantasyDraft) generateMoves(cache []*FootballPlayer) []*Stack {
 		case WR:
 			return []*Stack{fd.wrs, fd.rbs, fd.qbs, fd.tes, fd.ks, fd.dsts}
 		}
-	}	
+	}
 	byBestMove := &ByBestLikelyMove{fd.CurrentPlayer(), []*Stack{fd.rbs, fd.wrs, fd.qbs, fd.tes, fd.ks, fd.dsts}}
 	sort.Sort(byBestMove)
 	return byBestMove.stacks
@@ -267,7 +267,7 @@ func (fd *FantasyDraft) estimate() int {
 }
 
 func (fd *FantasyDraft) IsOver() bool {
-	return fd.playersDrafted == len(fd.players) * 15
+	return fd.playersDrafted == len(fd.players)*15
 }
 
 func (fd *FantasyDraft) String() string {

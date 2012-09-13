@@ -8,9 +8,9 @@ import (
 type DataSource struct {
 	dir       string
 	startWeek int
-	endWeek   int
+	EndWeek   int
 
-	allPlayers  map[string]*FootballPlayer
+	AllPlayers  map[string]*FootballPlayer
 	dsts        []*FootballPlayer // defenses/special teams
 	defaultDst  *FootballPlayer
 	ks          []*FootballPlayer // kickers
@@ -26,12 +26,12 @@ type DataSource struct {
 	defaultFlex *FootballPlayer
 }
 
-func NewDataSource(dir string, startWeek, endWeek int) *DataSource {
+func NewDataSource(dir string, startWeek, EndWeek int) *DataSource {
 	return &DataSource{
 		dir:        dir,
 		startWeek:  startWeek,
-		endWeek:    endWeek,
-		allPlayers: make(map[string]*FootballPlayer),
+		EndWeek:    EndWeek,
+		AllPlayers: make(map[string]*FootballPlayer),
 	}
 }
 
@@ -46,10 +46,10 @@ func (loader *DataSource) LoadAll() {
 	for i := 0; i < 6; i++ {
 		ps := <-c
 		for _, p := range ps {
-			loader.allPlayers[fmt.Sprintf("%s (%s)", p.name, p.team)] = p
+			loader.AllPlayers[fmt.Sprintf("%s (%s)", p.Name, p.Team)] = p
 		}
 	}
-	if loader.defaultRb.totalPoints() > loader.defaultWr.totalPoints() {
+	if loader.defaultRb.TotalPoints() > loader.defaultWr.TotalPoints() {
 		loader.defaultFlex = loader.defaultRb
 	} else {
 		loader.defaultFlex = loader.defaultWr
@@ -57,7 +57,7 @@ func (loader *DataSource) LoadAll() {
 }
 
 func (loader *DataSource) Get(playerName string) (*FootballPlayer, bool) {
-	player, ok := loader.allPlayers[playerName]
+	player, ok := loader.AllPlayers[playerName]
 	return player, ok
 }
 
@@ -120,7 +120,7 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 		fileName = "wr"
 		offset = 4 * 9 // assume each player drafts 4
 	}
-	for week := loader.startWeek; week <= loader.endWeek; week++ {
+	for week := loader.startWeek; week <= loader.EndWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", loader.dir, fileName, week), week)
 	}
 	players := make([]*FootballPlayer, len(parser.players))
@@ -130,23 +130,23 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 		i++
 	}
 	defaultPlayer := &FootballPlayer{
-		name:     "default",
-		position: position,
+		Name:     "default",
+		Position: position,
 	}
 	// the "default" player is a guess of the best undrafted player for a position each week
-	for week := loader.startWeek; week <= loader.endWeek; week++ {
+	for week := loader.startWeek; week <= loader.EndWeek; week++ {
 		sort.Sort(&ByWeekPointsDesc{players, week})
-		defaultPlayer.points[week-1] = players[offset].points[week-1]
+		defaultPlayer.Points[week-1] = players[offset].Points[week-1]
 	}
 	// associate a name with the "default" player, for funsies only since the point values are taken from the weekly nth best player, not the season's nth best player
 	sort.Sort(&ByTotalPointsDesc{players})
-	defaultPlayer.team = fmt.Sprintf("~%s", players[offset].name)
+	defaultPlayer.Team = fmt.Sprintf("~%s", players[offset].Name)
 	// normalize each player to the default player
 	for _, p := range players {
-		for week := loader.startWeek; week <= loader.endWeek; week++ {
-			p.points[week-1] -= defaultPlayer.points[week-1]
+		for week := loader.startWeek; week <= loader.EndWeek; week++ {
+			p.Points[week-1] -= defaultPlayer.Points[week-1]
 			// reset total points so it is recalculated
-			p.totalPoints_ = 0
+			p.TotalPoints_ = 0
 		}
 	}
 	return players, defaultPlayer
