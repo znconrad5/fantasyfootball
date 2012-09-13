@@ -13,6 +13,7 @@ var dataSourceTestStartWeek = 2
 var dataSourceTestEndWeek = 14
 
 func TestLoadDsts(t *testing.T) {
+<<<<<<< HEAD
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	players := loader.loadDsts()
 	for i, v := range players {
@@ -21,10 +22,19 @@ func TestLoadDsts(t *testing.T) {
 		}
 		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
+=======
+	loader := NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	players, defaultPlayer := loader.loadDsts()
+	for _, v := range players {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
+	fmt.Printf("%s (%s) %d %d\n", defaultPlayer.Name, defaultPlayer.Team, defaultPlayer.TotalPoints(), defaultPlayer.Points)
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	fmt.Println()
 }
 
 func TestLoadKs(t *testing.T) {
+<<<<<<< HEAD
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	players := loader.loadKs()
 	for i, v := range players {
@@ -33,10 +43,19 @@ func TestLoadKs(t *testing.T) {
 		}
 		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
+=======
+	loader := NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	players, defaultPlayer := loader.loadKs()
+	for _, v := range players {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
+	fmt.Printf("%s (%s) %d %d\n", defaultPlayer.Name, defaultPlayer.Team, defaultPlayer.TotalPoints(), defaultPlayer.Points)
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	fmt.Println()
 }
 
 func TestLoadQbs(t *testing.T) {
+<<<<<<< HEAD
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	players := loader.loadQbs()
 	for i, v := range players {
@@ -45,10 +64,19 @@ func TestLoadQbs(t *testing.T) {
 		}
 			fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
+=======
+	loader := NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	players, defaultPlayer := loader.loadQbs()
+	for _, v := range players {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
+	fmt.Printf("%s (%s) %d %d\n", defaultPlayer.Name, defaultPlayer.Team, defaultPlayer.TotalPoints(), defaultPlayer.Points)
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	fmt.Println()
 }
 
 func TestLoadRbs(t *testing.T) {
+<<<<<<< HEAD
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	players := loader.loadRbs()
 	for i, v := range players {
@@ -57,10 +85,19 @@ func TestLoadRbs(t *testing.T) {
 		}
 		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
+=======
+	loader := NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	players, defaultPlayer := loader.loadRbs()
+	for _, v := range players {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
+	fmt.Printf("%s (%s) %d %d\n", defaultPlayer.Name, defaultPlayer.Team, defaultPlayer.TotalPoints(), defaultPlayer.Points)
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	fmt.Println()
 }
 
 func TestLoadTes(t *testing.T) {
+<<<<<<< HEAD
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	players := loader.loadTes()
 	for i, v := range players {
@@ -69,10 +106,19 @@ func TestLoadTes(t *testing.T) {
 		}
 		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
+=======
+	loader := NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	players, defaultPlayer := loader.loadTes()
+	for _, v := range players {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
+	fmt.Printf("%s (%s) %d %d\n", defaultPlayer.Name, defaultPlayer.Team, defaultPlayer.TotalPoints(), defaultPlayer.Points)
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	fmt.Println()
 }
 
 func TestLoadWrs(t *testing.T) {
+<<<<<<< HEAD
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	players := loader.loadWrs()
 	for i, v := range players {
@@ -81,6 +127,14 @@ func TestLoadWrs(t *testing.T) {
 		}
 		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
 	}
+=======
+	loader := NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	players, defaultPlayer := loader.loadWrs()
+	for _, v := range players {
+		fmt.Printf("%s (%s) %d %d\n", v.Name, v.Team, v.TotalPoints(), v.Points)
+	}
+	fmt.Printf("%s (%s) %d %d\n", defaultPlayer.Name, defaultPlayer.Team, defaultPlayer.TotalPoints(), defaultPlayer.Points)
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	fmt.Println()
 }
 
@@ -88,7 +142,7 @@ func TestTimeLoadAll(t *testing.T) {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	loader := NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	allPlayers := make([]*FootballPlayer, 0)
-	for _, v := range loader.allPlayers {
+	for _, v := range loader.AllPlayers {
 		allPlayers = append(allPlayers, v)
 	}
 	sort.Sort(&ByTotalPointsDesc{allPlayers})

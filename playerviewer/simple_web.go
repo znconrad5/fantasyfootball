@@ -19,8 +19,17 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
+<<<<<<< HEAD
 func indexHandler(w http.ResponseWriter, r *http.Request) {
 	loader := fantasyfootball.NewNormalizedDataSource(fantasyfootball.NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek))
+=======
+var dataDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/playerviewer/data")
+var statsName = "stats.txt"
+
+func indexHandler(w http.ResponseWriter, r *http.Request) {
+	loader := fantasyfootball.NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	loader.LoadAll()
+>>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	err := templates.ExecuteTemplate(w, "index.html", loader)
 	if err != nil {
 		fmt.Printf("%v", err)
