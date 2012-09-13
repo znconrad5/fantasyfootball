@@ -99,14 +99,14 @@ func (p *Parser) parseFile(fileName string, week int) {
 		player, ok := p.players[playerKey]
 		if !ok {
 			player = &FootballPlayer{
-				name:     playerName,
-				team:     team,
-				position: p.position,
+				Name:     playerName,
+				Team:     team,
+				Position: p.position,
 			}
 			p.players[playerKey] = player
 		}
 		points := p.pointParser.parsePoints(header, statsLine)
-		player.points[week-1] = points
+		player.Points[week-1] = points
 	}
 }
 

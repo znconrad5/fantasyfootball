@@ -1,7 +1,9 @@
 PLAYER	TEAM	FP	FGM	FGA	FG0-39	FG40-49	FG50	XPM	XPA
 Billy Cundiff	WAS	16	4	4	0	0	0	4	4
 Matt Bryant	ATL	16	4	4	0	0	0	4	4
+Nate Kaeding	SD	16	5	5	0	0	0	1	1
 Blair Walsh	MIN	14	4	4	0	0	0	2	2
+Justin Tucker	BAL	14	3	3	0	0	0	5	5
 David Akers	SF	12	3	3	0	0	0	3	3
 Shayne Graham	HOU	12	3	4	0	0	0	3	3
 Nick Folk	NYJ	12	2	2	0	0	0	6	6
@@ -13,13 +15,11 @@ Steve Hauschka	SEA	10	3	4	0	0	0	1	1
 Connor Barth	TB	10	3	3	0	0	0	1	1
 Jason Hanson	DET	9	2	2	0	0	0	3	3
 Josh Scobee	JAC	9	3	3	0	0	0	0	1
-Justin Tucker	BAL	8.5	1.75	2.13	1.17	0.43	0.15	2.75	2.79
-Sebastian Janikowski	OAK	8.2	1.75	2.07	1.13	0.46	0.15	2.45	2.49
 Jay Feely	ARI	8	2	2	0	0	0	2	2
-Nate Kaeding	SD	7.5	1.52	1.82	0.97	0.43	0.13	2.52	2.56
+Mike Nugent	CIN	7	2	2	0	0	0	1	1
 Rob Bironas	TEN	7	2	2	0	0	0	1	1
 Shaun Suisham	PIT	7	2	2	0	0	0	1	1
-Mike Nugent	CIN	6.6	1.53	1.79	0.97	0.43	0.13	1.56	1.58
+Sebastian Janikowski	OAK	6	2	2	0	0	0	0	0
 Garrett Hartley	NO	6	1	1	0	0	0	3	3
 Ryan Succop	KC	6	1	2	0	0	0	3	3
 Dan Bailey	DAL	6	1	1	0	0	0	3	3
