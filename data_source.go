@@ -17,12 +17,14 @@ type DataSource interface {
 }
 
 type NormalizedDataSource struct {
+	DataSource
 	defaultDst  *FootballPlayer
 	defaultK    *FootballPlayer
 	defaultQb   *FootballPlayer
 	defaultRb   *FootballPlayer
 	defaultTe   *FootballPlayer
 	defaultWr   *FootballPlayer
+	defaultFlex   *FootballPlayer
 }
 
 func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
@@ -62,6 +64,11 @@ func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
 		waitGroup.Done()
 	}()
 	waitGroup.Wait()
+	if normalizedDataSource.defaultRb.totalPoints() > normalizedDataSource.defaultWr.totalPoints() {
+		normalizedDataSource.defaultFlex = normalizedDataSource.defaultRb
+	} else {
+		normalizedDataSource.defaultFlex = normalizedDataSource.defaultWr
+	}
 	return normalizedDataSource
 }
 
@@ -187,7 +194,6 @@ func (fds *FileDataSource) loadWrs() []*FootballPlayer {
 
 func (fds *FileDataSource) load(parser *Parser, position Position) []*FootballPlayer {
 	var fileName string
-	var offset int
 	switch position {
 	case DST:
 		fileName = "def-st"

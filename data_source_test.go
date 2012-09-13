@@ -2,7 +2,7 @@ package fantasyfootball
 
 import (
 	"fmt"
-	"sort"
+	"os"
 	"testing"
 )
 

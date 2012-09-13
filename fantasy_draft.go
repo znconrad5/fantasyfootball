@@ -28,7 +28,7 @@ type Move struct {
 	Evaluation int
 }
 
-func NewFantasyDraft(names []string, maxPlayerIdx int, data DataSource) *FantasyDraft {
+func NewFantasyDraft(names []string, maxPlayerIdx int, data *NormalizedDataSource) *FantasyDraft {
 	fd := &FantasyDraft{playersDrafted: 0}
 	for i, name := range names {
 		fd.players = append(fd.players, newFantasyPlayer(name, data))
