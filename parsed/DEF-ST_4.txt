@@ -1,0 +1,33 @@
+PLAYER	TEAM	FP	PA	SACK	INT	FUMR	BLK	TO	INTTD	KRETTD	PRETTD
+Baltimore Ravens	BAL	26.6	12.1	4.4	1.46	0.84	0.23	2.3	0.1	0.02	0.05
+Arizona Cardinals	ARI	21.1	16	4.2	1.24	1.01	0.25	2.25	0.09	0.04	0.16
+New York Jets	NYJ	17.5	18.3	3.9	0.89	0.85	0.21	1.75	0.12	0.04	0.07
+Miami Dolphins	MIA	17	19.7	4.4	0.88	1.24	0.21	2.12	0.17	0.05	0.04
+Detroit Lions	DET	16.5	20.7	4.6	1.04	1	0.21	2.04	0.06	0.03	0.03
+Cincinnati Bengals	CIN	16.3	17.7	3.6	0.55	1.2	0.2	1.75	0.13	0.04	0.05
+Houston Texans	HOU	15.9	18.5	3.6	1.12	0.83	0.19	1.95	0.06	0.03	0.02
+Seattle Seahawks	SEA	15.5	18.3	3.3	0.82	1.17	0.22	1.99	0.12	0.05	0.04
+St. Louis Rams	STL	14.1	21.8	4	1	0.92	0.18	1.92	0.13	0.02	0.02
+San Francisco 49ers	SF	12.5	20.7	2.4	0.91	1.3	0.19	2.21	0.16	0.05	0.08
+New England Patriots	NE	12.3	22.9	1.6	1.66	1.26	0.16	2.92	0.15	0.04	0.08
+Atlanta Falcons	ATL	12.1	22	2.6	1.44	0.84	0.18	2.28	0.08	0.02	0.01
+Denver Broncos	DEN	11.9	20.4	1.9	1.23	1	0.24	2.22	0.07	0.02	0.16
+Tampa Bay Buccaneers	TB	11	25.9	3.1	1.05	1.29	0.19	2.33	0.16	0.04	0.01
+New York Giants	NYG	10.8	26.7	3.2	1.36	1.04	0.22	2.4	0.15	0.03	0.02
+San Diego Chargers	SD	10.4	23.1	2.6	0.97	0.88	0.19	1.85	0.25	0.1	0.07
+Washington Redskins	WAS	9.4	24.1	1.7	1.14	1.21	0.21	2.35	0.16	0.04	0.02
+Dallas Cowboys	DAL	9.3	25	3.5	0.52	0.98	0.22	1.51	0.17	0.04	0.02
+Jacksonville Jaguars	JAC	8.7	21.8	1.4	0.95	0.77	0.2	1.71	0.09	0.02	0.01
+Philadelphia Eagles	PHI	8.4	25.7	2.2	1.17	0.89	0.21	2.04	0.15	0.04	0.03
+Chicago Bears	CHI	8.3	26.2	2	0.95	0.96	0.18	1.91	0.06	0.05	0.09
+Green Bay Packers	GB	8	32.4	2	1.58	0.72	0.19	2.3	0.07	0.1	0.13
+Kansas City Chiefs	KC	7.8	25.5	1.7	1.09	0.83	0.22	1.9	0.09	0.01	0.05
+Buffalo Bills	BUF	4.9	35	1.6	0.99	0.86	0.19	1.84	0.23	0.05	0.09
+Cleveland Browns	CLE	4.9	31.3	1.9	0.66	1.09	0.2	1.75	0.23	0.06	0.03
+New Orleans Saints	NO	4.6	38.7	2.2	0.51	0.89	0.17	1.4	0.26	0.05	0.02
+Minnesota Vikings	MIN	4	34.9	1.7	0.64	0.95	0.21	1.59	0.23	0.09	0.01
+Oakland Raiders	OAK	3.8	30.1	1.3	0.65	1.24	0.21	1.9	0.14	0.02	0.03
+Carolina Panthers	CAR	3	29	1.4	0.7	0.67	0.17	1.36	0.18	0.08	0.02
+Tennessee Titans	TEN	1.9	29.1	1.2	0.42	0.84	0.22	1.27	0.16	0.03	0.01
+Indianapolis Colts	IND	0	0	0	0	0	0	0	0	0	0
+Pittsburgh Steelers	PIT	0	0	0	0	0	0	0	0	0	0
