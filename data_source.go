@@ -103,9 +103,9 @@ func normalizePlayer(defaultPlayer *FootballPlayer, player *FootballPlayer) {
 type FileDataSource struct {
 	dir       string
 	startWeek int
-	EndWeek   int
+	endWeek   int
 
-	AllPlayers  map[string]*FootballPlayer
+	allPlayers  map[string]*FootballPlayer
 	dsts        []*FootballPlayer // defenses/special teams
 	ks          []*FootballPlayer // kickers
 	qbs         []*FootballPlayer // quarterbacks
@@ -114,17 +114,12 @@ type FileDataSource struct {
 	wrs         []*FootballPlayer // wide receivers
 }
 
-<<<<<<< HEAD
 func NewFileDataSource(dir string, startWeek, endWeek int) *FileDataSource {
 	fileDataSource := &FileDataSource{
-=======
-func NewDataSource(dir string, startWeek, EndWeek int) *DataSource {
-	return &DataSource{
->>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 		dir:        dir,
 		startWeek:  startWeek,
-		EndWeek:    EndWeek,
-		AllPlayers: make(map[string]*FootballPlayer),
+		endWeek:    endWeek,
+		allPlayers: make(map[string]*FootballPlayer),
 	}
 	fileDataSource.loadFiles()
 	return fileDataSource
@@ -167,28 +162,10 @@ func (fds *FileDataSource) loadFiles() {
 	go func() { c <- fds.loadTes() }()
 	go func() { c <- fds.loadWrs() }()
 	for i := 0; i < 6; i++ {
-<<<<<<< HEAD
 		for _, p := range <-c {
 			fds.allPlayers[fmt.Sprintf("%s (%s)", p.Name, p.Team)] = p
 		}
 	}
-=======
-		ps := <-c
-		for _, p := range ps {
-			loader.AllPlayers[fmt.Sprintf("%s (%s)", p.Name, p.Team)] = p
-		}
-	}
-	if loader.defaultRb.TotalPoints() > loader.defaultWr.TotalPoints() {
-		loader.defaultFlex = loader.defaultRb
-	} else {
-		loader.defaultFlex = loader.defaultWr
-	}
-}
-
-func (loader *DataSource) Get(playerName string) (*FootballPlayer, bool) {
-	player, ok := loader.AllPlayers[playerName]
-	return player, ok
->>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 }
 
 func (fds *FileDataSource) loadDsts() []*FootballPlayer {
@@ -243,13 +220,8 @@ func (fds *FileDataSource) load(parser *Parser, position Position) []*FootballPl
 	case WR:
 		fileName = "wr"
 	}
-<<<<<<< HEAD
 	for week := fds.startWeek; week <= fds.endWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", fds.dir, fileName, week), week)
-=======
-	for week := loader.startWeek; week <= loader.EndWeek; week++ {
-		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", loader.dir, fileName, week), week)
->>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	}
 	players := make([]*FootballPlayer, len(parser.players))
 	i := 0
@@ -257,32 +229,5 @@ func (fds *FileDataSource) load(parser *Parser, position Position) []*FootballPl
 		players[i] = v
 		i++
 	}
-<<<<<<< HEAD
-=======
-	defaultPlayer := &FootballPlayer{
-		Name:     "default",
-		Position: position,
-	}
-	// the "default" player is a guess of the best undrafted player for a position each week
-	for week := loader.startWeek; week <= loader.EndWeek; week++ {
-		sort.Sort(&ByWeekPointsDesc{players, week})
-		defaultPlayer.Points[week-1] = players[offset].Points[week-1]
-	}
-	// associate a name with the "default" player, for funsies only since the point values are taken from the weekly nth best player, not the season's nth best player
-	sort.Sort(&ByTotalPointsDesc{players})
-	defaultPlayer.Team = fmt.Sprintf("~%s", players[offset].Name)
-	// normalize each player to the default player
-	for _, p := range players {
-		for week := loader.startWeek; week <= loader.EndWeek; week++ {
-			p.Points[week-1] -= defaultPlayer.Points[week-1]
-			// reset total points so it is recalculated
-			p.TotalPoints_ = 0
-		}
-	}
-	return players, defaultPlayer
-}
-
-func depair(players []*FootballPlayer, defaultPlayer *FootballPlayer) []*FootballPlayer {
->>>>>>> 7c391b1a565999696b1eedbc8ecf0d1932e014a9
 	return players
 }
