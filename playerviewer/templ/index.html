@@ -1,11 +1,21 @@
 <html>
 	<head>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.js"></script>
-		<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.3/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+		<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="js/datatable.filter.js"></script>
+		<link rel="stylesheet" href="css/overcast/jquery-ui-1.8.23.custom.css" type="text/css" media="all" />
 		<script>
 		$(document).ready(function() {
 		    var playerTable = $('#players').dataTable( {
-		        "aaSorting": [[ 4, "desc" ]]
+		        "bJQueryUI": true
+		    } );
+
+		    /* Add a select menu for each TH element in the table footer */
+		    $("#players tfoot th").each( function ( i ) {
+		        this.innerHTML = fnCreateSelect( playerTable.fnGetColumnData(i) );
+		        $('select', this).change( function () {
+		            playerTable.fnFilter( $(this).val(), i );
+		        } );
 		    } );
 		} );
 		</script>
@@ -26,7 +36,7 @@
 			<tr>
 				<td>{{.Name}}</td>
 				<td>{{.Team}}</td>
-				<td>{{.Position}}</td>
+				<td>{{.Position.ToString}}</td>
 				<td>{{.TotalPoints}}</td>
 			</tr>
 		{{end}}
