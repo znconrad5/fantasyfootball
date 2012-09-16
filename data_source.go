@@ -7,7 +7,7 @@ import (
 
 type DataSource struct {
 	dir       string
-	startWeek int
+	StartWeek int
 	EndWeek   int
 
 	AllPlayers  map[string]*FootballPlayer
@@ -29,7 +29,7 @@ type DataSource struct {
 func NewDataSource(dir string, startWeek, EndWeek int) *DataSource {
 	return &DataSource{
 		dir:        dir,
-		startWeek:  startWeek,
+		StartWeek:  startWeek,
 		EndWeek:    EndWeek,
 		AllPlayers: make(map[string]*FootballPlayer),
 	}
@@ -120,7 +120,7 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 		fileName = "wr"
 		offset = 4 * 9 // assume each player drafts 4
 	}
-	for week := loader.startWeek; week <= loader.EndWeek; week++ {
+	for week := loader.StartWeek; week <= loader.EndWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", loader.dir, fileName, week), week)
 	}
 	players := make([]*FootballPlayer, len(parser.players))
@@ -134,7 +134,7 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 		Position: position,
 	}
 	// the "default" player is a guess of the best undrafted player for a position each week
-	for week := loader.startWeek; week <= loader.EndWeek; week++ {
+	for week := loader.StartWeek; week <= loader.EndWeek; week++ {
 		sort.Sort(&ByWeekPointsDesc{players, week})
 		defaultPlayer.Points[week-1] = players[offset].Points[week-1]
 	}
@@ -143,7 +143,7 @@ func (loader *DataSource) load(parser *Parser, position Position) ([]*FootballPl
 	defaultPlayer.Team = fmt.Sprintf("~%s", players[offset].Name)
 	// normalize each player to the default player
 	for _, p := range players {
-		for week := loader.startWeek; week <= loader.EndWeek; week++ {
+		for week := loader.StartWeek; week <= loader.EndWeek; week++ {
 			p.Points[week-1] -= defaultPlayer.Points[week-1]
 			// reset total points so it is recalculated
 			p.TotalPoints_ = 0

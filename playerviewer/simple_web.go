@@ -14,7 +14,11 @@ var dataSourceTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfo
 var dataSourceTestStartWeek = 2
 var dataSourceTestEndWeek = 14
 
-var templates = template.Must(template.ParseFiles(os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/playerviewer/templ/index.html")))
+var funcMap = template.FuncMap{
+	"getWeekHeaders": weekHeaders,
+}
+
+var templates = template.Must(template.New("index").Funcs(funcMap).ParseFiles(os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/playerviewer/templ/index.html")))
 
 func main() {
 	http.HandleFunc("/", indexHandler)
@@ -64,4 +68,12 @@ func addResponseHeader(fn func(w http.ResponseWriter, r *http.Request), key stri
 		w.Header().Add(key, value)
 		fn(w, r)
 	}
+}
+
+func weekHeaders(dataSource fantasyfootball.DataSource) []string {
+	weeksSlice := make([]string, dataSource.EndWeek)
+	for i := range weeksSlice {
+		weeksSlice[i] = fmt.Sprintf("Week %v", i+1)
+	}
+	return weeksSlice
 }

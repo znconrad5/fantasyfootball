@@ -1,10 +1,10 @@
 PLAYER	TEAM	FP	PA	SACK	INT	FUMR	BLK	TO	INTTD	KRETTD	PRETTD
 Miami Dolphins	MIA	22.6	13.7	3.7	0.64	1.04	0.24	1.68	0.14	0.04	0.08
 New York Jets	NYJ	20.8	16.5	3.8	1.52	0.75	0.21	2.27	0.12	0.06	0.14
-Cincinnati Bengals	CIN	18.7	17.4	4.2	1.1	0.84	0.24	1.94	0.13	0.03	0.05
+Cincinnati Bengals	CIN	18.7	17.4	4.2	1.1	0.84	0.24	1.9	0.13	0.03	0.05
 St. Louis Rams	STL	15.6	20.4	3.9	1.18	0.99	0.27	2.17	0.06	0.01	0.03
 Washington Redskins	WAS	14.6	20	3.7	0.93	0.94	0.2	1.87	0.05	0.03	0.03
-New England Patriots	NE	14.4	21.5	3.8	1.14	0.86	0.2	1.99	0.14	0.03	0.06
+New England Patriots	NE	14.4	21.8	3.7	1.1	0.89	0.21	1.99	0.13	0.04	0.07
 Atlanta Falcons	ATL	13.7	18.9	1.7	1.61	1.09	0.23	2.69	0.06	0.01	0.01
 Buffalo Bills	BUF	13.1	23.1	2.8	1.42	1.13	0.22	2.54	0.17	0.03	0.14
 Pittsburgh Steelers	PIT	12.7	18	2.6	0.8	0.76	0.21	1.56	0.09	0.03	0.03
@@ -17,15 +17,15 @@ Tennessee Titans	TEN	9.5	22.1	2.3	0.72	0.87	0.21	1.59	0.09	0.02	0.01
 Cleveland Browns	CLE	9.1	22.9	1.5	1.03	0.82	0.24	1.85	0.16	0.06	0.05
 Minnesota Vikings	MIN	9.1	28.3	3.9	0.58	1.31	0.21	1.9	0.11	0.08	0.01
 Tampa Bay Buccaneers	TB	9.1	23	1.7	0.94	0.89	0.21	1.83	0.24	0.04	0.01
+Houston Texans	HOU	8.6	29.5	3.8	0.9	0.87	0.18	1.77	0.14	0.06	0.01
 Detroit Lions	DET	8.5	30.2	2.8	1.24	1.07	0.23	2.31	0.14	0.06	0.02
-Houston Texans	HOU	8.1	30.7	3.5	0.94	0.9	0.19	1.84	0.14	0.04	0.01
 Dallas Cowboys	DAL	6.9	27.5	3	0.67	1.08	0.21	1.75	0.12	0.05	0.01
 Indianapolis Colts	IND	6.9	26.7	1.7	0.69	1.25	0.21	1.94	0.27	0.03	0.01
-Philadelphia Eagles	PHI	6.8	29.1	2.4	1.22	0.97	0.2	2.18	0.24	0.03	0.03
-Denver Broncos	DEN	5.9	29.7	1.9	1.03	0.87	0.15	1.91	0.06	0.01	0.14
-Green Bay Packers	GB	5.2	29.9	1.8	0.93	0.83	0.17	1.76	0.1	0.07	0.05
-San Diego Chargers	SD	5.2	30	1.7	0.75	1.13	0.19	1.88	0.12	0.09	0.07
-Seattle Seahawks	SEA	4.5	29.2	1.5	0.84	0.91	0.21	1.75	0.15	0.07	0.03
+Philadelphia Eagles	PHI	6.8	29.1	2.4	1.22	0.97	0.2	2.16	0.24	0.03	0.03
+Green Bay Packers	GB	6.1	28.6	2.2	0.99	0.88	0.19	1.87	0.11	0.06	0.07
+San Diego Chargers	SD	5.4	28.2	1.8	0.76	1.1	0.19	1.86	0.08	0.08	0.08
+Seattle Seahawks	SEA	4.7	29.9	1.6	0.85	0.95	0.18	1.8	0.17	0.07	0.02
+Denver Broncos	DEN	4.5	29.2	1.9	0.87	0.87	0.2	1.74	0.09	0.01	0.03
 Oakland Raiders	OAK	2.7	27.8	1.5	0.65	0.68	0.23	1.33	0.21	0.02	0.02
 Chicago Bears	CHI	0	0	0	0	0	0	0	0	0	0
 New Orleans Saints	NO	0	0	0	0	0	0	0	0	0	0

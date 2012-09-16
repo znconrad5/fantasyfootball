@@ -29,6 +29,9 @@
 				<th>Team</th>
 				<th>Position</th>
 				<th>Total Points</th>
+			{{range  getWeekHeaders . }}
+				<th>{{.}}</th>
+			{{end}}
 			</tr>
 		</thead>
 		<tbody>
@@ -38,11 +41,13 @@
 				<td>{{.Team}}</td>
 				<td>{{.Position.ToString}}</td>
 				<td>{{.TotalPoints}}</td>
+				{{range .Points}}
+					<td>{{.}}</td>
+				{{end}}
 			</tr>
 		{{end}}
 		</tbody>
 		<tfoot>
-			<th></th>
 			<th></th>
 			<th></th>
 			<th></th>
