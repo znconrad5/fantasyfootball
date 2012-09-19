@@ -20,7 +20,7 @@ type FantasyPlayer struct {
 	defaultFlex *FootballPlayer
 }
 
-func newFantasyPlayer(name string, data *DataSource) *FantasyPlayer {
+func newFantasyPlayer(name string, data *NormalizedDataSource) *FantasyPlayer {
 	return &FantasyPlayer{
 		name:        name,
 		defaultRb:   data.defaultRb,

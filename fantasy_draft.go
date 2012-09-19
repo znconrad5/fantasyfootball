@@ -28,7 +28,7 @@ type Move struct {
 	Evaluation int
 }
 
-func NewFantasyDraft(names []string, maxPlayerIdx int, data *DataSource) *FantasyDraft {
+func NewFantasyDraft(names []string, maxPlayerIdx int, data *NormalizedDataSource) *FantasyDraft {
 	fd := &FantasyDraft{playersDrafted: 0}
 	for i, name := range names {
 		fd.players = append(fd.players, newFantasyPlayer(name, data))
@@ -39,33 +39,33 @@ func NewFantasyDraft(names []string, maxPlayerIdx int, data *DataSource) *Fantas
 
 	// the resulting stacks will will be in ascending order, so Pop() will return the best remaining player for that position
 	fd.dsts = NewStack()
-	sort.Sort(&ByTotalPointsAsc{data.dsts})
-	for _, v := range data.dsts {
+	sort.Sort(&ByTotalPointsAsc{data.DefenseSpecialTeams()})
+	for _, v := range data.DefenseSpecialTeams() {
 		fd.dsts.Push(v)
 	}
 	fd.ks = NewStack()
-	sort.Sort(&ByTotalPointsAsc{data.ks})
-	for _, v := range data.ks {
+	sort.Sort(&ByTotalPointsAsc{data.Kickers()})
+	for _, v := range data.Kickers() {
 		fd.ks.Push(v)
 	}
 	fd.qbs = NewStack()
-	sort.Sort(&ByTotalPointsAsc{data.qbs})
-	for _, v := range data.qbs {
+	sort.Sort(&ByTotalPointsAsc{data.Quarterbacks()})
+	for _, v := range data.Quarterbacks() {
 		fd.qbs.Push(v)
 	}
 	fd.rbs = NewStack()
-	sort.Sort(&ByTotalPointsAsc{data.rbs})
-	for _, v := range data.rbs {
+	sort.Sort(&ByTotalPointsAsc{data.RunningBacks()})
+	for _, v := range data.RunningBacks() {
 		fd.rbs.Push(v)
 	}
 	fd.tes = NewStack()
-	sort.Sort(&ByTotalPointsAsc{data.tes})
-	for _, v := range data.tes {
+	sort.Sort(&ByTotalPointsAsc{data.TightEnds()})
+	for _, v := range data.TightEnds() {
 		fd.tes.Push(v)
 	}
 	fd.wrs = NewStack()
-	sort.Sort(&ByTotalPointsAsc{data.wrs})
-	for _, v := range data.wrs {
+	sort.Sort(&ByTotalPointsAsc{data.WideReceivers()})
+	for _, v := range data.WideReceivers() {
 		fd.wrs.Push(v)
 	}
 	return fd

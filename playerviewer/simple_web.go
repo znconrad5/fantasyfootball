@@ -28,12 +28,8 @@ func main() {
 	http.ListenAndServe(":8080", nil)
 }
 
-var dataDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/playerviewer/data")
-var statsName = "stats.txt"
-
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	loader := fantasyfootball.NewDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
-	loader.LoadAll()
+	loader := fantasyfootball.NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
 	err := templates.ExecuteTemplate(w, "index.html", loader)
 	if err != nil {
 		fmt.Printf("%v", err)
@@ -70,7 +66,7 @@ func addResponseHeader(fn func(w http.ResponseWriter, r *http.Request), key stri
 	}
 }
 
-func weekHeaders(dataSource fantasyfootball.DataSource) []string {
+func weekHeaders(dataSource fantasyfootball.FileDataSource) []string {
 	weeksSlice := make([]string, dataSource.EndWeek)
 	for i := range weeksSlice {
 		weeksSlice[i] = fmt.Sprintf("Week %v", i+1)

@@ -34,18 +34,18 @@ type FootballPlayer struct {
 	Team         string
 	Position     Position
 	Points       [SEASON_LENGTH]int
-	TotalPoints_ int
+	totalPoints_ int
 }
 
 func (player *FootballPlayer) TotalPoints() int {
-	if player.TotalPoints_ == 0 {
+	if player.totalPoints_ == 0 {
 		sum := 0
 		for _, v := range player.Points {
 			sum += v
 		}
-		player.TotalPoints_ = sum
+		player.totalPoints_ = sum
 	}
-	return player.TotalPoints_
+	return player.totalPoints_
 }
 
 type ByTotalPointsAsc struct {
