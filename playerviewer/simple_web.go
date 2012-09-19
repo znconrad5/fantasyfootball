@@ -29,8 +29,9 @@ func main() {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	loader := fantasyfootball.NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
-	err := templates.ExecuteTemplate(w, "index.html", loader)
+	fileDS := fantasyfootball.NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	normDS := fantasyfootball.NewNormalizedDataSource(fileDS)
+	err := templates.ExecuteTemplate(w, "index.html", normDS)
 	if err != nil {
 		fmt.Printf("%v", err)
 	}
@@ -66,8 +67,13 @@ func addResponseHeader(fn func(w http.ResponseWriter, r *http.Request), key stri
 	}
 }
 
-func weekHeaders(dataSource fantasyfootball.FileDataSource) []string {
-	weeksSlice := make([]string, dataSource.EndWeek)
+func weekHeaders(dataSource fantasyfootball.DataSource) []string {
+	var any *fantasyfootball.FootballPlayer
+	for playername := range dataSource.AllPlayers() {
+		any = dataSource.AllPlayers()[playername]
+		break
+	}
+	weeksSlice := make([]string, len(any.Points))
 	for i := range weeksSlice {
 		weeksSlice[i] = fmt.Sprintf("Week %v", i+1)
 	}
