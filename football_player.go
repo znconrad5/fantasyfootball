@@ -11,6 +11,24 @@ const (
 	WR
 )
 
+func (pos Position) ToString() string {
+	switch pos {
+	case DST:
+		return "DEF-ST"
+	case K:
+		return "K"
+	case QB:
+		return "QB"
+	case RB:
+		return "RB"
+	case TE:
+		return "TE"
+	case WR:
+		return "WR"
+	}
+	return ""
+}
+
 type FootballPlayer struct {
 	Name         string
 	Team         string

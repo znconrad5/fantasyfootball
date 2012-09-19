@@ -25,21 +25,21 @@ type NormalizedDataSource struct {
 	defaultRb   *FootballPlayer
 	defaultTe   *FootballPlayer
 	defaultWr   *FootballPlayer
-	defaultFlex   *FootballPlayer
+	defaultFlex *FootballPlayer
 }
 
 func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
 	normalizedDataSource := &NormalizedDataSource{
 		dataSource,
-		&FootballPlayer{Position:DST},
-		&FootballPlayer{Position:K},
-		&FootballPlayer{Position:QB},
-		&FootballPlayer{Position:RB},
-		&FootballPlayer{Position:TE},
-	    &FootballPlayer{Position:WR},
+		&FootballPlayer{Position: DST},
+		&FootballPlayer{Position: K},
+		&FootballPlayer{Position: QB},
+		&FootballPlayer{Position: RB},
+		&FootballPlayer{Position: TE},
+		&FootballPlayer{Position: WR},
 		new(FootballPlayer),
 	}
-	
+
 	var waitGroup sync.WaitGroup
 	waitGroup.Add(6)
 	go func() {
@@ -77,7 +77,7 @@ func NewNormalizedDataSource(dataSource DataSource) *NormalizedDataSource {
 
 func normalizePlayers(offset int, players []*FootballPlayer) *FootballPlayer {
 	defaultPlayer := &FootballPlayer{
-		Name:     "default",
+		Name: "default",
 	}
 	for week := 1; week <= SEASON_LENGTH; week++ {
 		sort.Sort(&ByWeekPointsDesc{players, week})
@@ -95,30 +95,30 @@ func normalizePlayers(offset int, players []*FootballPlayer) *FootballPlayer {
 
 func normalizePlayer(defaultPlayer *FootballPlayer, player *FootballPlayer) {
 	for week := 1; week <= SEASON_LENGTH; week++ {
-		player.Points[week-1] -= defaultPlayer.Points[week-1];
+		player.Points[week-1] -= defaultPlayer.Points[week-1]
 		player.totalPoints_ = 0
 	}
 }
 
 type FileDataSource struct {
 	dir       string
-	startWeek int
-	endWeek   int
+	StartWeek int
+	EndWeek   int
 
-	allPlayers  map[string]*FootballPlayer
-	dsts        []*FootballPlayer // defenses/special teams
-	ks          []*FootballPlayer // kickers
-	qbs         []*FootballPlayer // quarterbacks
-	rbs         []*FootballPlayer // running backs
-	tes         []*FootballPlayer // tight ends
-	wrs         []*FootballPlayer // wide receivers
+	allPlayers map[string]*FootballPlayer
+	dsts       []*FootballPlayer // defenses/special teams
+	ks         []*FootballPlayer // kickers
+	qbs        []*FootballPlayer // quarterbacks
+	rbs        []*FootballPlayer // running backs
+	tes        []*FootballPlayer // tight ends
+	wrs        []*FootballPlayer // wide receivers
 }
 
 func NewFileDataSource(dir string, startWeek, endWeek int) *FileDataSource {
 	fileDataSource := &FileDataSource{
 		dir:        dir,
-		startWeek:  startWeek,
-		endWeek:    endWeek,
+		StartWeek:  startWeek,
+		EndWeek:    endWeek,
 		allPlayers: make(map[string]*FootballPlayer),
 	}
 	fileDataSource.loadFiles()
@@ -220,7 +220,7 @@ func (fds *FileDataSource) load(parser *Parser, position Position) []*FootballPl
 	case WR:
 		fileName = "wr"
 	}
-	for week := fds.startWeek; week <= fds.endWeek; week++ {
+	for week := fds.StartWeek; week <= fds.EndWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", fds.dir, fileName, week), week)
 	}
 	players := make([]*FootballPlayer, len(parser.players))
