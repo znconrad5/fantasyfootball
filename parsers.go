@@ -77,7 +77,7 @@ type Parser struct {
 func (p *Parser) parseFile(fileName string, week int) {
 	// open file
 	file, err := os.Open(fileName)
-	handleError(err)
+	HandleError(err)
 	defer file.Close()
 	reader := csv.NewReader(file)
 	reader.Comma = '\t'
@@ -86,13 +86,13 @@ func (p *Parser) parseFile(fileName string, week int) {
 	// read in header lines
 	header := make(map[string]int)
 	line, err := reader.Read()
-	handleError(err)
+	HandleError(err)
 	for i, h := range line {
 		header[h] = i
 	}
 	// read in player/stats
 	for statsLine, err := reader.Read(); err != io.EOF; statsLine, err = reader.Read() {
-		handleError(err)
+		HandleError(err)
 		playerName := statsLine[header["PLAYER"]]
 		team := statsLine[header["TEAM"]]
 		playerKey := fmt.Sprintf("%s (%s)", playerName, team)
@@ -126,7 +126,7 @@ func (p *DstPointParser) parsePoints(header map[string]int, statsLine []string) 
 	// Each safety:	2 points
 	// Each blocked kick:	2 points
 	pointsAgainst, err := strconv.ParseFloat(statsLine[header["PA"]], 32)
-	handleError(err)
+	HandleError(err)
 	// Shutout:	10 points
 	// 1-6 points allowed:	7 points
 	// 7-13 points allowed:	4 points
@@ -237,6 +237,6 @@ func validateSingleValue(line []string) {
 
 func parsePointValue(weight int, s string) int {
 	f, err := strconv.ParseFloat(s, 32)
-	handleError(err)
+	HandleError(err)
 	return weight * int(f*100)
 }
