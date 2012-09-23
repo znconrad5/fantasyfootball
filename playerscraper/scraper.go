@@ -35,6 +35,7 @@ func main() {
 		},
 	}
 	for content := range contentChannel {
+		defer content.Close()
 		persister.Persist(content)
 	}
 }
@@ -132,16 +133,13 @@ type FilePersister struct {
 }
 
 func (persister *FilePersister) Persist(data *ScraperOutput) {
-	reader := data.content
-	defer reader.Close()
-	//file, err := os.Create(persister.dataDir + "/" + data.pairs["position"] + "_" + data.pairs["week"] + ".html")
 	file, err := os.Create(persister.dataDir + "/" + persister.keyGen(data))
 	defer file.Close()
 	fantasyfootball.HandleError(err)
 	writer := bufio.NewWriter(file)
 	buf := make([]byte, 1024)
 	for {
-		n, err := reader.Read(buf)
+		n, err := data.Read(buf)
 		if err != nil && err != io.EOF {
 			fantasyfootball.HandleError(err)
 		}
