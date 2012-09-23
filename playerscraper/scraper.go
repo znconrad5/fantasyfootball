@@ -27,8 +27,7 @@ func main() {
 	runtime.GOMAXPROCS(runtime.NumCPU())
 	positions := strings.Split(*positionsFlag, ",")
 	scraper := NewAccuscoreScraper(*startWeekFlag, *endWeekFlag, positions, 4*time.Second)
-	contentChannel := make(chan *ScraperOutput)
-	go scraper.Start(contentChannel)
+	contentChannel := scraper.Start()
 	persister := &FilePersister{
 		dataDir: *dataDirFlag,
 		keyGen: func(data *ScraperOutput) string {
@@ -55,7 +54,7 @@ func (scraperOutput *ScraperOutput) Close() error {
 }
 
 type Scraper interface {
-	Start(out chan<- *ScraperOutput)
+	Start() chan *ScraperOutput
 }
 
 type AccuscoreScraper struct {
@@ -81,20 +80,24 @@ func NewAccuscoreScraper(startWeek int, endWeek int, positions []string, period 
 	return accuscoreScraper
 }
 
-func (scraper *AccuscoreScraper) Start(out chan<- *ScraperOutput) {
-	var waitGroup sync.WaitGroup
-	for _, v := range scraper.positions {
-		for i := scraper.startWeek; i <= scraper.endWeek; i++ {
-			week := fmt.Sprintf("Week-%v", i)
-			url := fmt.Sprintf(scraper.urlPattern, week, v)
+func (scraper *AccuscoreScraper) Start() chan *ScraperOutput {
+	content := make(chan *ScraperOutput)
+	go func(out chan<- *ScraperOutput) {
+		var waitGroup sync.WaitGroup
+		for _, v := range scraper.positions {
+			for i := scraper.startWeek; i <= scraper.endWeek; i++ {
+				week := fmt.Sprintf("Week-%v", i)
+				url := fmt.Sprintf(scraper.urlPattern, week, v)
+				waitGroup.Add(1)
+				go scraper.asyncFetch(url, strconv.Itoa(i), v, &waitGroup, out)
+			}
 			waitGroup.Add(1)
-			go scraper.asyncFetch(url, strconv.Itoa(i), v, &waitGroup, out)
+			go scraper.asyncFetch(fmt.Sprintf(scraper.urlPattern, "Current-Week", v), "curr", v, &waitGroup, out)
 		}
-		waitGroup.Add(1)
-		go scraper.asyncFetch(fmt.Sprintf(scraper.urlPattern, "Current-Week", v), "curr", v, &waitGroup, out)
-	}
-	waitGroup.Wait()
-	close(out)
+		waitGroup.Wait()
+		close(out)
+	}(content)
+	return content
 }
 
 func (scraper *AccuscoreScraper) asyncFetch(url string, id string, pos string, waitGroup *sync.WaitGroup, out chan<- *ScraperOutput) {
