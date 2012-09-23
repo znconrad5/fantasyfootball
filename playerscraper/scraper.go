@@ -46,6 +46,14 @@ type ScraperOutput struct {
 	pairs   map[string]string
 }
 
+func (scraperOutput *ScraperOutput) Read(p []byte) (n int, err error) {
+	return scraperOutput.content.Read(p)
+}
+
+func (scraperOutput *ScraperOutput) Close() error {
+	return scraperOutput.content.Close()
+}
+
 type Scraper interface {
 	Start(out chan<- *ScraperOutput)
 }
@@ -126,9 +134,7 @@ func (persister *FilePersister) Persist(data *ScraperOutput) {
 	//file, err := os.Create(persister.dataDir + "/" + data.pairs["position"] + "_" + data.pairs["week"] + ".html")
 	file, err := os.Create(persister.dataDir + "/" + persister.keyGen(data))
 	defer file.Close()
-	if err != nil {
-		fantasyfootball.HandleError(err)
-	}
+	fantasyfootball.HandleError(err)
 	writer := bufio.NewWriter(file)
 	buf := make([]byte, 1024)
 	for {
@@ -140,13 +146,12 @@ func (persister *FilePersister) Persist(data *ScraperOutput) {
 			break
 		}
 
-		if n2, err := writer.Write(buf[:n]); err != nil {
-			fantasyfootball.HandleError(err)
-		} else if n2 != n {
+		n2, err := writer.Write(buf[:n])
+		fantasyfootball.HandleError(err)
+		if n2 != n {
 			fantasyfootball.HandleError(errors.New(fmt.Sprintf("read %v, wrote %v\n", n, n2)))
 		}
 	}
-	if err = writer.Flush(); err != nil {
-		fantasyfootball.HandleError(err)
-	}
+	err = writer.Flush()
+	fantasyfootball.HandleError(err)
 }
