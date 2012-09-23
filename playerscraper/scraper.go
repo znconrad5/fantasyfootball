@@ -22,6 +22,7 @@ var (
 )
 
 func main() {
+	runtime.GOMAXPROCS(runtime.NumCPU())
 	positions := strings.Split(*positionsFlag, ",")
 	scraper := NewAccuscoreScraper(*startWeekFlag, *endWeekFlag, positions, 4*time.Second)
 	contentChannel := make(chan *ScraperOutput)
@@ -71,7 +72,6 @@ func NewAccuscoreScraper(startWeek int, endWeek int, positions []string, period 
 }
 
 func (scraper *AccuscoreScraper) Start(out chan<- *ScraperOutput) {
-	runtime.GOMAXPROCS(runtime.NumCPU())
 	var waitGroup sync.WaitGroup
 	for _, v := range scraper.positions {
 		for i := scraper.startWeek; i <= scraper.endWeek; i++ {
