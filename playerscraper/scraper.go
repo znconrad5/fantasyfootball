@@ -1,8 +1,6 @@
 package main
 
 import (
-	"bufio"
-	"errors"
 	"flag"
 	"fmt"
 	"github.com/znconrad5/fantasyfootball"
@@ -134,25 +132,7 @@ type FilePersister struct {
 
 func (persister *FilePersister) Persist(data *ScraperOutput) {
 	file, err := os.Create(persister.dataDir + "/" + persister.keyGen(data))
+	fantasyfootball.HandleError(err)
 	defer file.Close()
-	fantasyfootball.HandleError(err)
-	writer := bufio.NewWriter(file)
-	buf := make([]byte, 1024)
-	for {
-		n, err := data.Read(buf)
-		if err != nil && err != io.EOF {
-			fantasyfootball.HandleError(err)
-		}
-		if n == 0 {
-			break
-		}
-
-		n2, err := writer.Write(buf[:n])
-		fantasyfootball.HandleError(err)
-		if n2 != n {
-			fantasyfootball.HandleError(errors.New(fmt.Sprintf("read %v, wrote %v\n", n, n2)))
-		}
-	}
-	err = writer.Flush()
-	fantasyfootball.HandleError(err)
+	io.Copy(file, data)
 }
