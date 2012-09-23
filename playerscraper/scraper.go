@@ -2,8 +2,10 @@ package main
 
 import (
 	"bufio"
+	"errors"
 	"flag"
 	"fmt"
+	"github.com/znconrad5/fantasyfootball"
 	"io"
 	"net/http"
 	"os"
@@ -27,7 +29,7 @@ func main() {
 	scraper := NewAccuscoreScraper(*startWeekFlag, *endWeekFlag, positions, 4*time.Second)
 	contentChannel := make(chan *ScraperOutput)
 	go scraper.Start(contentChannel)
-	persister := FilePersister{
+	persister := &FilePersister{
 		dataDir: *dataDirFlag,
 		keyGen: func(data *ScraperOutput) string {
 			return data.pairs["position"] + "_" + data.pairs["week"] + ".html"
@@ -118,38 +120,33 @@ type FilePersister struct {
 	keyGen  func(data *ScraperOutput) string
 }
 
-func (persister FilePersister) Persist(data *ScraperOutput) {
+func (persister *FilePersister) Persist(data *ScraperOutput) {
 	reader := data.content
 	defer reader.Close()
 	//file, err := os.Create(persister.dataDir + "/" + data.pairs["position"] + "_" + data.pairs["week"] + ".html")
 	file, err := os.Create(persister.dataDir + "/" + persister.keyGen(data))
 	defer file.Close()
 	if err != nil {
-		fmt.Printf("encountered error opening %v: %v\n", file, err)
-		return
+		fantasyfootball.HandleError(err)
 	}
 	writer := bufio.NewWriter(file)
 	buf := make([]byte, 1024)
 	for {
 		n, err := reader.Read(buf)
 		if err != nil && err != io.EOF {
-			fmt.Printf("encountered error reading %v: %v\n", reader, err)
-			return
+			fantasyfootball.HandleError(err)
 		}
 		if n == 0 {
 			break
 		}
 
 		if n2, err := writer.Write(buf[:n]); err != nil {
-			fmt.Printf("encountered error writing %v: %v\n", writer, err)
-			return
+			fantasyfootball.HandleError(err)
 		} else if n2 != n {
-			fmt.Printf("read %v, wrote %v\n", n, n2)
-			return
+			fantasyfootball.HandleError(errors.New(fmt.Sprintf("read %v, wrote %v\n", n, n2)))
 		}
 	}
 	if err = writer.Flush(); err != nil {
-		fmt.Printf("error during flush: %v", err)
-		return
+		fantasyfootball.HandleError(err)
 	}
 }
