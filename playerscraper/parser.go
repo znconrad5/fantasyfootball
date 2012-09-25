@@ -2,10 +2,11 @@ package main
 
 import (
 	"encoding/csv"
+	"errors"
 	"fmt"
 	"github.com/znconrad5/fantasyfootball"
+	"io"
 	"io/ioutil"
-	"log"
 	"math"
 	"os"
 	"regexp"
@@ -13,16 +14,20 @@ import (
 	"sync"
 )
 
-var inputDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/html")
-var testOutDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
+const (
+	CurrWeekString = "curr"
+)
 
-var rowRegex = regexp.MustCompile("(?s)<tr[^>]*>.*?</tr>")
-var dataRegex = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]*<")
-var posRegex = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"pos\"[^>]*>.*?<option\\s+selected\\s+value=\"([^\"]+)\">.*?</select>")
-var weekRegex = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"split\"[^>]*>.*?<option\\s+selected\\s+value=\"([^\"]+)\">.*?</select>")
-var parseWeek = regexp.MustCompile("^Week-(\\d+)$")
-var currWeekString = "curr"
-var currWeekRegex = regexp.MustCompile(currWeekString)
+var (
+	inputDir      = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/html")
+	testOutDir    = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
+	rowRegex      = regexp.MustCompile("(?s)<tr[^>]*>.*?</tr>")
+	dataRegex     = regexp.MustCompile(">[\\s\\r\\n]*([^<>]*?\\w+[^<>]*?)[\\s\\r\\n]*<")
+	posRegex      = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"pos\"[^>]*>.*?<option\\s+selected\\s+value=\"([^\"]+)\">.*?</select>")
+	weekRegex     = regexp.MustCompile("(?s)<select\\s+[^>]*name=\"split\"[^>]*>.*?<option\\s+selected\\s+value=\"([^\"]+)\">.*?</select>")
+	parseWeek     = regexp.MustCompile("^Week-(\\d+)$")
+	currWeekRegex = regexp.MustCompile(CurrWeekString)
+)
 
 func main() {
 	files, err := ioutil.ReadDir(inputDir)
@@ -74,33 +79,62 @@ func main() {
 }
 
 func parseFile(in string, out string) int {
-	content, err := ioutil.ReadFile(in)
+	content, err := os.Open(in)
+	fantasyfootball.HandleError(err)
+	defer content.Close()
+
+	//create outputfile, don't know exactly what to call it yet
+	file, err := ioutil.TempFile(testOutDir, "parsed_")
+	fantasyfootball.HandleError(err)
+
+	//parse the file
+	week, pos := parse(content, file)
+	defer os.Remove(file.Name())
+	defer file.Close()
+
+	//name the file based off it's contents
+	var weekString string
+	if week == -1 {
+		weekString = CurrWeekString
+	} else {
+		weekString = fmt.Sprintf("%v", week)
+	}
+	actualName := fmt.Sprintf("%s/%s_%v.txt", testOutDir, pos, weekString)
+	newFile, err := os.Create(actualName)
+	fantasyfootball.HandleError(err)
+	defer newFile.Close()
+	file.Seek(0, 0)
+	_, err = io.Copy(newFile, file)
+	fantasyfootball.HandleError(err)
+
+	return week
+}
+
+func parse(in io.Reader, out io.Writer) (week int, pos string) {
+	content, err := ioutil.ReadAll(in)
 	fantasyfootball.HandleError(err)
 
 	//extract position from page
 	posMatch := posRegex.FindSubmatch(content)
 	if posMatch == nil {
-		log.Fatalf("unable to parse position from file: %s", in)
+		fantasyfootball.HandleError(errors.New(fmt.Sprintf("unable to parse position from file: %s", in)))
 	}
-	pos := posMatch[1]
+	pos = string(posMatch[1])
 
 	//extract week from page
 	weekMatch := weekRegex.FindSubmatch(content)
 	if weekMatch == nil {
-		log.Fatalf("unable to parse week from file: %s", in)
+		fantasyfootball.HandleError(errors.New(fmt.Sprintf("unable to parse week from file: %s", in)))
 	}
-	var week string
+	var weekString string
 	if parseWeekMatch := parseWeek.FindSubmatch(weekMatch[1]); parseWeekMatch != nil {
-		week = fmt.Sprintf("%s", parseWeekMatch[1])
+		weekString = fmt.Sprintf("%s", parseWeekMatch[1])
 	} else {
-		week = currWeekString
+		weekString = CurrWeekString
 	}
 
-	//prepare csv file
-	file, err := os.Create(fmt.Sprintf("%s/%s_%v.txt", testOutDir, pos, week))
-	fantasyfootball.HandleError(err)
-	defer file.Close()
-	csvWriter := csv.NewWriter(file)
+	//prepare csv output
+	csvWriter := csv.NewWriter(out)
 	defer csvWriter.Flush()
 	csvWriter.Comma = '\t'
 
@@ -114,9 +148,9 @@ func parseFile(in string, out string) int {
 		}
 		csvWriter.Write(csvRow)
 	}
-	weekInt, err := strconv.ParseInt(week, 10, 0)
+	weekInt, err := strconv.ParseInt(weekString, 10, 0)
 	if err != nil {
 		weekInt = -1
 	}
-	return int(weekInt)
+	return int(weekInt), pos
 }
