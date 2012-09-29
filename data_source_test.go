@@ -7,7 +7,7 @@ import (
 	"testing"
 )
 
-var loader = NewFileDataSource(os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed"), 3, 14)
+var loader = NewFileDataSource(os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed"), 4, 14)
 
 func TestLoadDsts(t *testing.T) {
 	sort.Sort(&ByTotalPointsDesc{loader.DefenseSpecialTeams()})

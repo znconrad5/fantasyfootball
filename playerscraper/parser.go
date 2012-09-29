@@ -29,6 +29,26 @@ var (
 	currWeekRegex = regexp.MustCompile(CurrWeekString)
 )
 
+type PlayerRecord struct {
+	Week     int
+	Name     string
+	Position fantasyfootball.Position
+	Stats    map[string]float64
+}
+
+type Parser interface {
+	Parse(content <-chan io.ReadCloser) <-chan PlayerRecord
+}
+
+type AccuscoreParser struct {
+	rowRegex      *regexp.Regexp
+	dataRegex     *regexp.Regexp
+	posRegex      *regexp.Regexp
+	weekRegex     *regexp.Regexp
+	parseWeek     *regexp.Regexp
+	currWeekRegex *regexp.Regexp
+}
+
 func main() {
 	files, err := ioutil.ReadDir(inputDir)
 	fantasyfootball.HandleError(err)
