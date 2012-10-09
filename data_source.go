@@ -205,21 +205,7 @@ func (fds *FileDataSource) loadWrs() []*FootballPlayer {
 }
 
 func (fds *FileDataSource) load(parser *Parser, position Position) []*FootballPlayer {
-	var fileName string
-	switch position {
-	case DST:
-		fileName = "def-st"
-	case K:
-		fileName = "k"
-	case QB:
-		fileName = "qb"
-	case RB:
-		fileName = "rb"
-	case TE:
-		fileName = "te"
-	case WR:
-		fileName = "wr"
-	}
+	fileName := position.ToString()
 	for week := fds.StartWeek; week <= fds.EndWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", fds.dir, fileName, week), week)
 	}

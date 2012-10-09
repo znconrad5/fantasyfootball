@@ -11,7 +11,7 @@ import (
 )
 
 var dataSourceTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
-var dataSourceTestStartWeek = 4
+var dataSourceTestStartWeek = 6
 var dataSourceTestEndWeek = 14
 
 var funcMap = template.FuncMap{

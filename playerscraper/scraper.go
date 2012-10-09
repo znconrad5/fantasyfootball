@@ -17,7 +17,7 @@ import (
 var (
 	dataDirFlag   = flag.String("dataDir", os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/html"), "The directory to put the raw html in.")
 	positionsFlag = flag.String("positions", "QB,RB,WR,TE,DEF-ST,K", "The comma separated positions to scrape, 'QB', 'RB', 'WR', 'TE', 'LB', 'LB', 'DB', 'DEF-ST', 'K', and/or 'P'")
-	startWeekFlag = flag.Int("startWeek", 4, "The week to start player statistic gathering.")
+	startWeekFlag = flag.Int("startWeek", 6, "The week to start player statistic gathering.")
 	endWeekFlag   = flag.Int("endWeek", 14, "The week to end player statistic gathering, inclusive.")
 )
 

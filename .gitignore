@@ -32,3 +32,4 @@ _testmain.go
 
 #scraped html files
 html/*.html
+parsed/*.txt

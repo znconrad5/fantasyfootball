@@ -7,7 +7,7 @@ import (
 )
 
 var parserTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
-var parserTestStartWeek = 4
+var parserTestStartWeek = 5
 var parserTestEndWeek = 14
 
 func TestDstFile(t *testing.T) {

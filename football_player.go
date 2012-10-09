@@ -1,5 +1,10 @@
 package fantasyfootball
 
+import (
+	"errors"
+	"fmt"
+)
+
 type Position uint8
 
 const (
@@ -27,6 +32,26 @@ func (pos Position) ToString() string {
 		return "WR"
 	}
 	return ""
+}
+
+func ParsePosition(positionString string) (pos Position, err error) {
+	switch positionString {
+	case "DEF-ST":
+		return DST, nil
+	case "K":
+		return K, nil
+	case "QB":
+		return QB, nil
+	case "RB":
+		return RB, nil
+	case "TE":
+		return TE, nil
+	case "WR":
+		return WR, nil
+	default:
+		return DST, errors.New(fmt.Sprintf("Unable to parse as a position: %v", positionString))
+	}
+	return DST, errors.New(fmt.Sprintf("Unable to parse as a position: %v", positionString))
 }
 
 type FootballPlayer struct {
