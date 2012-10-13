@@ -205,7 +205,7 @@ func (fds *FileDataSource) loadWrs() []*FootballPlayer {
 }
 
 func (fds *FileDataSource) load(parser *Parser, position Position) []*FootballPlayer {
-	fileName := position.ToString()
+	fileName := position.String()
 	for week := fds.StartWeek; week <= fds.EndWeek; week++ {
 		parser.parseFile(fmt.Sprintf("%s/%s_%d.txt", fds.dir, fileName, week), week)
 	}

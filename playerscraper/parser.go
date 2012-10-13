@@ -7,6 +7,7 @@ import (
 	"github.com/znconrad5/fantasyfootball"
 	"io"
 	"io/ioutil"
+	"math"
 	"os"
 	"regexp"
 	"strconv"
@@ -154,12 +155,12 @@ func main() {
 	fileMap := make(map[string]*ParseOutput)
 	minWeekResult :=
 		func(playerRecords <-chan PlayerRecord) int {
-			var minWeek int = 100
+			var minWeek int = math.MaxInt32
 			for record := range playerRecords {
 				if record.Week > 0 && record.Week < minWeek {
 					minWeek = record.Week
 				}
-				fileName := fmt.Sprintf("%v_%v.txt", record.Position.ToString(), record.Week)
+				fileName := fmt.Sprintf("%v_%v.txt", record.Position.String(), record.Week)
 				playerFile := fileMap[fileName]
 				if playerFile == nil {
 					file, err := os.Create(fmt.Sprintf("%v/%v", testOutDir, fileName))

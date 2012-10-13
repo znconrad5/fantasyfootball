@@ -16,7 +16,7 @@ const (
 	WR
 )
 
-func (pos Position) ToString() string {
+func (pos Position) String() string {
 	switch pos {
 	case DST:
 		return "DEF-ST"
