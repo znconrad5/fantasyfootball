@@ -128,39 +128,29 @@ func (p *DstPointParser) parsePoints(header map[string]int, statsLine []string) 
 	pointsAgainst, err := strconv.ParseFloat(statsLine[header["PA"]], 32)
 	HandleError(err)
 	// Shutout:	10 points
-	// 1-6 points allowed:	7 points
-	// 7-13 points allowed:	4 points
-	// 14-20 points allowed:	1 point
-	// 21-27 points allowed:	0 points
+	// 1-6 points allowed:	8 points
+	// 7-13 points allowed:	6 points
+	// 14-20 points allowed:	3 point
+	// 21-27 points allowed:	1 points
 	// 28-34 points allowed:	-1 points
-	// 35+ points allowed:	-4 points
+	// 35+ points allowed:	-3 points
 	if pointsAgainst == 0 {
 		// if points is currently 0 this is a bye week
 		if points != 0 {
 			points += 10 * 100
 		}
 	} else if pointsAgainst < 1 {
-		points += (10 + 8) * 50
-	} else if pointsAgainst <= 6 {
-		points += 8 * 100
+		points += int((10 - 2*pointsAgainst) * 100)
 	} else if pointsAgainst < 7 {
-		points += (8 + 6) * 50
-	} else if pointsAgainst <= 13 {
-		points += 6 * 100
+		points += int((8 - 2*(pointsAgainst-1)/6) * 100)
 	} else if pointsAgainst < 14 {
-		points += (6 + 3) * 50
-	} else if pointsAgainst <= 20 {
-		points += 3 * 100
+		points += int((6 - 3*(pointsAgainst-7)/7) * 100)
 	} else if pointsAgainst < 21 {
-		points += (3 + 1) * 50
-	} else if pointsAgainst <= 27 {
-		points += 1 * 100
+		points += int((3 - 2*(pointsAgainst-14)/7) * 100)
 	} else if pointsAgainst < 28 {
-		points += 0
-	} else if pointsAgainst <= 34 {
-		points += -1 * 100
+		points += int((1 - 2 * (pointsAgainst-21)/7) * 100)
 	} else if pointsAgainst < 35 {
-		points += (-1 + -3) * 50
+		points += int((-1 - 2 * (pointsAgainst-28)/7) * 100)
 	} else {
 		points += -3 * 100
 	}

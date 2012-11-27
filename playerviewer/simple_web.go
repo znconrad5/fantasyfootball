@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"github.com/znconrad5/fantasyfootball"
 	"html/template"
@@ -10,9 +11,11 @@ import (
 	"regexp"
 )
 
-var dataSourceTestDir = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
-var dataSourceTestStartWeek = 6
-var dataSourceTestEndWeek = 14
+var (
+	dataSource = os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/parsed")
+	startWeekFlag = flag.Int("startWeek", 1, "The week to start player statistic gathering.")
+	endWeekFlag   = flag.Int("endWeek", 14, "The week to end player statistic gathering, inclusive.")
+)
 
 var funcMap = template.FuncMap{
 	"getWeekHeaders": weekHeaders,
@@ -21,6 +24,7 @@ var funcMap = template.FuncMap{
 var templates = template.Must(template.New("index").Funcs(funcMap).ParseFiles(os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/playerviewer/templ/index.html")))
 
 func main() {
+	flag.Parse()
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/js/", addResponseHeader(fileHandler, "Content-Type", "text/javascript"))
 	http.HandleFunc("/css/", addResponseHeader(fileHandler, "Content-Type", "text/css"))
@@ -29,7 +33,7 @@ func main() {
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	fileDS := fantasyfootball.NewFileDataSource(dataSourceTestDir, dataSourceTestStartWeek, dataSourceTestEndWeek)
+	fileDS := fantasyfootball.NewFileDataSource(dataSource, *startWeekFlag, *endWeekFlag)
 	normDS := fantasyfootball.NewNormalizedDataSource(fileDS)
 	err := templates.ExecuteTemplate(w, "index.html", normDS)
 	if err != nil {
