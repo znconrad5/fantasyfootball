@@ -3,6 +3,7 @@ package fantasyfootball
 import (
 	"errors"
 	"fmt"
+	"strings"
 )
 
 type Position uint8
@@ -31,10 +32,10 @@ func (pos Position) String() string {
 	case WR:
 		return "WR"
 	}
-	return ""
+	panic(fmt.Sprintf("Unrecognized Position: %d", pos))
 }
 
-func ParsePosition(positionString string) (pos Position, err error) {
+func ParsePosition(positionString string) (Position, error) {
 	switch positionString {
 	case "DEF-ST":
 		return DST, nil
@@ -48,10 +49,22 @@ func ParsePosition(positionString string) (pos Position, err error) {
 		return TE, nil
 	case "WR":
 		return WR, nil
-	default:
-		return DST, errors.New(fmt.Sprintf("Unable to parse as a position: %v", positionString))
 	}
 	return DST, errors.New(fmt.Sprintf("Unable to parse as a position: %v", positionString))
+}
+
+func ParsePositions(positionsString string, delim string) (positions []Position, e error) {
+	positions = make([]Position, 0)
+	split := strings.Split(positionsString, delim)
+	for _, positionString := range split {
+		position, err := ParsePosition(positionString)
+		if (err != nil) {
+			e = err
+			break
+		}
+		positions = append(positions, position)
+	}
+	return positions, e
 }
 
 type FootballPlayer struct {
