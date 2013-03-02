@@ -8,9 +8,9 @@ import (
 func TestNflUrlGenerator(t *testing.T) {
 	generator := &nflUrlGenerator{
 		positions: []fantasyfootball.Position{fantasyfootball.QB},
-		season: 2012,
+		season:    2012,
 		startWeek: 1,
-		endWeek:31,
+		endWeek:   31,
 	}
 	urls := generator.generateUrls()
 	_, ok := urls["http://fantasy.nfl.com/research/scoringleaders?position=1&count=48&statCategory=stats&statSeason=2012&statType=weekStats&statWeek=1"]

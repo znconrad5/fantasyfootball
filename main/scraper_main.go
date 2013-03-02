@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"github.com/znconrad5/fantasyfootball"
 	fscraper "github.com/znconrad5/fantasyfootball/scraper"
 	"io"
@@ -10,10 +11,10 @@ import (
 )
 
 var (
-	siteFlag      *string = flag.String("site", "", "The site to get data from.")
+	siteFlag      *string = flag.String("site", "", "The site to get data from (accuscore or nfl).")
 	dataDirFlag   *string = flag.String("dataDir", os.ExpandEnv("$GOPATH/src/github.com/znconrad5/fantasyfootball/html"), "The directory to put the raw html in.")
 	positionsFlag *string = flag.String("positions", "QB,RB,WR,TE,DEF-ST,K", "The comma separated positions to scrape, 'QB', 'RB', 'WR', 'TE', 'LB', 'LB', 'DB', 'DEF-ST', 'K', and/or 'P'.")
-	seasonFlag    *int    = flag.Int("season", 2012, "The year to gather player statistics")
+	seasonFlag    *int    = flag.Int("season", 2012, "The year to gather player statistics, if applicable.")
 	startWeekFlag *int    = flag.Int("startWeek", 1, "The week to start player statistic gathering.")
 	endWeekFlag   *int    = flag.Int("endWeek", 17, "The week to end player statistic gathering, inclusive.")
 )
@@ -29,10 +30,12 @@ func main() {
 	}
 	var scraper *fscraper.Scraper
 	switch *siteFlag {
+	case "accuscore":
+		scraper = fscraper.NewAccuscoreScraper(positions, *startWeekFlag, *endWeekFlag)
 	case "nfl":
 		scraper = fscraper.NewNflScraper(positions, *seasonFlag, *startWeekFlag, *endWeekFlag)
 	default:
-		panic("Unexpected flag for --site: " + *siteFlag)
+		panic(fmt.Sprintf("Unexpected value for flag \"--site\": \"%s\"", *siteFlag))
 	}
 	for page := range scraper.Scrape() {
 		var content io.ReadCloser = page.Content
@@ -40,7 +43,7 @@ func main() {
 		
 		file, err := os.Create(*dataDirFlag + "/" + page.Description + ".html")
 		fantasyfootball.HandleError(err)
-		defer func() { fantasyfootball.HandleError(file.Close()) }()
+		defer file.Close()
 		
 		io.Copy(file, content)
 	}
